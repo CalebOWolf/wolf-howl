@@ -1,4 +1,4 @@
-# wolf-howl  
+# Wolf Howl  
 This is CalebOWolf's GitHub! Heres some info about himself ^^  
 Hes a furry (deal with it.)  
 Hes into technology and learning is his fav thing about itself  
