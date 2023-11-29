@@ -1,4 +1,5 @@
 # Wolf Howl  
+![Static Badge](https://img.shields.io/badge/gay-wolf?style=flat&logo=github&logoColor=646464&label=CalebOWolf&labelColor=000000&color=00ff7f&link=https%3A%2F%2Fgithub.com%2FCalebOWolf%2Fwolf-howl)  
 This is CalebOWolf's GitHub! Heres some info about himself ^^  
 Hes a furry (deal with it.)  
 Hes into technology and learning is his fav thing about itself  
