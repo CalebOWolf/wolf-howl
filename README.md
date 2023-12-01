@@ -14,6 +14,6 @@ Corsair iCUE LINK H170i RGB
 Asus ROG STRIX X670E-F GAMING WIFI  
 Corsair Dominator Platinum RGB 32 GB  
 Western Digital Black SN850X w/Heatsink 2 TB  
-ASUS ROG STRIX GeForce GTX 1080 TI
+ASUS ROG STRIX GeForce GTX 1080 TI  
 Asus ROG THOR 1200P  
 Corsair Crystal Series 680X  
