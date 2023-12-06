@@ -527,6 +527,9 @@
             },
             "ClientTheme": {
                 "enabled": false
+            },
+            "FixImagesQuality": {
+                "enabled": true
             }
         },
         "notifications": {
@@ -539,7 +542,7 @@
             "authenticated": false,
             "url": "https://api.vencord.dev/",
             "settingsSync": true,
-            "settingsSyncVersion": 1700798895641
+            "settingsSyncVersion": 1701447565403
         }
     },
     "quickCss": ""
