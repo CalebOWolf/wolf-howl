@@ -530,6 +530,22 @@
             },
             "FixImagesQuality": {
                 "enabled": true
+            },
+            "Decor": {
+                "enabled": false
+            },
+            "NotificationVolume": {
+                "enabled": false
+            },
+            "XSOverlay": {
+                "enabled": true,
+                "ignoreBots": false,
+                "pingColor": "#7289da",
+                "channelPingColor": "#8a2be2",
+                "soundPath": "default",
+                "timeout": 1,
+                "opacity": 1,
+                "volume": 0.2
             }
         },
         "notifications": {
@@ -542,7 +558,7 @@
             "authenticated": false,
             "url": "https://api.vencord.dev/",
             "settingsSync": true,
-            "settingsSyncVersion": 1701447565403
+            "settingsSyncVersion": 1702043696982
         }
     },
     "quickCss": ""
