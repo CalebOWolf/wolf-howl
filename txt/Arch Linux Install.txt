@@ -1,3 +1,39 @@
 ﻿Arch Linux Install
+UEFI DISABLE SECURE BOOT AND TPM!!
+Then you can proceed :3
 
-WIP
+ip link
+ping -c 4 google.com
+timedatectl set-ntp true
+lsblk
+fdisk -l
+cfdisk /dev/nvme0n1
+new partition of 300 MB
+new partition of free space
+mkfs.fat -F 32 /dev/nvme0n1p1
+mkfs.ext4 /dev/nvme0n1p2
+mount --mkdir /dev/nvme0n1p2 /mnt
+mount --mkdir /dev/nvme0n1p1 /mnt/boot
+lsblk
+pacstrap -K /mnt base base-devel linux linux-firmware
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
+hwclock --systohc
+nano /etc/locale.gen
+locale-gen
+touch /etc/locale.conf
+touch /etc/hostname
+WolfHowlArchbtw
+mkinitcpio -P
+passwd
+****
+****
+pacman -S amd-ucode
+exit
+umount -R /mnt
+reboot
+
+
+Post Install:
+login using root password
