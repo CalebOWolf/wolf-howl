@@ -32,7 +32,7 @@ passwd
 bootctl install
 pacman -S amd-ucode
 pacman -S man-db man-pages texinfo
-pacman -S broadcom-wl-dkms vim vi networkmanager nm-connection-editor git xdg-user-dirs bluez bluez-utils bluetuith blueman
+pacman -S broadcom-wl-dkms vim vi networkmanager nm-connection-editor git xdg-user-dirs bluez bluez-utils blueman
 mkinitcpio -P
 systemctl enable bluetooth.service
 git clone https://aur.archlinux.org/aura-bin.git
