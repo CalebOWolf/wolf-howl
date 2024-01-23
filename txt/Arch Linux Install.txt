@@ -20,6 +20,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 hwclock --systohc
+pacman -S nano
 nano /etc/locale.gen
 locale-gen
 touch /etc/locale.conf
