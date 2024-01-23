@@ -8,8 +8,8 @@ timedatectl set-ntp true
 lsblk
 fdisk -l
 cfdisk /dev/nvme0n1
-new partition of 300 MB
-new partition of free space
+new partition of 300 MB EFi System
+new partition of free space Linux x86-64 Root (/)
 mkfs.fat -F 32 /dev/nvme0n1p1
 mkfs.ext4 /dev/nvme0n1p2
 mount --mkdir /dev/nvme0n1p2 /mnt
