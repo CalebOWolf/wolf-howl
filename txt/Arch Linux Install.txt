@@ -25,11 +25,18 @@ locale-gen
 touch /etc/locale.conf
 touch /etc/hostname
 WolfHowlArchbtw
-mkinitcpio -P
 passwd
 ****
 ****
+bootctl install
 pacman -S amd-ucode
+pacman -S man-db man-pages texinfo
+pacman -S broadcom-wl-dkms vim vi nano networkmanager nm-connection-editor git xdg-user-dirs
+mkinitcpio -P
+git clone https://aur.archlinux.org/aura-bin.git
+cd aura-bin
+makepkg -s
+sudo pacman -U <the-package-file-that-makepkg-produces>
 exit
 umount -R /mnt
 reboot
