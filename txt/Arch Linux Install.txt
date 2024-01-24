@@ -37,8 +37,6 @@ mkinitcpio -P
 systemctl enable bluetooth.service
 git clone https://aur.archlinux.org/aura-bin.git
 cd aura-bin
-makepkg -s
-sudo pacman -U <the-package-file-that-makepkg-produces>
 exit
 umount -R /mnt
 reboot
@@ -46,3 +44,6 @@ reboot
 
 Post Install:
 login using root password
+cd aura-bin
+makepkg -s
+sudo pacman -U <the-package-file-that-makepkg-produces>
