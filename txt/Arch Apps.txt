@@ -15,3 +15,4 @@ sudo pacman -S grim slurp
 #AUR
 xdg-desktop-portal-hyprland-git
 ^ run this command for hyprland | pacman -Q | grep xdg-desktop-portal-
+wlrobs-hg
