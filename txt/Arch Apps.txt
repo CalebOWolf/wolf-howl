@@ -1,19 +1,24 @@
-#Daily Drivers
+#Arch Linux Offical
 firefox
 vlc
 discord
 telegram-desktop
+steam
+lutris
+heroic
+vscode
+unity-hub
 
-#Utils
+
+#Utilities
+dunst
 pipewire
 wireplumber
+qt5-wayland
+qt6-wayland
+xdg-desktop-usr-dir
+(xorg xwayland wayland?)
 
-
-#Standard Packages
-sudo pacman -S grim slurp
-
-#AUR
+#Git (AUR) packages
 xdg-desktop-portal-hyprland-git
-^ run this command for hyprland | pacman -Q | grep xdg-desktop-portal-
-wlrobs-hg
-Hyprpicker-git
+hyprland-git
