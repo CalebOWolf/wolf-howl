@@ -1,0 +1,9 @@
+#Daily Drivers
+firefox
+vlc
+discord
+telegram-desktop
+
+#Utils
+pipewire
+wireplumber
