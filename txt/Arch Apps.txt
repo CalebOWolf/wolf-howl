@@ -1,0 +1,17 @@
+#Daily Drivers
+firefox
+vlc
+discord
+telegram-desktop
+
+#Utils
+pipewire
+wireplumber
+
+
+#Standard Packages
+sudo pacman -S grim slurp
+
+#AUR
+xdg-desktop-portal-hyprland-git
+^ run this command for hyprland | pacman -Q | grep xdg-desktop-portal-
