@@ -16,3 +16,4 @@ sudo pacman -S grim slurp
 xdg-desktop-portal-hyprland-git
 ^ run this command for hyprland | pacman -Q | grep xdg-desktop-portal-
 wlrobs-hg
+Hyprpicker-git
