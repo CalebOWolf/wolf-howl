@@ -20,9 +20,6 @@ libreoffice-fresh
 nextcloud
 gvfs-google
 thunderbird
-waybar
-udiskie
-cliphist
 
 Altenrative
 ShareX
@@ -44,6 +41,9 @@ thunar-volman
 rofi-emoji
 rofi-calc
 rofimoji
+waybar
+udiskie
+cliphist
 
 #Git (AUR) packages
 xdg-desktop-portal-hyprland-git
