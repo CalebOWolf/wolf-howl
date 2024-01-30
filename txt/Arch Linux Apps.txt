@@ -49,7 +49,6 @@ protonup-qt
 alvr-git
 vscodium-bin
 openrgb-bin
-thunar-volman
 vesktop-bin
 heroic-games-launcher-bin
 1password
