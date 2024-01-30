@@ -28,6 +28,7 @@ git
 vim
 vi
 nano
+sddm
 dunst
 pipewire
 wireplumber
