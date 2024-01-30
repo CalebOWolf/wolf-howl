@@ -13,7 +13,6 @@ steam
 gamescope
 steam-native-runtime
 lutris
-unity-hub
 krita
 gimp
 libreoffice-fresh
@@ -64,6 +63,7 @@ heroic-games-launcher-bin
 wlrobs-hg
 obs-studio-amf
 blender-git
+unity-hub
 
 #Not working
 1password
