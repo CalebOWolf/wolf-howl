@@ -63,7 +63,7 @@ heroic-games-launcher-bin
 wlrobs-hg
 obs-studio-amf
 blender-git
-unity-hub
+unityhub
 
 #Not working
 1password
