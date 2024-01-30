@@ -48,13 +48,13 @@ rofimoji
 waybar
 udiskie
 cliphist
+xdg-desktop-portal-hyprland
 
 #Git (AUR) packages
-xdg-desktop-portal-hyprland-git
 hyprland-git
 hyprpaper-git
 alchemy-next-viewer-bin
-prismlaucnher
+prismlaucnher (req java)
 protonup-qt
 alvr-git
 vscodium-bin
