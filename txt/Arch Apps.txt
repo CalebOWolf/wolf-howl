@@ -8,6 +8,16 @@ lutris
 heroic
 vscode
 unity-hub
+1password
+obs-studio
+krita
+gimp
+libreoffice
+nextcloud
+google-drive
+thunderbird
+cider
+trello
 
 
 #Utilities
