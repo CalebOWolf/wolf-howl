@@ -53,8 +53,7 @@ xdg-desktop-portal-hyprland
 kde-gtk-config
 dconf-editor
 gnome-settings-daemon
-gsettings-desktop-schemas
-gsettings-qt
+gnome-twekas
 
 #Git (AUR) packages
 hyprland-git
