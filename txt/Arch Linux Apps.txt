@@ -61,9 +61,11 @@ vscodium-bin
 openrgb-bin
 vesktop-bin
 heroic-games-launcher-bin
-1password
-1password-blur-me-not
-rofi-1pass
 wlrobs-hg
 obs-studio-amf
 blender-git
+
+#Not working
+1password
+1password-blur-me-not
+rofi-1pass
