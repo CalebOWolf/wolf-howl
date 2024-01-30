@@ -19,6 +19,7 @@ libreoffice-fresh
 nextcloud
 gvfs-google
 thunderbird
+blender
 
 Altenrative
 ShareX
@@ -33,6 +34,7 @@ sddm
 dunst
 pipewire
 wireplumber
+pavucontrol
 qt5-wayland
 qt6-wayland
 xdg-user-dirs
@@ -54,27 +56,28 @@ kde-gtk-config
 dconf-editor
 gnome-settings-daemon
 gnome-twekas
+otf-font-awesome
+ttf-arimo-nerd
+noto-fonts
 
 #Git (AUR) packages
 hyprland-git
 hyprpaper-git
 alchemy-next-viewer-bin
 prismlaucnher (req java)
-protonup-qt
 alvr-git
 vscodium-bin
 openrgb-bin
 vesktop-bin
 heroic-games-launcher-bin
 wlrobs-hg
-obs-studio-amf
-blender-git
 unityhub
 
 #Not working
 1password
 1password-blur-me-not
 rofi-1pass
+protonup-qt
 
 Alchemy Voice
 glu gtk2 libxcrypt-compat gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly lib32-gst-plugins-base lib32-gst-plugins-good lib32-libpulse lib32-alsa-plugins lib32-alsa-lib libidn11 lib32-libidn11
