@@ -25,6 +25,7 @@ ShareX
 
 #Utilities
 git
+kitty
 vim
 vi
 nano
