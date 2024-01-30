@@ -43,7 +43,7 @@ rofimoji
 xdg-desktop-portal-hyprland-git
 hyprland-git
 hyprpaper-git
-alchemy-viewer
+alchemy-next-viewer-bin
 prismlaucnher
 protonup-qt
 alvr-git
