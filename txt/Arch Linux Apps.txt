@@ -42,6 +42,7 @@ rofimoji
 #Git (AUR) packages
 xdg-desktop-portal-hyprland-git
 hyprland-git
+hyprpaper-git
 alchemy-viewer
 prismlaucnher
 protonup-qt
