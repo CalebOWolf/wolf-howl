@@ -26,6 +26,9 @@ ShareX
 
 #Utilities
 git
+vim
+vi
+nano
 dunst
 pipewire
 wireplumber
