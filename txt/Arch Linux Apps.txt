@@ -75,3 +75,8 @@ unityhub
 1password
 1password-blur-me-not
 rofi-1pass
+
+Alchemy Voice
+glu gtk2 libxcrypt-compat
+gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly lib32-gst-plugins-base lib32-gst-plugins-good lib32-libpulse lib32-alsa-plugins lib32-alsa-lib libidn11 lib32-libidn11
+lib32-libstdc++28 (AUR)
