@@ -25,6 +25,7 @@ Altenrative
 ShareX
 
 #Utilities
+git
 dunst
 pipewire
 wireplumber
