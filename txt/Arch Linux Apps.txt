@@ -20,6 +20,7 @@ nextcloud
 gvfs-google
 thunderbird
 blender
+gwenview
 
 Altenrative
 ShareX
