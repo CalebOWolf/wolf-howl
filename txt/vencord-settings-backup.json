@@ -126,9 +126,6 @@
             "Dearrow": {
                 "enabled": true
             },
-            "DisableDMCallIdle": {
-                "enabled": true
-            },
             "EmoteCloner": {
                 "enabled": true
             },
@@ -414,7 +411,7 @@
                 "iconSize": 32
             },
             "ShowHiddenChannels": {
-                "enabled": false,
+                "enabled": true,
                 "showMode": 0,
                 "hideUnreads": true,
                 "defaultAllowedUsersAndRolesDropdownState": true
@@ -546,6 +543,24 @@
                 "timeout": 1,
                 "opacity": 1,
                 "volume": 0.2
+            },
+            "DisableCallIdle": {
+                "enabled": true
+            },
+            "ChatInputButtonAPI": {
+                "enabled": true
+            },
+            "BetterGifPicker": {
+                "enabled": false
+            },
+            "FixCodeblockGap": {
+                "enabled": true
+            },
+            "FixYoutubeEmbeds": {
+                "enabled": true
+            },
+            "ReviewDB": {
+                "enabled": false
             }
         },
         "notifications": {
@@ -558,7 +573,7 @@
             "authenticated": false,
             "url": "https://api.vencord.dev/",
             "settingsSync": true,
-            "settingsSyncVersion": 1702043696982
+            "settingsSyncVersion": 1708776073277
         }
     },
     "quickCss": ""
