@@ -73,6 +73,7 @@ vesktop-bin
 heroic-games-launcher-bin
 wlrobs-hg
 unityhub
+hyprlock-git
 
 #Not working
 1password
