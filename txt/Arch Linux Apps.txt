@@ -1,65 +1,14 @@
 #Drivers
-mesa
-lib32-mesa
-vulkan-radeon
-lib32-vulkan-radeon
+mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon
 
 #Arch Linux Offical
-firefox
-vlc
-discord
-telegram-desktop
-steam
-gamescope
-steam-native-runtime
-lutris
-krita
-gimp
-libreoffice-fresh
-nextcloud
-gvfs-google
-thunderbird
-blender
-gwenview
+firefox vlc discord telegram-desktop steam gamescope gamemode lutris krita gimp libreoffice-fresh nextcloud gvfs-google thunderbird blender gwenview
 
 Altenrative
 ShareX
 
 #Utilities
-git
-kitty
-vim
-vi
-nano
-sddm
-dunst
-pipewire
-wireplumber
-pavucontrol
-qt5-wayland
-qt6-wayland
-xdg-user-dirs
-xorg-xwayland
-wayland
-thunar
-rofi
-thunar-archive-plugin
-thunar-media-tags-plugin
-thunar-volman
-rofi-emoji
-rofi-calc
-rofimoji
-waybar
-udiskie
-cliphist
-xdg-desktop-portal-hyprland
-kde-gtk-config
-dconf-editor
-gnome-settings-daemon
-gnome-twekas
-otf-font-awesome
-ttf-arimo-nerd
-noto-fonts
+git kitty vim vi nano sddm dunst pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar rofi thunar-archive-plugin thunar-media-tags-plugin thunar-volman rofi-emoji rofi-calc rofimoji waybar udiskie cliphist xdg-desktop-portal-hyprland kde-gtk-config dconf-editor gnome-settings-daemon gnome-tweaks otf-font-awesome ttf-arimo-nerd noto-fonts
 
 #Git (AUR) packages
 hyprland-git
