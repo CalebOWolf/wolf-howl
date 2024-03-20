@@ -191,7 +191,9 @@
                 "replaceEvents": true
             },
             "MemberCount": {
-                "enabled": true
+                "enabled": true,
+                "memberList": true,
+                "toolTip": true
             },
             "MessageClickActions": {
                 "enabled": true
@@ -253,9 +255,6 @@
                 "enabled": true,
                 "ignoreBots": true,
                 "ignoreBlocked": true
-            },
-            "MuteNewGuild": {
-                "enabled": false
             },
             "MutualGroupDMs": {
                 "enabled": true
@@ -561,6 +560,18 @@
             },
             "ReviewDB": {
                 "enabled": false
+            },
+            "NewGuildSettings": {
+                "enabled": false
+            },
+            "BetterRoleContext": {
+                "enabled": true
+            },
+            "FriendsSince": {
+                "enabled": true
+            },
+            "ResurrectHome": {
+                "enabled": true
             }
         },
         "notifications": {
@@ -573,7 +584,7 @@
             "authenticated": false,
             "url": "https://api.vencord.dev/",
             "settingsSync": true,
-            "settingsSyncVersion": 1708776073277
+            "settingsSyncVersion": 1710957769052
         }
     },
     "quickCss": ""
