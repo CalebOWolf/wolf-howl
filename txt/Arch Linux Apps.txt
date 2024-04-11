@@ -8,14 +8,19 @@ Altenrative
 ShareX
 
 #Utilities
-git kitty vim vi nano sddm dunst pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar rofi thunar-archive-plugin thunar-media-tags-plugin thunar-volman rofi-emoji rofi-calc rofimoji waybar udiskie cliphist xdg-desktop-portal-hyprland kde-gtk-config dconf-editor gnome-settings-daemon gnome-tweaks otf-font-awesome ttf-arimo-nerd noto-fonts
+git kitty vim vi nano sddm dunst pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar rofi thunar-archive-plugin thunar-media-tags-plugin thunar-volman rofi-emoji rofi-calc rofimoji waybar udiskie cliphist kde-gtk-config dconf-editor gnome-settings-daemon gnome-tweaks otf-font-awesome ttf-arimo-nerd noto-fonts
 
 Warp Terminal
 wget https://app.warp.dev/download?package=pacman
 
 #Git (AUR) packages
-hyprland-git
-hyprpaper-git
+hyprland-git  
+hyprpaper-git  
+hyprlock-git  
+hypridle-git  
+hyprpicker-git  
+hyprcursor-git  
+xdg-desktop-portal-hyprland-git  
 alchemy-next-viewer-bin
 prismlaucnher (req java)
 alvr-git
@@ -25,7 +30,6 @@ vesktop-bin
 heroic-games-launcher-bin
 wlrobs-hg
 unityhub
-hyprlock-git
 
 #Not working
 1password
