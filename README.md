@@ -4,9 +4,9 @@ This is CalebOWolf's GitHub! Heres some info about himself ^^
 Hes a furry (deal with it.)  
 Hes into technology and learning is his fav thing about itself  
 Hes into Second Life By Linden Labs as hes on there more often these days  
-He loves to play vr and games rn hes playing through Cyberpunk 2077, Warframe, Subnatucia, osu!, and Muse Dash.  
+He loves to play games online or offline, right now hes playing through Cyberpunk 2077, Warframe, Subnatucia, osu!, and Muse Dash.  
 His fursona is Luca Wood and is on [Toyhou.se](https://toyhou.se/CalebOWolf)  
-He can be found on [Discord](https://discord.com/users/202196441593020416), [Telegram](https://t.me/calebowolf/), [Mastodon](https://pawb.fun/@CalebOWolf), [BlueSky](https://bsky.app/profile/calebblacksnow.bsky.social), Resonite: CalebOWolf  
+He can be found on [Discord](https://discord.com/users/202196441593020416), [Telegram](https://t.me/calebmignano/), [Mastodon](https://pawb.fun/@CalebOWolf), [BlueSky](https://bsky.app/profile/calebowolf.bsky.social)  
 He is a kind and caring person as well as very determined!  
 Be straightforward and upfront, trutful with myself as well.  
 [No Hello.](https://nohello.net/en/)  
