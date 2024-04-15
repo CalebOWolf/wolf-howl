@@ -2,6 +2,7 @@
 ![Static Badge](https://img.shields.io/badge/gay-wolf?style=flat&logo=github&logoColor=646464&label=CalebOWolf&labelColor=000000&color=00ff7f&link=https%3A%2F%2Fgithub.com%2FCalebOWolf%2Fwolf-howl)  ![Static Badge](https://img.shields.io/badge/calebowolf-discord?style=flat&logo=discord&label=Discord&labelColor=000000&color=00ff7f&link=https%3A%2F%2Fgithub.com%2FCalebOWolf%2Fwolf-howl)  ![GitHub License](https://img.shields.io/github/license/calebowolf/wolf-howl?logo=github&logoColor=646464&label=License&labelColor=000000&color=202020)  ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/calebowolf/wolf-howl?logo=github&logoColor=646464&label=GitHub%20Commits&labelColor=202020&color=000000)  
 This is CalebOWolf's GitHub! Heres some info about himself ^^  
 Hes a furry (deal with it.)  
+🐺🏳️‍🌈 ΘΔ  
 Hes into technology and learning is his fav thing about itself  
 Hes into Second Life By Linden Labs as hes on there more often these days  
 He loves to play games online or offline, right now hes playing through Cyberpunk 2077, Warframe, Subnatucia, osu!, and Muse Dash.  
