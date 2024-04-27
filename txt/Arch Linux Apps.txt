@@ -28,7 +28,7 @@ vscodium-bin
 openrgb-bin
 vesktop-bin
 heroic-games-launcher-bin
-wlrobs-hg
+wlrobs-git
 unityhub
 
 #Not working
