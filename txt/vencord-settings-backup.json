@@ -197,7 +197,10 @@
                 "toolTip": true
             },
             "MessageClickActions": {
-                "enabled": true
+                "enabled": true,
+                "requireModifier": false,
+                "enableDoubleClickToReply": true,
+                "enableDoubleClickToEdit": true
             },
             "MessageLinkEmbeds": {
                 "enabled": true,
@@ -335,7 +338,8 @@
             },
             "PinDMs": {
                 "enabled": true,
-                "dmSectioncollapsed": false
+                "dmSectioncollapsed": false,
+                "pinOrder": 0
             },
             "PlainFolderIcon": {
                 "enabled": false
@@ -547,8 +551,8 @@
                 "pingColor": "#7289da",
                 "channelPingColor": "#8a2be2",
                 "soundPath": "default",
-                "timeout": 1,
-                "opacity": 1,
+                "timeout": 4,
+                "opacity": 0.5,
                 "volume": 0.2
             },
             "DisableCallIdle": {
@@ -620,7 +624,7 @@
             "authenticated": false,
             "url": "https://api.vencord.dev/",
             "settingsSync": true,
-            "settingsSyncVersion": 1714351443935
+            "settingsSyncVersion": 1714468142041
         }
     },
     "quickCss": ""
