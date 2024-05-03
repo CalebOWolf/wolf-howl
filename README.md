@@ -14,6 +14,9 @@ Be straightforward and upfront, trutful with myself as well.
 [Don't Ask to Ask.](https://dontasktoask.com/)  
 [No Consent Telegram](https://telegra.ph/I-Do-Not-Consent-12-12)  
 
+Discord Bio: NA (contains this repo already)  
+Telegram Bio: 🐺🏳️‍🌈18+ l [|/Family/Determination/Kind/Caring] | [RIP Xavy]  ΘΔ  
+
 Future PC Specs:  
 AMD Ryzen 7 7800X3D  
 Corsair iCUE LINK H170i RGB  
