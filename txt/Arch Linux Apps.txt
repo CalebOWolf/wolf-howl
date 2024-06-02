@@ -8,7 +8,7 @@ Altenrative
 ShareX
 
 #Utilities
-git kitty vim vi nano sddm dunst pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar rofi thunar-archive-plugin thunar-media-tags-plugin thunar-volman rofi-emoji rofi-calc rofimoji waybar udiskie cliphist kde-gtk-config dconf-editor gnome-settings-daemon gnome-tweaks otf-font-awesome ttf-arimo-nerd noto-fonts
+git kitty vim vi nano gdm dunst pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman waybar udiskie cliphist kde-gtk-config dconf-editor gnome-settings-daemon gnome-tweaks otf-font-awesome ttf-arimo-nerd noto-fonts
 
 Warp Terminal
 wget https://app.warp.dev/download?package=pacman
@@ -16,28 +16,27 @@ wget https://app.warp.dev/download?package=pacman
 #Git (AUR) packages
 hyprland-git  
 hyprpaper-git  
+hyprpicker-git  
 hyprlock-git  
 hypridle-git  
-hyprpicker-git  
 hyprcursor-git  
 xdg-desktop-portal-hyprland-git  
 alchemy-next-viewer-bin
+firestorm-next-bin
 prismlaucnher (req java)
 alvr-git
 vscodium-bin
 openrgb-bin
-vesktop-bin
 heroic-games-launcher-bin
-wlrobs-git
+wlroots-git
 unityhub
 
 #Not working
 1password
 1password-blur-me-not
-rofi-1pass
 protonup-qt
 
-Alchemy Voice
+Alchemy/Firestorm Voice
 glu gtk2 libxcrypt-compat gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly lib32-gst-plugins-base lib32-gst-plugins-good lib32-libpulse lib32-alsa-plugins lib32-alsa-lib libidn11 lib32-libidn11
 lib32-libstdc++28 (AUR)
 
