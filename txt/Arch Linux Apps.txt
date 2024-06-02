@@ -2,7 +2,7 @@
 mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon
 
 #Arch Linux Offical
-firefox vlc discord telegram-desktop steam gamescope gamemode lutris krita gimp libreoffice-fresh nextcloud gvfs-google thunderbird blender gwenview
+firefox vlc discord telegram-desktop steam gamescope gamemode lutris krita gimp libreoffice-fresh nextcloud gvfs-google thunderbird blender gwenview leafpad
 
 Altenrative
 ShareX
@@ -15,12 +15,15 @@ wget https://app.warp.dev/download?package=pacman
 
 #Git (AUR) packages
 hyprland-git  
+hyprlang-git  
 hyprpaper-git  
 hyprpicker-git  
 hyprlock-git  
 hypridle-git  
 hyprcursor-git  
 xdg-desktop-portal-hyprland-git  
+nwg-displays
+hyprshot-git
 alchemy-next-viewer-bin
 firestorm-next-bin
 prismlaucnher (req java)
