@@ -8,7 +8,10 @@ Altenrative
 ShareX
 
 #Utilities
-git kitty vim vi nano gdm dunst pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman waybar udiskie cliphist kde-gtk-config dconf-editor gnome-settings-daemon gnome-tweaks otf-font-awesome ttf-arimo-nerd noto-fonts
+git kitty vim vi nano gdm dunst pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman waybar udiskie cliphist kde-gtk-config dconf-editor gnome-settings-daemon gnome-tweaks otf-font-awesome ttf-arimo-nerd noto-fonts bluez bluez-utils blueberry
+
+#Start/enable bluetooth.service
+sudo systemctl enable bluetooth.service
 
 Warp Terminal
 wget https://app.warp.dev/download?package=pacman
