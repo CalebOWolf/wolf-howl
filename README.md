@@ -12,6 +12,7 @@ He is a kind and caring person as well as very determined!
 Be straightforward and upfront, trutful with myself as well.  
 [No Hello.](https://nohello.net/en/)  
 [Don't Ask to Ask.](https://dontasktoask.com/)  
+[XY Problem.](https://xyproblem.info/)  
 [No Consent Telegram](https://telegra.ph/I-Do-Not-Consent-12-12)  
 
 Discord Bio: NA (contains this repo already)  
