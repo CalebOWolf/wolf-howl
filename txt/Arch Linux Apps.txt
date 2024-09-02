@@ -12,12 +12,17 @@ git kitty vim vi nano gdm dunst pipewire wireplumber pavucontrol qt5-wayland qt6
 
 #Homebrew
 base-devel procps-ng curl file git
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 #Start/enable bluetooth.service
 sudo systemctl enable bluetooth.service
 
 Warp Terminal
 wget https://app.warp.dev/download?package=pacman
+sudo sh -c "echo -e '\n[warpdotdev]\nServer = https://releases.warp.dev/linux/pacman/\$repo/\$arch' >> /etc/pacman.conf"
+sudo pacman-key -r "linux-maintainers@warp.dev"
+sudo pacman-key --lsign-key "linux-maintainers@warp.dev"
+sudo pacman -Sy warp-terminal
 
 #Git (AUR) packages
 hyprland-git  
