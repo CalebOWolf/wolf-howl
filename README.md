@@ -18,12 +18,29 @@ Be straightforward and upfront, trutful with myself as well.
 Discord Bio: NA (contains this repo already)  
 Telegram Bio: 🐺🏳️‍🌈18+ l [|/Family/Determination/Kind/Caring] | [RIP Xavy]  ΘΔ  
 
+Main PC Build (09/03/2024)  
+CPU: AMD Ryzen 2600  
+GPU: ASRock RX 7600 XT  
+Cooler: NZXT Kraken 240  
+PSU: 750w NZXT  
+RAM: 16GB DDR4 Corsair Vengeance RGB Pro 3200MHz  
+SSD’s: 512 WD_BLACK, 256 GB PNY, 512 GB TForce, 256 GB TForce  
+OS: Arch Linux (I definitely use arch BTW)  
+Keyboard: Keychron V1 (Wired, barebones W/Chosfox x Kailh Arctic Fox Switches)  
+Mouse: Razer Basilisk V3 (Wired)  
+Headset: Steelseries Arctis 7P+  
+Monitor: Dell 22” P2219H  
+Desk mat: LTT Northern Lights desk-mat  
+ISP: Google Fiber  
+Case: Fractal Design North  
+
+
 Future PC Specs:  
 AMD Ryzen 7 7800X3D  
 Corsair iCUE LINK H170i RGB  
 Asus ROG STRIX X670E-F GAMING WIFI  
 Corsair Dominator Platinum RGB 32 GB  
 Western Digital Black SN850X w/Heatsink 2 TB  
-ASRock RX 7600 XT (Bought ^^)  
+AMD RX 7900 XTX  
 Asus ROG THOR 1200P  
 Corsair Crystal Series 680X  
