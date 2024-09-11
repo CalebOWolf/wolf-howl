@@ -1,0 +1,5 @@
+# No Judgments or Assumptions will be made about this GitHub. Refer back to the CODE_OF_CONDUCT.md for the reasons why.
+As for restating this inside of my GitHub. Primarily ive been seeing lots of-drama surrounding what others are using in off-topic sources for other projeckts or even the people themselves.  
+If youn know me and anyone of my friends at the very least. they wouldnt stand to be seeing any of this drama if you will. This will not be tolearted at all around myself or my GitHub Decisions I make for itself. Ex: wolf-howl/txt/txt/vencord-settings-backup.json. I use clent modifications on Discord ie vencord. i get im one person but why me than the net guy on the street. see my reasoning now? There will be and i truly mean it. NO Judgements around here myself friends family etc. If you wanna continue to do whatever you feel like in my eyes is wrong. then by all means you will not be seeing the light of day around myself. i do not and will not stand for this put down of others what they do so on so forth.  
+
+Thank you. Good day.  
