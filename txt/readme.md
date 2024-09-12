@@ -1,1 +1,1 @@
-This is for my documents and files that are txt or otherwise needed for myself to navigate to and access, this will also house other things for OS notes and such but other than that its for txt files :3 
+# TXT | MD | FILES - if it has text inside of the document then it will live here if im needing to call upon it and/or study it
