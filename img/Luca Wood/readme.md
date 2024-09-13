@@ -1,0 +1,2 @@
+The art here is owned by various people most common would be Lura.png owned by [Moonlight](https://t.me/Moonlight7892) who did an amazing job on the artwork piece of Luca! ^^
+Credit to fallenspidersunite also for their artwork and helpful creation of Luca Wood!
