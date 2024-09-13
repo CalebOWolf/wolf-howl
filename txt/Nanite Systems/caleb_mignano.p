@@ -48,6 +48,10 @@ db interface.crosshair 16
 db interface.sitrep.enabled 1
 db interface.fov 90
 db repair.autorepair 0
+db id.chime.boot 
+db id.chime.halt
+db baseband.arena 1
+
 
 reset id
 service interface restart
