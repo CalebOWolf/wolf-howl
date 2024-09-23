@@ -48,8 +48,8 @@ db interface.crosshair 16
 db interface.sitrep.enabled 1
 db interface.fov 90
 db repair.autorepair 0
-db id.chime.boot 
-db id.chime.halt
+db id.chime.boot bb39b99e-3a18-eca1-0e07-b136d38d18dd
+db id.chime.halt 441cd8ec-e8e8-033b-d6a5-db9eaf0b2ee4
 
 reset id
 service interface restart
