@@ -3,7 +3,9 @@
         "autoUpdate": true,
         "autoUpdateNotification": true,
         "useQuickCss": true,
-        "themeLinks": [],
+        "themeLinks": [
+            "https://luckfire.github.io/amoled-cord/src/amoled-cord.css"
+        ],
         "enabledThemes": [],
         "enableReactDevtools": false,
         "frameless": false,
@@ -140,7 +142,9 @@
             "ConsoleJanitor": {
                 "enabled": true,
                 "disableNoisyLoggers": false,
-                "disableSpotifyLogger": true
+                "disableSpotifyLogger": true,
+                "disableLoggers": false,
+                "whitelistedLoggers": "GatewaySocket; Routing/Utils"
             },
             "ConsoleShortcuts": {
                 "enabled": true
@@ -165,7 +169,7 @@
                 "timestampMode": 0
             },
             "CustomIdle": {
-                "enabled": true,
+                "enabled": false,
                 "idleTimeout": 10
             },
             "Dearrow": {
@@ -444,12 +448,6 @@
             "PreviewMessage": {
                 "enabled": true
             },
-            "PronounDB": {
-                "enabled": true,
-                "showInMessages": true,
-                "showSelf": true,
-                "pronounSource": 0
-            },
             "QuickMention": {
                 "enabled": true
             },
@@ -491,10 +489,8 @@
                 "chatMentions": true,
                 "memberList": true,
                 "voiceUsers": true,
-                "reactorsList": true
-            },
-            "SearchReply": {
-                "enabled": true
+                "reactorsList": true,
+                "colorChatMessages": false
             },
             "SecretRingToneEnabler": {
                 "enabled": false
@@ -522,9 +518,6 @@
                 "bgOpacity": 100
             },
             "ShowAllMessageButtons": {
-                "enabled": true
-            },
-            "ShowAllRoles": {
                 "enabled": true
             },
             "ShowConnections": {
@@ -627,7 +620,10 @@
                 "enabled": true
             },
             "UserVoiceShow": {
-                "enabled": true
+                "enabled": true,
+                "showInUserProfileModal": true,
+                "showInMemberList": true,
+                "showInMessages": true
             },
             "USRBG": {
                 "enabled": false
@@ -680,9 +676,6 @@
                 "enabled": true,
                 "multiplier": 2
             },
-            "WatchTogetherAdblock": {
-                "enabled": true
-            },
             "WhoReacted": {
                 "enabled": true
             },
@@ -699,7 +692,8 @@
                 "timeout": 4,
                 "lengthBasedTimeout": true,
                 "opacity": 1,
-                "volume": 0.2
+                "volume": 0.2,
+                "webSocketPort": 42070
             },
             "NoTrack": {
                 "enabled": true,
@@ -710,6 +704,39 @@
                 "settingsLocation": "aboveNitro"
             },
             "SupportHelper": {
+                "enabled": true
+            },
+            "AlwaysExpandRoles": {
+                "enabled": true
+            },
+            "FullSearchContext": {
+                "enabled": true
+            },
+            "UserMessagesPronouns": {
+                "enabled": true,
+                "showInMessages": true,
+                "showSelf": true,
+                "pronounSource": 0
+            },
+            "YoutubeAdblock": {
+                "enabled": true
+            },
+            "DynamicImageModalAPI": {
+                "enabled": true
+            },
+            "AccountPanelServerProfile": {
+                "enabled": false
+            },
+            "CopyFileContents": {
+                "enabled": true
+            },
+            "FixImagesQuality": {
+                "enabled": true
+            },
+            "NoMaskedUrlPaste": {
+                "enabled": false
+            },
+            "StickerPaste": {
                 "enabled": true
             }
         },
@@ -723,7 +750,7 @@
             "authenticated": false,
             "url": "https://api.vencord.dev/",
             "settingsSync": false,
-            "settingsSyncVersion": 1721448378202
+            "settingsSyncVersion": 1730733611718
         }
     },
     "quickCss": ""
