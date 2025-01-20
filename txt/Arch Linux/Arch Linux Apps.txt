@@ -8,7 +8,7 @@ Altenrative
 ShareX
 
 #Utilities
-git kitty vim vi nano gdm dunst pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman waybar udiskie cliphist kde-gtk-config dconf-editor gnome-settings-daemon gnome-tweaks otf-font-awesome ttf-arimo-nerd noto-fonts bluez bluez-utils blueberry
+git kitty vim vi nano gdm dunst pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman waybar udiskie cliphist kde-gtk-config dconf-editor gnome-settings-daemon gnome-tweaks otf-font-awesome ttf-arimo-nerd noto-fonts bluez bluez-utils blueberry ghostty
 
 #Homebrew
 base-devel procps-ng curl file git
@@ -38,7 +38,7 @@ hyprshot-git
 alchemy-next-viewer-bin
 firestorm-next-bin
 prismlaucnher (req java)
-alvr-git
+alvr-launcher
 vscodium-bin
 openrgb-bin
 heroic-games-launcher-bin
@@ -46,13 +46,12 @@ wlroots-git
 unityhub
 
 #Not working
-1password
+1password (additional setup but does work nonthenless rtfd)
 1password-blur-me-not
 protonup-qt
 
 Alchemy/Firestorm Voice
 glu gtk2 libxcrypt-compat gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly lib32-gst-plugins-base lib32-gst-plugins-good lib32-libpulse lib32-alsa-plugins lib32-alsa-lib libidn11 lib32-libidn11
-lib32-libstdc++28 (AUR)
 
 
 Notes:  
