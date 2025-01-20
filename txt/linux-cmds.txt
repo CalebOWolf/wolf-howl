@@ -1,0 +1,2 @@
+Password Feedback
+echo -e "Defaults\tpwfeedback" | sudo tee -a /etc/sudoers.d/0pwfeedback
