@@ -20,14 +20,18 @@ ShareX
 Vencord  (Manual install)  (dont judge.)  
 ALVR  
 VLC  
-OpenJRE/JDK 21  
 Docker  
 GitHub Desktop  
 LibreOffice  
+Google Chrome  
+Thunderbird  
+OBS Studio  
+qBittorrent  
+ShareX  
+Stream Deck  
 gamescope  
 gamemode  
-lutris  
-thunderbird  
+lutris    
 leafpad  
 git  
 kitty  
