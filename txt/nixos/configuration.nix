@@ -89,6 +89,8 @@
     extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
     packages = with pkgs; [
       kdePackages.kate
+      mesa
+			mesa-demos
       thunderbird
       discord
       telegram-desktop
