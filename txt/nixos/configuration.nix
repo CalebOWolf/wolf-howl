@@ -90,7 +90,7 @@
     packages = with pkgs; [
       kdePackages.kate
       mesa
-			mesa-demos
+      mesa-demos
       thunderbird
       discord
       telegram-desktop
