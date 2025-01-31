@@ -86,7 +86,7 @@
   users.users.calebmignano = {
     isNormalUser = true;
     description = "Caleb Mignano";
-    extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "calebowolf" "calebmignano"];
     packages = with pkgs; [
       kdePackages.kate
       mesa
