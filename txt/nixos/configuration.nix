@@ -68,7 +68,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
+    wireplumber.enable = true
     jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
@@ -77,7 +77,7 @@
   };
 
   # Nix LD
-  programs.nix-ld.enable = true;
+  # programs.nix-ld.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -119,7 +119,6 @@
       sonusmix
       helvum
       wayfarer
-      wireplumber
       pipecontrol
       pa-notify
       obs-studio-plugins.obs-pipewire-audio-capture
