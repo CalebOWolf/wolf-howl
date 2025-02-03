@@ -89,6 +89,7 @@
     extraGroups = [ "networkmanager" "wheel" "audio" "video" "calebowolf" "calebmignano"];
     packages = with pkgs; [
       kdePackages.kate
+      kdePackages.discover
       mesa
       mesa-demos
       thunderbird
