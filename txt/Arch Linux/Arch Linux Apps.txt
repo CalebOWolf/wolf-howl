@@ -2,39 +2,32 @@
 mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon
 
 #Arch Linux Offical
-firefox vlc discord telegram-desktop steam gamescope gamemode lutris krita gimp libreoffice-fresh nextcloud gvfs-google thunderbird blender gwenview leafpad
+firefox vlc discord telegram-desktop steam gamescope gamemode lutris krita gimp libreoffice-fresh nextcloud gvfs-google thunderbird gwenview leafpad
 
 Altenrative
 ShareX
 
 #Utilities
-git kitty vim vi nano gdm dunst pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman waybar udiskie cliphist kde-gtk-config dconf-editor gnome-settings-daemon gnome-tweaks otf-font-awesome ttf-arimo-nerd noto-fonts bluez bluez-utils blueberry ghostty
+git kitty vim vi nano pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman gnome-settings-daemon gnome-tweaks ttf-arimo-nerd noto-fonts bluez bluez-utils blueberry otf-font-awesome 
 
 #Start/enable bluetooth.service
 sudo systemctl enable bluetooth.service
 
 #Git (AUR) packages
-hyprland-git  
-hyprlang-git  
-hyprpaper-git  
-hyprpicker-git  
-hyprlock-git  
-hypridle-git  
-hyprcursor-git  
-xdg-desktop-portal-hyprland-git  
-nwg-displays
-hyprshot-git
-alchemy-viewer-git
-alvr-dashboard
-vscodium-bin
-openrgb-bin
-heroic-games-launcher-bin
-wlroots-git
-unityhub
+hyprland-meta-git
+waypaper
+firestorm-next-bin
+alvr-launcher-bin
+1password
+1password-cli
+1password-blur-me-not
+p7zip-gui
+blender-bin
+google-chrome
+
 
 #Not working
 1password (additional setup but does work nonthenless rtfd)
-1password-blur-me-not
 protonup-qt
 
 Alchemy/Firestorm Voice
