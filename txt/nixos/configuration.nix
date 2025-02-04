@@ -16,7 +16,10 @@
   boot.loader.external.enable = true;
 
   # Garbage Collection for NixOS Builds
-  
+  nix.gc.automatic = true;
+  nix.gc.dates = "weekly";
+  nix.gc.options = "--delete-older-than-7d";
+  nix.settings.auto-optimise-store = true;
 
   networking.hostName = "WolfHowlNixOS"; # Define your hostname.
   networking.networkmanager.enable = true; # Enable networking
