@@ -13,7 +13,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.external.enable = true;
 
   # Garbage Collection for NixOS Builds
   nix.gc.automatic = true;
