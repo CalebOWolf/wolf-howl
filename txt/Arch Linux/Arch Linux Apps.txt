@@ -14,8 +14,30 @@ git kitty vim vi nano pipewire wireplumber pavucontrol qt5-wayland qt6-wayland x
 sudo systemctl enable bluetooth.service
 
 #Git (AUR) packages
-hyprland-meta-git
-waypaper
+hyprland-git
+hyprshot
+hyprsysteminfo-git
+hyprlock-git
+hyprpolkitagent-git
+hyprswitch
+hyprgraphics-git
+hyprland-qtutils-git
+hyprland-qt-support-git
+hyprland-protocols-git
+hyprlang-git
+hyprpicker-git
+hyprcursor-git
+hyprutils-git
+hyprpaper-git
+hyprfreeze-git
+xdg-desktop-portal-hyprland-git
+hyprland-welcome-git
+hypridle-git
+hyprland-target
+hyprnotify
+hyprdim
+hyprsources-git
+waypaper-git
 firestorm-next-bin
 alvr-launcher-bin
 1password
