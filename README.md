@@ -5,31 +5,28 @@ Hes a furry (deal with it.)
 🐺🏳️‍🌈 ΘΔ  
 Hes into technology and learning is his fav thing about itself  
 Hes into Second Life By Linden Labs as hes on there more often these days  
+He's mated to the two most wonderful husbands in his world and towards his soul. Sheppy521/Migayeen HyrulianZer0. We are Selective Poly (if you mess with them in ANY! sort of way idc what it is you hurt them or try to tear them away from myself i will know and you will not be seeing ourselves again ever. You WILL be sorry for messing with ourselves.)  
 He loves to play games online or offline, right now hes playing through Cyberpunk 2077, Warframe, Baldurs Gate 3, Subnatucia, osu!, and Muse Dash.  
 His fursona is Luca Wood and is on [Toyhou.se](https://toyhou.se/CalebOWolf)  
-He can be found on [Discord](https://discord.com/users/202196441593020416), [Telegram](https://t.me/calebmignano/), [Mastodon](https://pawb.fun/@CalebOWolf), [BlueSky](https://bsky.app/profile/calebowolf.bsky.social)  
+He can be found on [Discord](https://discord.com/users/202196441593020416), [Telegram](https://t.me/@CalebMignano), [Mastodon](https://pawb.fun/@CalebOWolf), [BlueSky](https://bsky.app/profile/calebowolf.bsky.social)  
 He is a kind and caring person as well as very determined!  
 Be straightforward and upfront, trutful with myself as well.  
 [No Hello.](https://nohello.net/en/)  
 [Don't Ask to Ask.](https://dontasktoask.com/)  
 [XY Problem.](https://xyproblem.info/)  
-[No Consent Telegram](https://telegra.ph/I-Do-Not-Consent-12-12)  
 
-Discord Bio: NA (contains this repo already)  
-Telegram Bio: 🐺🏳️‍🌈18+ l [|/Family/Determination/Kind/Caring] | [RIP Xavy]  ΘΔ  
-
-Main PC Build (09/03/2024)  
+Main PC Build (05/08/2025)  
 CPU: AMD Ryzen 2600  
 GPU: ASRock RX 7600 XT  
 Cooler: NZXT Kraken 240  
 PSU: 750w NZXT  
 RAM: 16GB DDR4 Corsair Vengeance RGB Pro 3200MHz  
-SSD’s: 512 WD_BLACK, 256 GB PNY, 512 GB TForce, 256 GB TForce  
-OS: Arch Linux (I definitely use arch BTW)  
+SSD’s: 1TB 990 Pro | 512 WD Black  
+OS: Fedora Linux (I definitely use fedora BTW)  
 Keyboard: Keychron V1 (Wired, barebones W/Chosfox x Kailh Arctic Fox Switches)  
 Mouse: Razer Basilisk V3 (Wired)  
 Headset: Steelseries Arctis 7P+  
-Monitor: Dell 22” P2219H  
+Monitor: KTC H27S17 | Dell 22” P2219H  
 Desk mat: LTT Northern Lights desk-mat  
 ISP: Google Fiber  
 Case: Fractal Design North  
