@@ -2,7 +2,7 @@
 mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon
 
 #Arch Linux Offical
-firefox vlc discord telegram-desktop steam gamescope gamemode lutris krita gimp libreoffice-fresh nextcloud gvfs-google thunderbird gwenview leafpad
+firefox vlc discord telegram-desktop steam gamescope gamemode lutris krita gimp libreoffice-fresh nextcloud gvfs-google thunderbird gwenview leafpad 
 
 Altenrative
 ShareX
@@ -38,6 +38,7 @@ hyprnotify
 hyprdim
 hyprsources-git
 waypaper-git
+ags-hyprpanel-git
 firestorm-next-bin
 alvr-launcher-bin
 1password
@@ -47,17 +48,10 @@ p7zip-gui
 blender-bin
 google-chrome
 
-
-#Not working
-1password (additional setup but does work nonthenless rtfd)
-protonup-qt
-
 Alchemy/Firestorm Voice
 glu gtk2 libxcrypt-compat gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly lib32-gst-plugins-base lib32-gst-plugins-good lib32-libpulse lib32-alsa-plugins lib32-alsa-lib libidn11 lib32-libidn11
 
 
 Notes:  
-liquidctl
-Cooler Control
-OpenRazer
-Polychromatic
+OpenRazer  
+Polychromatic  
