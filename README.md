@@ -14,6 +14,7 @@ Be straightforward and upfront, trutful with myself as well.
 [No Hello.](https://nohello.net/en/)  
 [Don't Ask to Ask.](https://dontasktoask.com/)  
 [XY Problem.](https://xyproblem.info/)  
+Do not involve me in politics, religion, negativity, or drama. Thanks.  
 
 Main PC Build (05/08/2025)  
 CPU: AMD Ryzen 2600  
