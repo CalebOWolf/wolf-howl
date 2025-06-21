@@ -8,7 +8,7 @@ Hes into Second Life By Linden Labs as hes on there more often these days
 He's mated to the two most wonderful husbands in his world and towards his soul. Sheppy521/Migayeen HyrulianZer0. We are Selective Poly (if you mess with them in ANY! sort of way idc what it is you hurt them or try to tear them away from myself i will know and you will not be seeing ourselves again ever. You WILL be sorry for messing with ourselves.)  
 He loves to play games online or offline, right now hes playing through Cyberpunk 2077, Warframe, Baldurs Gate 3, Subnatucia, osu!, and Muse Dash.  
 His fursona is Luca Wood and is on [Toyhou.se](https://toyhou.se/CalebOWolf)  
-He can be found on [Discord](https://discord.com/users/202196441593020416), [Telegram](https://t.me/@CalebMignano), [Mastodon](https://pawb.fun/@CalebOWolf), [BlueSky](https://bsky.app/profile/calebowolf.bsky.social)  
+He can be found on [Discord](https://discord.com/users/202196441593020416), [Telegram](https://t.me/@CalebMiga), [Mastodon](https://pawb.fun/@CalebOWolf), [BlueSky](https://bsky.app/profile/calebowolf.bsky.social)  
 He is a kind and caring person as well as very determined!  
 Be straightforward and upfront, trutful with myself as well.  
 [No Hello.](https://nohello.net/en/)  
