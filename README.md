@@ -5,21 +5,21 @@ Hes a furry (deal with it.)
 🐺🏳️‍🌈 ΘΔ  
 Hes into technology and learning is his fav thing about itself  
 Hes into Second Life By Linden Labs as hes on there more often these days  
-He's mated to the two most wonderful husbands in his world and towards his soul. Sheppy521/Migayeen RageDancer/DireWolf. We are Selective Poly (if you mess with them in ANY! sort of way idc what it is you hurt them or try to tear them away from myself i will know and you will not be seeing ourselves again ever. You WILL be sorry for messing with ourselves.)  
+He's mated to the two most wonderful husbands in his world and towards his soul. Sheppy521/Migayeen RageDancer/DireWolf.  
 He loves to play games online or offline, right now hes playing through Cyberpunk 2077, Warframe, Baldurs Gate 3, Subnatucia, osu!, and Muse Dash.  
 His fursona is Luca Wood and is on [Toyhou.se](https://toyhou.se/CalebOWolf)  
-He can be found on [Discord](https://discord.com/users/202196441593020416), [Telegram](https://t.me/@CalebMiga), [Mastodon](https://pawb.fun/@CalebOWolf), [BlueSky](https://bsky.app/profile/calebowolf.bsky.social)  
+He can be found on [Discord](https://discord.com/users/202196441593020416), [Telegram](https://t.me/@CalebMiga), [Mastodon](https://pawb.fun/@CalebOWolf), [BlueSky](https://bsky.app/profile/calebowolf.bsky.social) Switch FC (SW-5646-8036-9502)  
 He is a kind and caring person as well as very determined!  
 Be straightforward and upfront, trutful with myself as well.  
 [No Hello.](https://nohello.net/en/)  
 [Don't Ask to Ask.](https://dontasktoask.com/)  
 [XY Problem.](https://xyproblem.info/)  
-Do not involve me in politics, religion, negativity, or drama. Thanks.  
+Do not involve me in politics, religion, negativity, Drama, or scams Thanks.  
 Ask to DM or friend request.
 
 Main PC Build (05/08/2025)  
 CPU: AMD Ryzen 2600  
-GPU: ASRock RX 7600 XT  
+GPU: Nvidia RTX 5060  
 Cooler: NZXT Kraken 240  
 PSU: 750w NZXT  
 RAM: 16GB DDR4 Corsair Vengeance RGB Pro 3200MHz  
