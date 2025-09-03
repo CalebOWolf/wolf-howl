@@ -17,12 +17,12 @@ Be straightforward and upfront, trutful with myself as well.
 Do not involve me in politics, religion, negativity, Drama, or scams Thanks.  
 Ask to DM or friend request.
 
-Main PC Build (05/08/2025)  
-CPU: AMD Ryzen 2600  
+Main PC Build (09/03/2025)  
+CPU: AMD Ryzen 5700X  
 GPU: Nvidia RTX 5060  
 Cooler: NZXT Kraken 240  
 PSU: 750w NZXT  
-RAM: 16GB DDR4 Corsair Vengeance RGB Pro 3200MHz  
+RAM: 48GB DDR4 Corsair Vengeance RGB Pro 3200MHz  
 SSD’s: 1TB 990 Pro | 512 WD Black  
 OS: Fedora Linux (I definitely use fedora BTW)  
 Keyboard: Keychron V1 (Wired, barebones W/Chosfox x Kailh Arctic Fox Switches)  
