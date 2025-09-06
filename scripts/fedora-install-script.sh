@@ -5,7 +5,6 @@
 # Finally the script will reboot the system to ensure all changes take effect.
 # I ASSUME THIS SCRIPT IS BEING RUN AS USER WITH SUDO PRIVILEGES. I PRESSUME YOU KNOW WHAT YOUR DOING IF YOU RUN THIS SCRIPT. ALONG EWITH THAT I TAKE NO RESPONSIBILITY FOR ANY DAMAGE OR DATA LOSS THAT MAY OCCUR FROM RUNNING THIS SCRIPT. BACKUP YOUR DATA BEFORE RUNNING THIS SCRIPT.
 # Suggestions can be made to improve this script by opening an issue on my GitHub page: CalebOWolf/wolf-howl/fedora-setup-script
-set -e
 
 # Update the system
 echo "Updating the system..."
@@ -17,15 +16,8 @@ sudo dnf install -y dnf-plugins-core kernel-devel kernel-headers
 echo "Installing essential tools..."
 sudo dnf install -y wget curl git vim gcc make dkms
 
-# Enable RPM Fusion repositories
-echo "Enabling RPM Fusion repositories..."
-sudo dnf install -y 
-sudo dnf update -y @core
-sudo dnf install -y rpmfusion-\*-appstream-data
-
-
 # Update after enabling RPM Fusion
-echo "Updating after enabling RPM Fusion..."
+echo "Updating The System..."
 sudo dnf update -y
 
 # Install Nvidia drivers
@@ -43,6 +35,10 @@ echo "Building Nvidia kernel module..."
 sudo akmods --force
 sudo dracut --force
 
+# Install additional multimedia codecs (optional)
+echo "Installing multimedia codecs..."
+sudo dnf install -y gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-libav lame
+
 # Install tools for AMD Ryzen optimization
 echo "Installing tools for AMD Ryzen optimization..."
 sudo dnf install -y cpupower
@@ -52,15 +48,6 @@ echo "Configuring CPU performance tuning..."
 sudo systemctl enable --now tuned
 sudo tuned-adm profile balanced
 sudo cpupower frequency-set -g performance
-
-# Install additional multimedia codecs (optional)
-echo "Installing multimedia codecs..."
-sudo dnf update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-sudo dnf install -y gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-libav lame
-sudo dnf install -y rpmfusion-free-release-tainted
-sudo dnf install -y libdvdcss
-sudo dnf install -y rpmfusion-nonfree-release-tainted
-sudo dnf --repo=rpmfusion-nonfree-tainted install -y "*-firmware"
 
 # Install multimedia codecs and tools
 echo "Installing multimedia codecs and tools..."
