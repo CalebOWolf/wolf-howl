@@ -10,19 +10,11 @@
 echo "Updating the system..."
 sudo dnf update -y
 sudo dnf upgrade -y
-sudo dnf install -y dnf-plugins-core 
-sudo dnf install -y kernel-devel 
-sudo dnf install -y kernel-headers
+sudo dnf install -y dnf-plugins-core kernel-devel kernel-headers
 
 # Install essential tools
 echo "Installing essential tools..."
-sudo dnf install -y wget
-sudo dnf install -y curl
-sudo dnf install -y git
-sudo dnf install -y vim
-sudo dnf install -y gcc
-sudo dnf install -y make
-sudo dnf install -y dkms
+sudo dnf install -y wget curl git vim gcc make dkms
 
 # Update after enabling RPM Fusion
 echo "Updating The System..."
@@ -30,18 +22,7 @@ sudo dnf update -y
 
 # Install Nvidia drivers
 echo "Installing Nvidia drivers..."
-sudo dnf install -y akmod-nvidia
-sudo dnf install -y xorg-x11-drv-nvidia-cuda
-sudo dnf install -y xorg-x11-drv-nvidia
-sudo dnf install -y xorg-x11-drv-nvidia-libs
-sudo dnf install -y nvidia-settings
-sudo dnf install -y libvdpau
-sudo dnf install -y libva-vdpau-driver
-sudo dnf install -y vdpau
-sudo dnf install -y ffmpeg
-sudo dnf install -y vulkan vulkan-tools
-sudo dnf install -y vulkan-validation-layers
-sudo dnf install -y xorg-x11-drv-nvidia-power
+sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia xorg-x11-drv-nvidia-libs nvidia-settings vulkan vulkan-tools vulkan-validation-layers xorg-x11-drv-nvidia-power
 
 # Ensure the Nvidia kernel module is built
 echo "Building Nvidia kernel module..."
@@ -50,26 +31,7 @@ sudo dracut --force
 
 # Install additional multimedia codecs (optional)
 echo "Installing multimedia codecs..."
-sudo dnf install -y gstreamer1-plugins-base
-sudo dnf install -y gstreamer1-plugins-good-extras
-sudo dnf install -y gstreamer1-plugins-good
-sudo dnf install -y gstreamer1-plugins-bad-free
-sudo dnf install -y gstreamer1-plugins-bad-free-extras
-sudo dnf install -y gstreamer1-plugins-ugly
-sudo dnf install -y gstreamer1-plugins-ugly-free
-sudo dnf install -y gstreamer1-libav
-sudo dnf install -y lame
-sudo dnf install -y ffmpeg
-sudo dnf install -y x264
-sudo dnf install -y x265
-sudo dnf install -y libdvdcss
-sudo dnf install -y libdvdread
-sudo dnf install -y libdvdnav
-sudo dnf install -y libavcodec
-sudo dnf install -y handbrake
-sudo dnf install -y vlc
-sudo dnf install -y obs-studio
-sudo dnf install -y simplescreenrecorder
+sudo dnf install -y gstreamer1-plugins-base gstreamer1-plugins-good-extras gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-plugins-ugly-free gstreamer1-libav lame ffmpeg libdvdcss libdvdread handbrake vlc obs-studio simplescreenrecorder
 
 # Install tools for AMD Ryzen optimization
 echo "Installing tools for AMD Ryzen optimization..."
@@ -94,18 +56,7 @@ flatpak update -y
 
 # Install additional RPM applications
 echo "Installing additional RPM applications..."
-sudo dnf install -y openssh
-sudo dnf install -y curl 
-sudo dnf install -y xorg-x11-font-utils 
-sudo dnf install -y fontconfig 
-sudo dnf install -y libreoffice 
-sudo dnf install -y lutris 
-sudo dnf install -y krita 
-sudo dnf install -y blender 
-sudo dnf install -y spotify-client 
-sudo dnf install -y pavucontrol-qt 
-sudo dnf install -y bleachbit 
-sudo dnf install -y gparted
+sudo dnf install -y openssh curl xorg-x11-font-utils fontconfig libreoffice lutris krita blender pavucontrol-qt bleachbit gparted
 
 # Install 1Password from their official website
 echo "Installing 1Password..."
