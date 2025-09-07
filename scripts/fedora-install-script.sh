@@ -76,7 +76,7 @@ sudo dnf install -y libstdc++.i686 libidn1.34.i686 libidn2.i686 gstreamer1-plugi
 
 # Install Visual Studio Code
 echo "Installing VSCode..."
-wget https://update.code.visualstudio.com/latest/linux-rpm-x64/stable -0 /tmp/vscode.rpm
+wget https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64 -O /tmp/vscode.rpm
 sudo dnf install -y /tmp/vscode.rpm
 rm -f /tmp/vscode.rpm
 
