@@ -56,7 +56,7 @@ flatpak update -y
 
 # Install additional RPM applications
 echo "Installing additional RPM applications..."
-sudo dnf install -y openssh curl xorg-x11-font-utils fontconfig libreoffice lutris krita blender pavucontrol-qt bleachbit gparted
+sudo dnf install -y openssh curl xorg-x11-font-utils fontconfig libreoffice lutris krita blender pavucontrol-qt bleachbit gparted steam
 
 # Install 1Password from their official website
 echo "Installing 1Password..."
@@ -71,6 +71,9 @@ echo "Installing Google Chrome..."
 sudo dnf install -y /tmp/google-chrome.rpm
 rm -f /tmp/google-chrome.rpm
 
+# FS Voice
+sudo dnf install -y libstdc++.i686 libidn1.34.i686 libidn2.i686 gstreamer1-plugins-bad-free.i686 gstreamer1-plugins-bad-free-extras.i686 gstreamer1-plugins-base.i686 gstreamer1-plugins-good.i686 gstreamer1-plugins-good-extras.i686 gstreamer1-plugins-ugly.i686 gstreamer1-plugins-ugly-free.i686 libuuid.i686 libzip.i686 alsa-plugins-pulseaudio.i686 libidn1.34.i686
+
 # Install Visual Studio Code
 echo "Installing VSCode..."
 wget https://update.code.visualstudio.com/latest/linux-rpm-x64/stable -0 /tmp/vscode.rpm
@@ -79,7 +82,7 @@ rm -f /tmp/vscode.rpm
 
 # Install Flatpak applications
 echo "Installing Flatpak applications..."
-flatpak install -y flathub com.discordapp.Discord org.telegram.desktop org.firestormviewer.FirestormViewer org.prismlauncher.PrismLauncher com.github.GitHubDesktop io.mgba.mGBA sh.ppy.osu org.ppsspp.PPSSPP com.github.Matoking.protonplus net.davidotek.pupgui2 net.rpcs3.RPCS3 com.github.johnfactotum.TwinTail com.github.joseexposito.twin org.winehq.WineZGUI com.github.rafostar.Parabolic org.qbittorrent.qBittorrent org.remmina.Remmina com.transmissionbt.Transmission com.github.unrud.VideoDownloader com.github.wivrn.WivrnServer org.audacityteam.Audacity com.rafaelmardojai.Blanket io.github.celluloid_player.Celluloid com.obsproject.Studio fr.handbrake.ghb org.kde.kdenlive de.haeckerfelix.Shortwave com.github.wwmm.gpuviewer com.github.impressionapp.Impression com.github.lact.MissionControl com.usebottles.bottles com.github.tchx84.Flatseal com.github.gearlever.GearLever org.keepassxc.KeePassXC org.localsend.localsend com.linuxmint.Warpinator
+flatpak install -y flathub com.discordapp.Discord org.telegram.desktop org.firestormviewer.FirestormViewer org.prismlauncher.PrismLauncher io.github.shiftey.Desktop io.mgba.mGBA sh.ppy.osu org.ppsspp.PPSSPP com.vysp3r.ProtonPlus net.davidotek.pupgui2 net.rpcs3.RPCS3 app.twintaillauncher.ttl com.github.joseexposito.touche org.nickvision.tubeconverter org.qbittorrent.qBittorrent org.remmina.Remmina com.transmissionbt.Transmission com.github.unrud.VideoDownloader io.github.wivrn.wivrn org.audacityteam.Audacity com.rafaelmardojai.Blanket io.github.celluloid_player.Celluloid com.obsproject.Studio fr.handbrake.ghb org.kde.kdenlive de.haeckerfelix.Shortwave io.github.arunsivaramanneo.GPUViewer io.gitlab.adhami3310.Impression io.github.ilya_zlobintsev.LACT com.usebottles.bottles com.github.tchx84.Flatseal it.mijorus.gearlever org.keepassxc.KeePassXC org.localsend.localsend com.linuxmint.Warpinator io.github.fastrizwaan.WineZGUI
 
 # Final system update and cleanup
 echo "Performing final system update and cleanup..."
