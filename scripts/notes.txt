@@ -1,3 +1,8 @@
 1password
 steam
 flatpacks
+code vs code
+spotify
+libavcodec
+vdapu
+prism launcher
