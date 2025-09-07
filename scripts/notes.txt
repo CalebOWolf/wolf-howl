@@ -1,8 +1,3 @@
-1password
-steam
-flatpacks
-code vs code
-spotify
-libavcodec
-vdapu
-prism launcher
+localsend     flatpak install flathub org.localsend.localsend_app
+
+warpinator
