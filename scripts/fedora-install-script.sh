@@ -109,7 +109,7 @@ sudo dnf install -y gparted
 
 # Install 1Password from their official website
 echo "Installing 1Password..."
-wget https://downloads.1password.com/linux/rpm/stable/1password-latest.rpm -O /tmp/1password.rpm
+wget https://downloads.1password.com/linux/rpm/stable/x86_64/1password-latest.rpm -O /tmp/1password.rpm
 sudo dnf install -y /tmp/1password.rpm
 rm -f /tmp/1password.rpm
 
@@ -128,7 +128,7 @@ rm -f /tmp/vscode.rpm
 
 # Install Flatpak applications
 echo "Installing Flatpak applications..."
-flatpak install -y flathub com.discordapp.Discord org.telegram.desktop org.firestormviewer.FirestormViewer net.prismlauncher.PrismLauncher com.github.GitHubDesktop io.mgba.mGBA sh.ppy.osu org.ppsspp.PPSSPP com.github.Matoking.protonplus net.davidotek.pupgui2 net.rpcs3.RPCS3 com.github.johnfactotum.TwinTail com.github.joseexposito.twin org.winehq.WineZGUI com.github.rafostar.Parabolic org.qbittorrent.qBittorrent org.remmina.Remmina com.transmissionbt.Transmission com.github.unrud.VideoDownloader com.github.wivrn.WivrnServer org.audacityteam.Audacity com.rafaelmardojai.Blanket io.github.celluloid_player.Celluloid com.obsproject.Studio fr.handbrake.ghb org.kde.kdenlive de.haeckerfelix.Shortwave com.github.wwmm.gpuviewer com.github.impressionapp.Impression com.github.lact.MissionControl com.usebottles.bottles com.github.tchx84.Flatseal com.github.gearlever.GearLever org.keepassxc.KeePassXC org.localsend.localsend com.linuxmint.Warpinator
+flatpak install -y flathub com.discordapp.Discord org.telegram.desktop org.firestormviewer.FirestormViewer org.prismlauncher.PrismLauncher com.github.GitHubDesktop io.mgba.mGBA sh.ppy.osu org.ppsspp.PPSSPP com.github.Matoking.protonplus net.davidotek.pupgui2 net.rpcs3.RPCS3 com.github.johnfactotum.TwinTail com.github.joseexposito.twin org.winehq.WineZGUI com.github.rafostar.Parabolic org.qbittorrent.qBittorrent org.remmina.Remmina com.transmissionbt.Transmission com.github.unrud.VideoDownloader com.github.wivrn.WivrnServer org.audacityteam.Audacity com.rafaelmardojai.Blanket io.github.celluloid_player.Celluloid com.obsproject.Studio fr.handbrake.ghb org.kde.kdenlive de.haeckerfelix.Shortwave com.github.wwmm.gpuviewer com.github.impressionapp.Impression com.github.lact.MissionControl com.usebottles.bottles com.github.tchx84.Flatseal com.github.gearlever.GearLever org.keepassxc.KeePassXC org.localsend.localsend com.linuxmint.Warpinator
 
 # Final system update and cleanup
 echo "Performing final system update and cleanup..."
