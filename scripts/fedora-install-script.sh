@@ -14,8 +14,7 @@ sudo dnf install -y dnf-plugins-core kernel-devel kernel-headers
 
 # Install essential tools
 echo "Installing essential tools..."
-sudo dnf install -y wget curl git vim gcc make dkms
-
+sudo dnf install -y wget curl git vim gcc make dkms git vim vi bat exa fzf tmux zsh sed xargs nmm htop nmtui ncdu tremc cmus tty-clock mc playerctl notify-send xdotool youtube-dl 
 # Update after enabling RPM Fusion
 echo "Updating The System..."
 sudo dnf update -y
