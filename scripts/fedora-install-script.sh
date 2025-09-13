@@ -73,6 +73,22 @@ rm -f /tmp/google-chrome.rpm
 # FS Voice
 sudo dnf install -y libstdc++.i686 libidn1.34.i686 libidn2.i686 gstreamer1-plugins-bad-free.i686 gstreamer1-plugins-bad-free-extras.i686 gstreamer1-plugins-base.i686 gstreamer1-plugins-good.i686 gstreamer1-plugins-good-extras.i686 gstreamer1-plugins-ugly.i686 gstreamer1-plugins-ugly-free.i686 libuuid.i686 libzip.i686 alsa-plugins-pulseaudio.i686 libidn1.34.i686
 
+# Resonite MonkeyLoader Setup
+echo "Setting up Resonite MonkeyLoader..."
+wget https://github.com/ResoniteModdingGroup/MonkeyLoader.GamePacks.Resonite/releases/download/v0.25.1/MonkeyLoader-v0.27.2+Resonite-v0.25.1+RML-v3.0.7.tar.zip -O /tmp/monkeyloader.zip
+unzip /tmp/monkeyloader.zip -d /tmp/monkeyloader
+mkdir -p $HOME/Documents/Resonite/Mods
+mv /tmp/monkeyloader/* $HOME/Documents/Resonite/Mods/
+rm -rf /tmp/monkeyloader /tmp/monkeyloader.zip
+# Note: You may need to adjust the above commands based on the actual installation instructions for Resonite MonkeyLoader.
+
+# Install Resolute for Resonite
+echo "Installing Resolute for Resonite..."
+wget https://github.com/Gawdl3y/Resolute/releases/download/v0.8.3/resolute-0.8.3-1.x86_64.rpm -O /tmp/resolute.rpm
+sudo dnf install -y /tmp/resolute.rpm
+rm -f /tmp/resolute.rpm
+# Note: You may need to adjust the above commands based on the actual installation instructions for Resolute.
+
 # Install Visual Studio Code
 echo "Installing VSCode..."
 wget https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64 -O /tmp/vscode.rpm
