@@ -36,6 +36,11 @@ sudo dnf install -y gstreamer1-plugins-base gstreamer1-plugins-good-extras gstre
 echo "Installing tools for AMD Ryzen optimization..."
 sudo dnf install -y cpupower
 
+# Install OpenRGB for RGB control
+echo "Installing OpenRGB..."
+sudo dnf install -y https://openrgb.org/releases/openrgb-0.7-linux-x86_64.rpm
+# Note: You may need to adjust the above command based on the actual installation instructions for OpenRGB.
+
 # Enable and configure CPU performance tuning
 echo "Configuring CPU performance tuning..."
 sudo systemctl enable --now tuned
@@ -55,7 +60,7 @@ flatpak update -y
 
 # Install additional RPM applications
 echo "Installing additional RPM applications..."
-sudo dnf install -y openssh curl xorg-x11-font-utils fontconfig libreoffice lutris krita blender pavucontrol-qt bleachbit gparted steam hyfetch
+sudo dnf install -y openssh curl xorg-x11-font-utils fontconfig libreoffice lutris krita blender pavucontrol-qt bleachbit gparted steam hyfetch gimp obs-studio kdenlive vlc audacity simplescreenrecorder handbrake ffmpeg
 
 # Install 1Password from their official website
 echo "Installing 1Password..."
