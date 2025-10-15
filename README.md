@@ -20,7 +20,7 @@ Ask to DM or Friend request.
 
 Main PC Build (10/13/2025)  
 CPU: AMD Ryzen 5700X  
-GPU: Nvidia RTX 5060 -> ASUS ROG Strix 3070 OC
+GPU: Nvidia RTX 5060 -> ASUS ROG Strix 6600 XT  
 Cooler: NZXT Kraken 240  
 PSU: 750W NZXT  
 RAM: 48GB DDR4 Corsair Vengeance RGB Pro 3200MHz  
