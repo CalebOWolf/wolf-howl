@@ -19,12 +19,12 @@ Do not involve me in Politics, Religion, Negativity, Drama, or Scams Thanks.
 Ask to DM or Friend request.
 
 Main PC Build (10/13/2025)  
-CPU: AMD Ryzen 5700X  
-GPU: Nvidia RTX 5060 -> ASUS ROG Strix 6600 XT  
+CPU: AMD Ryzen 7 5700X  
+GPU: ASUS ROG Strix 6600 XT  
 Cooler: NZXT Kraken 240  
 PSU: 750W NZXT  
 RAM: 48GB DDR4 Corsair Vengeance RGB Pro 3200MHz  
-SSD’s: 1TB 990 Pro | 512 WD Black  
+SSD’s: 1TB 990 Pro | 512 WD Black | 512 GB TForce Drive  
 OS: Fedora Linux (I definitely use fedora BTW)  
 Keyboard: Keychron V1 (Wired, barebones W/Chosfox x Kailh Arctic Fox Switches)  
 Mouse: Razer Basilisk V3 (Wired) -> Logitech MX Master 4  
