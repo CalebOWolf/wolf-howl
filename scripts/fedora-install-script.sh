@@ -19,14 +19,11 @@ sudo dnf install -y wget curl git vim gcc make dkms git vim vi bat fzf tmux zsh 
 echo "Updating The System..."
 sudo dnf update -y
 
-# Install Nvidia drivers
-echo "Installing Nvidia drivers..."
-sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia xorg-x11-drv-nvidia-libs nvidia-settings vulkan vulkan-tools vulkan-validation-layers xorg-x11-drv-nvidia-power
-
-# Ensure the Nvidia kernel module is built
-echo "Building Nvidia kernel module..."
-sudo akmods --force
-sudo dracut --force
+# Install AMD Radeon Drivers
+sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+sudo dnf swap mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686
+sudo dnf swap mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
 
 # Install additional multimedia codecs (optional)
 echo "Installing multimedia codecs..."
