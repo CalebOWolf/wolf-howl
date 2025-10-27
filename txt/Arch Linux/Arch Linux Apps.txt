@@ -2,16 +2,19 @@
 mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon
 
 #Arch Linux Offical
-firefox vlc discord telegram-desktop steam gamescope gamemode lutris krita gimp libreoffice-fresh nextcloud gvfs-google thunderbird gwenview leafpad 
+firefox vlc discord telegram-desktop steam gamescope gamemode lutris krita gimp libreoffice-fresh nextcloud gvfs-google thunderbird gwenview  
+
+#Not working
+leafpad  
 
 Altenrative
-ShareX
+ShareX  
 
 #Utilities
-git kitty vim vi nano pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman gnome-settings-daemon gnome-tweaks ttf-arimo-nerd noto-fonts bluez bluez-utils blueberry otf-font-awesome 
+git kitty vim vi nano pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland wayland thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman gnome-settings-daemon gnome-tweaks ttf-arimo-nerd noto-fonts bluez bluez-utils blueberry otf-font-awesome   
 
 #Start/enable bluetooth.service
-sudo systemctl enable bluetooth.service
+sudo systemctl enable bluetooth.service  
 
 #Git (AUR) packages
 hyprland-git
