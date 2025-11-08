@@ -5,6 +5,8 @@
 # Finally the script will reboot the system to ensure all changes take effect.
 # I ASSUME THIS SCRIPT IS BEING RUN AS USER WITH SUDO PRIVILEGES. I PRESSUME YOU KNOW WHAT YOUR DOING IF YOU RUN THIS SCRIPT. ALONG EWITH THAT I TAKE NO RESPONSIBILITY FOR ANY DAMAGE OR DATA LOSS THAT MAY OCCUR FROM RUNNING THIS SCRIPT. BACKUP YOUR DATA BEFORE RUNNING THIS SCRIPT.
 # Suggestions can be made to improve this script by opening an issue on my GitHub page: CalebOWolf/wolf-howl/fedora-setup-script
+# Start of the script
+echo "Starting Fedora installation and setup script..."
 
 # Update the system
 echo "Updating the system..."
@@ -14,7 +16,7 @@ sudo dnf install -y dnf-plugins-core kernel-devel kernel-headers
 
 # Install essential tools
 echo "Installing essential tools..."
-sudo dnf install -y wget curl git vim gcc make dkms git vim vi bat fzf tmux zsh sed xargs nnn htop nmtui ncdu cmus mc playerctl notify-send xdotool youtube-dl 
+sudo dnf install -y wget curl git vim gcc make dkms git vim vi bat fzf tmux zsh sed xargs nnn htop nmtui ncdu cmus mc playerctl notify-send xdotool youtube-dl
 # Update after enabling RPM Fusion
 echo "Updating The System..."
 sudo dnf update -y
@@ -32,18 +34,28 @@ sudo dnf install -y gstreamer1-plugins-base gstreamer1-plugins-good-extras gstre
 
 # Install tools for AMD Ryzen optimization
 echo "Installing tools for AMD Ryzen optimization..."
-sudo dnf install -y cpupower
+sudo dnf install -y amd-ucode
+sudo dnf install -y tuned cpupower
+
+# Install temperature monitoring tools
+echo "Installing temperature monitoring tools (lm_sensors)..."
+sudo dnf install -y lm_sensors
+echo "Detecting sensors (you may need to run 'sudo sensors-detect' interactively after install)..."
+# Optionally, uncomment the next line to run sensors-detect automatically (may require user input):
+# sudo sensors-detect --auto
+
+# Set CPU frequency scaling for Ryzen 5700X
+echo "Setting CPU frequency scaling for Ryzen 5700X..."
+# Set governor to performance and min/max frequency to safe values (adjust as needed)
+sudo cpupower frequency-set -g performance
+# Optionally, set min/max frequency (example: 3.4GHz min, 4.6GHz max for 5700X)
+sudo cpupower frequency-set -d 3.4GHz -u 4.6GHz
+echo "CPU frequency scaling set. You can check with: cpupower frequency-info"
 
 # Install OpenRGB for RGB control
 echo "Installing OpenRGB..."
 sudo dnf install -y https://openrgb.org/releases/openrgb-0.7-linux-x86_64.rpm
 # Note: You may need to adjust the above command based on the actual installation instructions for OpenRGB.
-
-# Enable and configure CPU performance tuning
-echo "Configuring CPU performance tuning..."
-sudo systemctl enable --now tuned
-sudo tuned-adm profile balanced
-sudo cpupower frequency-set -g performance
 
 # Setup Flatpak
 echo "Setting up Flatpak..."
