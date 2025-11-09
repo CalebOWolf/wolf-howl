@@ -70,7 +70,12 @@ flatpak update -y
 
 # Install additional RPM applications
 echo "Installing additional RPM applications..."
-sudo dnf install -y openssh curl xorg-x11-font-utils fontconfig libreoffice lutris krita blender pavucontrol-qt bleachbit gparted steam hyfetch gimp obs-studio kdenlive vlc audacity simplescreenrecorder handbrake ffmpeg
+sudo dnf install -y openssh curl xorg-x11-font-utils fontconfig libreoffice lutris krita blender pavucontrol-qt bleachbit gparted steam hyfetch gimp obs-studio kdenlive vlc audacity simplescreenrecorder handbrake ffmpeg lm_sensors htop
+
+# Install 32-bit libraries for compatibility
+echo "Installing 32-bit libraries for compatibility..."
+sudo dnf install -y glibc.i686 libstdc++.i686 zlib.i686 libX11.i686 libXext.i686 libXrender.i686 libXrandr.i686 libXcursor.i686 libXfixes.i686 libXi.i686 libXdamage.i686 libXcomposite.i686 libXtst.i686 libSM.i686 libICE.i686 libGL.i686 libGLU.i686 mesa-libGL.i686 mesa-libGLU.i686 libdrm.i686 libdbus-glib-1.i686 alsa-lib.i686 pulseaudio-libs.i686 cups-libs.i686 libvdpau.i686 libva.i686 freetype.i686 fontconfig.i686 freetype-freeworld.i686 fontconfig-freeworld.i686 libpng.i686 libjpeg-turbo.i686
+
 
 # Install 1Password from their official website
 echo "Installing 1Password..."
@@ -87,22 +92,11 @@ rm -f /tmp/google-chrome.rpm
 
 # FS Voice
 sudo dnf install -y libstdc++.i686 libidn1.34.i686 libidn2.i686 gstreamer1-plugins-bad-free.i686 gstreamer1-plugins-bad-free-extras.i686 gstreamer1-plugins-base.i686 gstreamer1-plugins-good.i686 gstreamer1-plugins-good-extras.i686 gstreamer1-plugins-ugly.i686 gstreamer1-plugins-ugly-free.i686 libuuid.i686 libzip.i686 alsa-plugins-pulseaudio.i686 libidn1.34.i686
-
-# Resonite MonkeyLoader Setup
-#echo "Setting up Resonite MonkeyLoader..."
-#wget https://github.com/ResoniteModdingGroup/MonkeyLoader.GamePacks.Resonite/releases/download/v0.25.1/MonkeyLoader-v0.27.2+Resonite-v0.25.1+RML-v3.0.7.tar.zip -O /tmp/monkeyloader.zip
-#unzip /tmp/monkeyloader.zip -d /tmp/monkeyloader
-#mkdir -p $HOME/Documents/Resonite/Mods
-#mv /tmp/monkeyloader/* $HOME/Documents/Resonite/Mods/
-#rm -rf /tmp/monkeyloader /tmp/monkeyloader.zip
-# Note: You may need to adjust the above commands based on the actual installation instructions for Resonite MonkeyLoader.
-
-# Install Resolute for Resonite
-#echo "Installing Resolute for Resonite..."
-#wget https://github.com/Gawdl3y/Resolute/releases/download/v0.8.3/resolute-0.8.3-1.x86_64.rpm -O /tmp/resolute.rpm
-#sudo dnf install -y /tmp/resolute.rpm
-#rm -f /tmp/resolute.rpm
-# Note: You may need to adjust the above commands based on the actual installation instructions for Resolute.
+# Install Discord from their official website
+#echo "Installing Discord..."
+#wget https://discord.com/api/download?platform=linux&format=rpm -O /tmp/discord.rpm
+#sudo dnf install -y /tmp/discord.rpm
+#rm -f /tmp/discord.rpm
 
 # Install Visual Studio Code
 echo "Installing VSCode..."
@@ -112,7 +106,7 @@ rm -f /tmp/vscode.rpm
 
 # Install Flatpak applications
 echo "Installing Flatpak applications..."
-flatpak install -y flathub com.discordapp.Discord org.telegram.desktop org.firestormviewer.FirestormViewer org.prismlauncher.PrismLauncher io.github.shiftey.Desktop io.mgba.mGBA sh.ppy.osu org.ppsspp.PPSSPP com.vysp3r.ProtonPlus net.davidotek.pupgui2 net.rpcs3.RPCS3 app.twintaillauncher.ttl com.github.joseexposito.touche org.nickvision.tubeconverter org.qbittorrent.qBittorrent org.remmina.Remmina com.transmissionbt.Transmission com.github.unrud.VideoDownloader io.github.wivrn.wivrn org.audacityteam.Audacity com.rafaelmardojai.Blanket io.github.celluloid_player.Celluloid com.obsproject.Studio fr.handbrake.ghb org.kde.kdenlive de.haeckerfelix.Shortwave io.github.arunsivaramanneo.GPUViewer io.gitlab.adhami3310.Impression io.github.ilya_zlobintsev.LACT com.usebottles.bottles com.github.tchx84.Flatseal it.mijorus.gearlever org.keepassxc.KeePassXC org.localsend.localsend_app org.x.Warpinator io.github.fastrizwaan.WineZGUI
+flatpak install -y flathub com.discordapp.Discord org.telegram.desktop org.firestormviewer.FirestormViewer org.prismlauncher.PrismLauncher io.github.shiftey.Desktop io.mgba.mGBA sh.ppy.osu org.ppsspp.PPSSPP com.vysp3r.ProtonPlus net.davidotek.pupgui2 net.rpcs3.RPCS3 app.twintaillauncher.ttl com.github.joseexposito.touche org.nickvision.tubeconverter org.qbittorrent.qBittorrent org.remmina.Remmina com.transmissionbt.Transmission com.github.unrud.VideoDownloader io.github.wivrn.wivrn org.audacityteam.Audacity com.rafaelmardojai.Blanket io.github.celluloid_player.Celluloid com.obsproject.Studio fr.handbrake.ghb org.kde.kdenlive de.haeckerfelix.Shortwave io.github.arunsivaramanneo.GPUViewer io.gitlab.adhami3310.Impression io.github.ilya_zlobintsev.LACT com.usebottles.bottles com.github.tchx84.Flatseal it.mijorus.gearlever org.keepassxc.KeePassXC org.localsend.localsend_app org.x.Warpinator io.github.fastrizwaan.WineZGUI org.gabmus.hydraplayer org.gabmus.hydraplayer.Player org.gabmus.hydraplayer.Converter org.gabmus.hydraplayer.Recorder org.gabmus.hydraplayer.Streamer org.gabmus.hydraplayer.TagEditor org.gabmus.hydraplayer.YouTubeDownloader org.gabmus.hydraplayer.YouTubeMusicDownloader org.gabmus.hydraplayer.PodcastManager org.gabmus.hydraplayer.LyricsFetcher org.gabmus.hydraplayer.CoverDownloader org.gabmus.hydraplayer.AudioBookManager org.gabmus.hydraplayer.Equalizer org.gabmus.hydraplayer.Visualizer
 
 # Final system update and cleanup
 echo "Performing final system update and cleanup..."
