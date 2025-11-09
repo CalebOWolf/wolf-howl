@@ -1,5 +1,49 @@
-# No Judgments or Assumptions will be made about this GitHub. Refer back to the CODE_OF_CONDUCT.md for the reasons why.
-As for restating this inside of my GitHub. Primarily ive been seeing lots of-drama surrounding what others are using in off-topic sources for other projeckts or even the people themselves.  
-If youn know me and anyone of my friends at the very least. they wouldnt stand to be seeing any of this drama if you will. This will not be tolearted at all around myself or my GitHub Decisions I make for itself. Ex: wolf-howl/txt/txt/vencord-settings-backup.json. I use clent modifications on Discord ie vencord. i get im one person but why me than the net guy on the street. see my reasoning now? There will be and i truly mean it. NO Judgements around here myself friends family etc. If you wanna continue to do whatever you feel like in my eyes is wrong. then by all means you will not be seeing the light of day around myself. i do not and will not stand for this put down of others what they do so on so forth.  
+# Community Values & Respectful Interaction
 
-Thank you. Good day.  
+This document outlines the core values that guide interactions within this project and community. For detailed guidelines, please refer to our [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## 🤝 Our Philosophy
+
+This repository represents my personal digital space and technical journey. I believe in creating an environment where:
+
+- **Respect is fundamental**: Everyone deserves to be treated with dignity
+- **Personal choices are respected**: Individual preferences in tools and technologies are valid
+- **Learning is encouraged**: We all use different approaches and that's valuable
+- **Constructive dialogue prevails**: Discussions focus on ideas, not personal attacks
+
+## 💡 Why This Matters
+
+In the tech community, we often encounter debates about:
+- Tool choices (editors, frameworks, client modifications)
+- Development practices and methodologies  
+- Personal preferences in workflows
+- Different approaches to problem-solving
+
+**This space welcomes diversity in all these areas.** Whether someone uses specific Discord clients, particular development tools, or has different coding preferences - these choices are personal and valid.
+
+## 🛡️ What We Don't Tolerate
+
+While we embrace different approaches, we maintain boundaries against:
+- **Personal attacks** or harassment of any kind
+- **Technology shaming** or elitism about tool choices
+- **Discriminatory behavior** based on experience level, background, or preferences
+- **Off-topic drama** that doesn't contribute to constructive discussion
+
+## 🌟 Moving Forward Together
+
+This project aims to be:
+- **Inclusive**: Welcoming to developers of all backgrounds and experience levels
+- **Educational**: A place where people can learn and share knowledge
+- **Professional**: Maintaining standards that foster productive collaboration
+- **Positive**: Focusing on building up rather than tearing down
+
+## 📞 Questions or Concerns?
+
+If you experience or witness behavior that conflicts with these values:
+- Review our [Code of Conduct](CODE_OF_CONDUCT.md)
+- Reach out through the contact methods listed in [CONTRIBUTING.md](CONTRIBUTING.md)
+- Remember that respectful communication helps us all grow
+
+---
+
+*Let's build a community where technology brings us together, not divides us. Your contributions and perspectives make this project better for everyone.*  

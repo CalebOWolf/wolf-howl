@@ -1,8 +1,247 @@
+# =============================================================================
+# Wolf Howl Repository .gitignore
+# Personal portfolio and configuration collection
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Operating System Files
+# -----------------------------------------------------------------------------
+
+# macOS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# -----------------------------------------------------------------------------
+# IDE and Editor Files
+# -----------------------------------------------------------------------------
+
+# VS Code
 .vscode/
-node_modules/
-dist/
-.env
-build/
+!.vscode/extensions.json
+!.vscode/settings.json
+*.code-workspace
+
+# JetBrains IDEs
 .idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+
+# -----------------------------------------------------------------------------
+# Development and Build Files
+# -----------------------------------------------------------------------------
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Rust
+target/
+Cargo.lock
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# -----------------------------------------------------------------------------
+# Personal and Sensitive Files
+# -----------------------------------------------------------------------------
+
+# Environment and secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+private/
+
+# Personal notes and drafts (uncomment if needed)
+# drafts/
+# private-notes/
+# personal/
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+*.tmp
+
+# -----------------------------------------------------------------------------
+# System and Application Files
+# -----------------------------------------------------------------------------
+
+# Logs
 *.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache directories
+.cache/
+.npm
+.yarn
+.next/
+.nuxt/
+.vuepress/dist
+
+# Coverage reports
+coverage/
+*.lcov
+.nyc_output
+
+# -----------------------------------------------------------------------------
+# Large Files and Media (if needed)
+# -----------------------------------------------------------------------------
+
+# Uncomment if you want to exclude large media files
+# *.mp4
+# *.avi
+# *.mov
+# *.wmv
+# *.flv
+# *.webm
+# *.mkv
+
+# Large images (uncomment if repository gets too large)
+# *.psd
+# *.ai
+# *.sketch
+
+# Archives
+# *.zip
+# *.rar
+# *.7z
+# *.tar.gz
+
+# -----------------------------------------------------------------------------
+# Project-Specific Exclusions
+# -----------------------------------------------------------------------------
+
+# Compiled binaries
+*.exe
+*.out
+*.app
+*.deb
+*.rpm
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Configuration file backups that might contain sensitive data
+# Uncomment these if you don't want to track certain configs
+# *-backup.json
+# *.conf.bak
+
+# Temporary files created during development
+.temp/
+temp/
+tmp/
+
+# -----------------------------------------------------------------------------
+# Git and Version Control
+# -----------------------------------------------------------------------------
+
+# Git conflict markers
+*.orig
+
+# Patch files
+*.patch
+*.diff
+
+# -----------------------------------------------------------------------------
+# Comments and Documentation
+# -----------------------------------------------------------------------------
+
+# This .gitignore is designed for a personal portfolio repository containing:
+# - Configuration files and dotfiles
+# - Scripts and automation tools  
+# - Creative assets and documentation
+# - Cross-platform compatibility (Linux, macOS, Windows)
+#
+# Modify sections as needed based on project evolution

@@ -5,6 +5,7 @@
 # Finally the script will reboot the system to ensure all changes take effect.
 # I ASSUME THIS SCRIPT IS BEING RUN AS USER WITH SUDO PRIVILEGES. I PRESSUME YOU KNOW WHAT YOUR DOING IF YOU RUN THIS SCRIPT. ALONG EWITH THAT I TAKE NO RESPONSIBILITY FOR ANY DAMAGE OR DATA LOSS THAT MAY OCCUR FROM RUNNING THIS SCRIPT. BACKUP YOUR DATA BEFORE RUNNING THIS SCRIPT.
 # Suggestions can be made to improve this script by opening an issue on my GitHub page: CalebOWolf/wolf-howl/fedora-setup-script
+
 # Start of the script
 echo "Starting Fedora installation and setup script..."
 
@@ -17,18 +18,19 @@ sudo dnf install -y dnf-plugins-core kernel-devel kernel-headers
 # Install essential tools
 echo "Installing essential tools..."
 sudo dnf install -y wget curl git vim gcc make dkms git vim vi bat fzf tmux zsh sed xargs nnn htop nmtui ncdu cmus mc playerctl notify-send xdotool youtube-dl
+
 # Update after enabling RPM Fusion
 echo "Updating The System..."
 sudo dnf update -y
 
 # Install AMD Radeon Drivers
-echo "Swappimg Mesa Drivers"
+echo "Swapping Mesa Drivers"
 sudo dnf swap -y mesa-va-drivers mesa-va-drivers-freeworld
 sudo dnf swap -y mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
 sudo dnf swap -y mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686
 sudo dnf swap -y mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
 
-# Install additional multimedia codecs (optional)
+# Install additional multimedia codecs (RPM Fusion)
 echo "Installing multimedia codecs..."
 sudo dnf install -y gstreamer1-plugins-base gstreamer1-plugins-good-extras gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-plugins-ugly-free gstreamer1-libav lame ffmpeg libdvdcss libdvdread handbrake vlc obs-studio simplescreenrecorder
 
@@ -36,6 +38,11 @@ sudo dnf install -y gstreamer1-plugins-base gstreamer1-plugins-good-extras gstre
 echo "Installing tools for AMD Ryzen optimization..."
 sudo dnf install -y amd-ucode
 sudo dnf install -y tuned cpupower
+echo "Enabling and starting tuned service..."
+sudo systemctl enable tuned
+sudo systemctl start tuned
+echo "Setting tuned profile to 'latency-performance'..."
+sudo tuned-adm profile latency-performance
 
 # Install temperature monitoring tools
 echo "Installing temperature monitoring tools (lm_sensors)..."
@@ -76,7 +83,7 @@ sudo dnf install -y openssh curl xorg-x11-font-utils fontconfig libreoffice lutr
 echo "Installing 32-bit libraries for compatibility..."
 sudo dnf install -y glibc.i686 libstdc++.i686 zlib.i686 libX11.i686 libXext.i686 libXrender.i686 libXrandr.i686 libXcursor.i686 libXfixes.i686 libXi.i686 libXdamage.i686 libXcomposite.i686 libXtst.i686 libSM.i686 libICE.i686 libGL.i686 libGLU.i686 mesa-libGL.i686 mesa-libGLU.i686 libdrm.i686 libdbus-glib-1.i686 alsa-lib.i686 pulseaudio-libs.i686 cups-libs.i686 libvdpau.i686 libva.i686 freetype.i686 fontconfig.i686 freetype-freeworld.i686 fontconfig-freeworld.i686 libpng.i686 libjpeg-turbo.i686
 
-
+# Install Applications via RPM packages
 # Install 1Password from their official website
 echo "Installing 1Password..."
 wget https://downloads.1password.com/linux/rpm/stable/x86_64/1password-latest.rpm -O /tmp/1password.rpm
@@ -91,7 +98,9 @@ sudo dnf install -y /tmp/google-chrome.rpm
 rm -f /tmp/google-chrome.rpm
 
 # FS Voice
+echo "Installing FS Voice..."
 sudo dnf install -y libstdc++.i686 libidn1.34.i686 libidn2.i686 gstreamer1-plugins-bad-free.i686 gstreamer1-plugins-bad-free-extras.i686 gstreamer1-plugins-base.i686 gstreamer1-plugins-good.i686 gstreamer1-plugins-good-extras.i686 gstreamer1-plugins-ugly.i686 gstreamer1-plugins-ugly-free.i686 libuuid.i686 libzip.i686 alsa-plugins-pulseaudio.i686 libidn1.34.i686
+
 # Install Discord from their official website
 #echo "Installing Discord..."
 #wget https://discord.com/api/download?platform=linux&format=rpm -O /tmp/discord.rpm
@@ -112,8 +121,13 @@ flatpak install -y flathub com.discordapp.Discord org.telegram.desktop org.fires
 echo "Performing final system update and cleanup..."
 sudo dnf update -y
 sudo dnf autoremove -y
+sudo flatpak update -y
 
 # Reboot the system
+echo "Fedora installation and setup script completed."
 echo "Installation complete. Rebooting the system..."
 sleep 5
 sudo reboot
+
+# End of the script
+Copyright © 2025 CalebOWolf/Caleb Mignon. All rights reserved.

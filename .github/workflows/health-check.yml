@@ -1,0 +1,148 @@
+name: Repository Health Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0' # Weekly on Sunday
+
+jobs:
+  link-checker:
+    runs-on: ubuntu-latest
+    name: Check documentation links
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Check links in documentation
+      uses: lycheeverse/lychee-action@v1
+      with:
+        args: --verbose --no-progress --exclude-loopback --exclude-private './**/*.md'
+        fail: false # Don't fail the build for broken links, just report them
+        
+    - name: Create link check report
+      if: env.lychee_exit_code != 0
+      run: |
+        echo "Some links may be broken. Check the logs above."
+        echo "This is informational only and won't fail the build."
+
+  markdown-lint:
+    runs-on: ubuntu-latest
+    name: Lint Markdown files
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Lint Markdown files
+      uses: DavidAnson/markdownlint-cli2-action@v16
+      with:
+        globs: '**/*.md'
+        config: |
+          {
+            "line-length": { "line_length": 120 },
+            "no-trailing-punctuation": false,
+            "no-duplicate-heading": false
+          }
+
+  security-scan:
+    runs-on: ubuntu-latest
+    name: Security scan
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+        
+    - name: Upload Trivy scan results
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
+
+  validate-fedora-scripts:
+    runs-on: ubuntu-latest
+    name: Validate Fedora scripts
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Install ShellCheck
+      run: sudo apt-get install -y shellcheck
+      
+    - name: Check shell scripts
+      run: |
+        if find . -name "*.sh" -type f | grep -q .; then
+          find . -name "*.sh" -type f -exec shellcheck {} \;
+        else
+          echo "No shell scripts found to check"
+        fi
+
+  repository-structure:
+    runs-on: ubuntu-latest
+    name: Validate repository structure
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Check required files
+      run: |
+        echo "Checking for required files..."
+        
+        required_files=(
+          "README.md"
+          "LICENSE"
+          "CONTRIBUTING.md"
+          "CODE_OF_CONDUCT.md"
+          "SECURITY.md"
+          "CHANGELOG.md"
+          ".gitignore"
+        )
+        
+        missing_files=()
+        for file in "${required_files[@]}"; do
+          if [[ ! -f "$file" ]]; then
+            missing_files+=("$file")
+          fi
+        done
+        
+        if [[ ${#missing_files[@]} -gt 0 ]]; then
+          echo "❌ Missing required files:"
+          printf '%s\n' "${missing_files[@]}"
+          exit 1
+        else
+          echo "✅ All required files present"
+        fi
+        
+    - name: Check directory READMEs
+      run: |
+        echo "Checking for directory documentation..."
+        
+        directories=("txt" "img" "blog" "txt/fedora")
+        missing_readmes=()
+        
+        for dir in "${directories[@]}"; do
+          if [[ -d "$dir" && ! -f "$dir/README.md" ]]; then
+            missing_readmes+=("$dir/README.md")
+          fi
+        done
+        
+        if [[ ${#missing_readmes[@]} -gt 0 ]]; then
+          echo "❌ Missing directory READMEs:"
+          printf '%s\n' "${missing_readmes[@]}"
+          exit 1
+        else
+          echo "✅ All directory READMEs present"
+        fi

@@ -1,6 +1,18 @@
-MIT License
+# Hybrid License
 
 Copyright (c) 2024 Caleb Wolf
+
+This repository contains different types of content under different licensing terms as outlined below:
+
+## 📝 Code and Scripts (MIT License)
+
+All code files including but not limited to:
+- Shell scripts (*.sh)
+- Configuration files (*.json, *.txt, *.md for documentation)
+- Installation scripts
+- Technical documentation
+
+Are licensed under the **MIT License**:
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +31,43 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## 🎨 Personal Content (CC BY-NC-SA 4.0)
+
+All personal content including but not limited to:
+- Images, artwork, and graphics (img/ directory)
+- Personal photos and brand assets
+- Personal blog content
+- Personal documentation and notes
+- Any content that represents my personal brand or identity
+
+Are licensed under **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**:
+
+You are free to:
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material
+
+Under the following terms:
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made
+- **NonCommercial** — You may not use the material for commercial purposes
+- **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license
+
+For the full CC BY-NC-SA 4.0 license text, see: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+## 📋 License Summary
+
+| Content Type | License | Commercial Use | Attribution Required | Derivative Works |
+|--------------|---------|----------------|---------------------|------------------|
+| Code & Scripts | MIT | ✅ Allowed | ❌ Not Required | ✅ Any License |
+| Personal Content | CC BY-NC-SA 4.0 | ❌ Prohibited | ✅ Required | ⚖️ Same License |
+
+## 🤝 Contact
+
+If you have questions about licensing or need permissions beyond what's granted here, please contact:
+- **Email**: swagcalebwolf@gmail.com
+- **Discord**: calebowolf
+- **Telegram**: CalebMignano
+
+---
+
+*This hybrid approach ensures code remains freely usable for development while protecting personal content and brand identity.*
