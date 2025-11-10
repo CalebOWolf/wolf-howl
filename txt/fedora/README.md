@@ -7,7 +7,8 @@ This directory contains Fedora Linux-specific setup scripts, configuration guide
 ```
 fedora/
 ├── 📋 README.md                 # This documentation file
-├── 🚀 fedora-install-script.sh  # Automated post-installation setup script
+├── 🚀 fedora-install-script.sh  # Automated post-installation setup script (v2.0)
+├── 🔍 validate-script.sh        # Script validation and testing tool
 ├── 📦 rpm-fusion.txt            # RPM Fusion repository setup commands
 └── 📝 notes.txt                 # Personal installation notes and tips
 ```
@@ -15,9 +16,10 @@ fedora/
 ## 🚀 Quick Start
 
 ### **New Fedora Installation**
-1. **Run the install script**: `./fedora-install-script.sh`
-2. **Enable RPM Fusion**: Follow commands in `rpm-fusion.txt`
-3. **Review notes**: Check `notes.txt` for additional tips
+1. **Validate the script**: `./validate-script.sh` *(recommended)*
+2. **Run the install script**: `./fedora-install-script.sh`
+3. **Review the log**: Check generated log file for any issues
+4. **Reboot system**: Ensure all changes take effect
 
 ### **RPM Fusion Setup** *(Fedora 43 Compatible)*
 ```bash
@@ -28,19 +30,43 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 
 ## 📦 File Descriptions
 
-### **`fedora-install-script.sh`** - Automated Setup
-**Purpose**: Streamlines post-installation configuration for new Fedora systems
+### **`fedora-install-script.sh`** - Automated Setup *(Version 2.0)*
+**Purpose**: Comprehensive post-installation configuration for AMD Ryzen + Radeon systems
 
-**Features** *(likely includes)*:
-- Essential package installation
-- Development tools setup
-- System optimization
-- User environment configuration
+**✨ Key Features**:
+- **🛡️ Comprehensive error handling** - Robust error detection and recovery
+- **📊 Detailed logging** - Complete installation log with timestamps
+- **🎯 Modular design** - Organized functions for different installation phases
+- **⚠️ User confirmation** - Interactive prompts before major changes
+- **🔍 Requirement validation** - Pre-flight checks for system compatibility
+- **📈 Progress reporting** - Real-time status updates and final summary
 
-**Usage**:
+**🔧 Installation Components**:
+- **System Updates**: Full system upgrade with kernel headers
+- **RPM Fusion Setup**: Multimedia codecs and proprietary drivers
+- **AMD Optimization**: CPU frequency scaling and GPU driver setup
+- **Development Tools**: Essential packages for coding and system administration
+- **Gaming Support**: Steam, Lutris, 32-bit libraries, and gaming tools
+- **Creative Applications**: OBS, Blender, GIMP, Kdenlive, and more
+- **External Applications**: Chrome, VS Code, 1Password via direct download
+- **Flatpak Applications**: 30+ applications across multiple categories
+
+**🚀 Usage**:
 ```bash
+# Make executable (if needed)
 chmod +x fedora-install-script.sh
+
+# Run with comprehensive error handling
 ./fedora-install-script.sh
+
+# View installation log
+less /tmp/fedora-setup-YYYYMMDD-HHMMSS.log
+```
+
+**🔍 Validation** *(New in v2.0)*:
+```bash
+# Validate script before running
+./validate-script.sh
 ```
 
 ### **`rpm-fusion.txt`** - Repository Configuration  
@@ -58,6 +84,22 @@ chmod +x fedora-install-script.sh
 - Cisco OpenH264 codec enablement
 - Multimedia package installation
 - Firmware package setup
+
+### **`validate-script.sh`** - Script Validation Tool *(New in v2.0)*
+**Purpose**: Validates the main installation script without making system changes
+
+**🔍 Validation Features**:
+- **Syntax checking** - Ensures script has no bash syntax errors
+- **ShellCheck analysis** - Advanced static analysis (if ShellCheck installed)
+- **URL accessibility** - Verifies all download links are working
+- **Permission validation** - Checks script has proper execute permissions
+- **Fedora compatibility** - Confirms running on supported Fedora version
+- **Comprehensive reporting** - Detailed validation summary with recommendations
+
+**Usage**:
+```bash
+./validate-script.sh  # Run all validation checks
+```
 
 ### **`notes.txt`** - Personal Documentation
 **Purpose**: Personal installation notes, troubleshooting tips, and configuration reminders
@@ -105,11 +147,13 @@ Educational value for:
 - sudo/root access for system modifications
 - Basic terminal/command line familiarity
 
-### **Safety Notes**
-- ⚠️ **Review scripts before running** - Understand what will be installed
+### **Safety & Error Handling** *(Enhanced in v2.0)*
+- ⚠️ **Pre-flight validation** - Automatic system requirement checks
+- 🛡️ **Graceful error recovery** - Script continues despite minor failures
+- 📝 **Comprehensive logging** - Detailed logs for troubleshooting
 - 🔄 **Backup important data** - Before major system changes
-- 🧪 **Test on VM first** - If unsure about compatibility
-- 📋 **Read through notes** - Personal tips might save time
+- 🧪 **Test validation first** - Run `validate-script.sh` before installation
+- 📋 **Interactive confirmations** - User approval before major changes
 
 ## 🌟 Benefits
 
