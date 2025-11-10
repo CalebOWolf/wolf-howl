@@ -16,7 +16,8 @@ readonly BLUE='\033[0;34m'
 readonly NC='\033[0m'
 
 # Script location
-readonly MAIN_SCRIPT="$(dirname "$0")/fedora-install-script.sh"
+MAIN_SCRIPT="$(dirname "$0")/fedora-install-script.sh"
+readonly MAIN_SCRIPT
 
 # Validation functions
 validate_syntax() {
