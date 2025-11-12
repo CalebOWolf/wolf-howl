@@ -1,7 +1,7 @@
 # 🐺 Wolf Howl
 
 [![License](https://img.shields.io/github/license/calebowolf/wolf-howl?logo=github&logoColor=646464&label=License&labelColor=202020&color=202020)](LICENSE)
-[![Commits](https://img.shields.io/github/commit-activity/t/calebowolf/wolf-howl?logo=github&logoColor=646464&label=GitHub%20Commits&labelColor=202020&color=000000)](https://github.com/CalebOWolf/wolf-howl/commits)
+[![Commits](https://img.shields.io/github/commit-activity/t/calebowolf/wolf-howl?logo=github&logoColor=646464&label=GitHub%20Commits&labelColor=202020&color=000000)](https://github.com/CalebOWolf/wolf-howl/commits/main)
 [![Discord](https://img.shields.io/badge/calebowolf-discord?style=flat&logo=discord&label=Discord&labelColor=000000&color=00ff7f)](https://discord.com/users/202196441593020416)
 
 > *Welcome to my digital portfolio and resource collection* 🚀
@@ -55,30 +55,30 @@ wolf-howl/
 
 ### **Main Desktop** *(Last Updated: October 2025)*
 
-| Component | Specification |
-|-----------|--------------|
-| **Processor** | AMD Ryzen 7 5700X |
-| **Graphics** | ASUS ROG Strix RX 6600 XT |
-| **Memory** | 48GB DDR4 Corsair Vengeance RGB Pro (3200MHz) |
-| **Storage** | 1TB Samsung 990 Pro NVMe |
-| | 512GB WD Black SSD |
-| | 512GB TForce SSD |
-| **Cooling** | NZXT Kraken 240mm AIO |
-| **Power** | 750W NZXT PSU |
-| **Case** | Fractal Design North |
-| **OS** | Fedora Linux (Latest) |
+| Component      | Specification                        |
+|----------------|-------------------------------------|
+| **Processor**  | AMD Ryzen 7 5700X                   |
+| **Graphics**   | ASUS ROG Strix RX 6600 XT           |
+| **Memory**     | 48GB DDR4 Corsair Vengeance RGB Pro (3200MHz) |
+| **Storage**    | 1TB Samsung 990 Pro NVMe            |
+|                | 512GB WD Black SSD                  |
+|                | 512GB TForce SSD                    |
+| **Cooling**    | NZXT Kraken 240mm AIO               |
+| **Power**      | 750W NZXT PSU                       |
+| **Case**       | Fractal Design North                |
+| **OS**         | Fedora Linux (Latest)               |
 
 ### **Peripherals & Workspace**
 
-| Category | Device |
-|----------|---------|
-| **Input** | Keychron V1 (Chosfox x Kailh Arctic Fox switches) |
-| | Razer Basilisk V3 → Logitech MX Master 4 |
-| **Audio** | SteelSeries Arctis 7P+ |
-| **Display** | KTC H27S17 (Primary) |
-| | Dell P2219H 22" (Secondary) |
-| **Workspace** | LTT Northern Lights Desk Mat |
-| **Network** | Google Fiber |
+| Category         | Device                                                |
+|------------------|------------------------------------------------------|
+| **Input**        | Keychron V1 (Chosfox x Kailh Arctic Fox switches)    |
+|                  | Razer Basilisk V3 → Logitech MX Master 4             |
+| **Audio**        | SteelSeries Arctis 7P+                               |
+| **Display**      | KTC H27S17 (Primary)                                 |
+|                  | Dell P2219H 22" (Secondary)                          |
+| **Workspace**    | LTT Northern Lights Desk Mat                         |
+| **Network**      | Google Fiber                                         |
 
 ### 🔮 **Future Upgrades**
 *Planning next-generation build - details coming soon!*
@@ -108,6 +108,8 @@ I value clear, efficient communication and appreciate when people:
 - 🤔 **[Avoid "Can I ask a question?"](https://dontasktoask.com/)** - Just ask your question directly  
 - 🎯 **[Prevent XY Problems](https://xyproblem.info/)** - Explain your end goal, not just immediate issues
 - ✅ **Be specific and honest** - Clear communication saves everyone time and leads to better solutions
+- 🌟 **Let the vibe flow** – If I'm especially excited or enthusiastic, please don't discourage my energy! Let me express it; positive momentum is important to me.
+- 🦊 **Connect on my terms** – If you want to collaborate, DM, or otherwise engage, please respect that it needs to be initiated or accepted by me for now.
 
 ### 🤝 **Interaction Preferences**
 - **Professional discussions** about technology, development, and learning are always welcome
