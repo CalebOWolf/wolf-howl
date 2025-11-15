@@ -1,0 +1,67 @@
+MIT License
+
+Copyright (c) 2025 CalebOWolf
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+ADDITIONAL DISCLAIMERS FOR SYSTEM MODIFICATION SCRIPTS:
+
+This software performs automated system modifications including but not limited to:
+- Package installation and removal
+- System configuration changes
+- Service modifications
+- File system operations
+- Network configuration
+- User permission changes
+
+RISKS AND RESPONSIBILITIES:
+
+1. DATA LOSS: This script may cause data loss, system corruption, or 
+   make your system unbootable. Always backup important data first.
+
+2. HARDWARE COMPATIBILITY: While designed for specific hardware (AMD Ryzen 5700X 
+   and RX 6600 XT), hardware compatibility is not guaranteed.
+
+3. SOFTWARE CONFLICTS: Installing packages and changing configurations may 
+   conflict with existing software or future updates.
+
+4. SECURITY: Installing software from third-party repositories (AUR) and 
+   Flatpak may introduce security risks.
+
+5. SYSTEM STABILITY: Automated system changes may affect system stability 
+   and performance.
+
+USER RESPONSIBILITIES:
+
+- Test the script in a virtual machine or non-production environment first
+- Ensure you have current backups of all important data
+- Understand what the script does before running it
+- Accept full responsibility for any consequences
+- Do not run this script on critical or production systems without thorough testing
+
+SUPPORT AND MAINTENANCE:
+
+- This is free, open-source software provided without warranty
+- No technical support, maintenance, or updates are guaranteed
+- Users are encouraged to contribute improvements via GitHub
+- Bug reports and feature requests may be submitted but are not guaranteed to be addressed
+
+By using this software, you acknowledge that you have read, understood, and 
+agreed to these terms and take full responsibility for any consequences of 
+using this software.
