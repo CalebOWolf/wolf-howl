@@ -203,7 +203,7 @@ setup_rpm_fusion() {
     local nonfree_repo="https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${fedora_version}.noarch.rpm"
     
     execute_command "sudo dnf install -y $free_repo $nonfree_repo" "Installing RPM Fusion repositories"
-    execute_command "sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1" "Enabling Cisco OpenH264"
+    execute_command "sudo dnf config-manager --set-enabled fedora-cisco-openh264" "Enabling Cisco OpenH264"
     execute_command "sudo dnf update -y @core" "Updating core packages"
 }
 
@@ -295,9 +295,13 @@ install_rgb_control() {
     info "Installing RGB control software..."
     
     local openrgb_url="https://openrgb.org/releases/openrgb-0.7-linux-x86_64.rpm"
-    execute_command "sudo dnf install -y $openrgb_url" "Installing OpenRGB" true
     
-    if [[ $? -ne 0 ]]; then
+    info "Installing OpenRGB..."
+    log "Executing: sudo dnf install -y $openrgb_url"
+    
+    if sudo dnf install -y "$openrgb_url" >> "$LOG_FILE" 2>&1; then
+        success "Installing OpenRGB completed successfully"
+    else
         warning "OpenRGB installation failed. You may need to install it manually from https://openrgb.org/"
     fi
 }
