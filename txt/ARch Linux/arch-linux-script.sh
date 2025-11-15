@@ -388,6 +388,14 @@ install_1password() {
         return 0
     fi
     
+    # Import 1Password signing key for package verification
+    log_info "Importing 1Password signing key..."
+    if curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --import; then
+        log_success "1Password signing key imported successfully"
+    else
+        log_warning "Failed to import 1Password signing key; continuing, but package verification may fail."
+    fi
+
     # Try the official AUR package first (maintained by 1Password team)
     log_info "Installing 1Password from AUR (official package)..."
     if aura -A --noconfirm 1password; then
@@ -459,7 +467,6 @@ install_aur_packages() {
         "google-chrome"
         "visual-studio-code-bin"
         "openrgb"
-        "gale-git"
     )
     
     for package in "${aur_packages[@]}"; do
@@ -568,12 +575,13 @@ setup_flatpak() {
     )
     
     # Install Flatpak applications with error handling
+    # Use timeout to avoid getting stuck indefinitely on network/key issues
     for app in "${flatpak_apps[@]}"; do
         log_info "Installing Flatpak: $app"
-        if flatpak install -y flathub "$app" 2>/dev/null; then
+        if timeout 300 flatpak install -y --noninteractive flathub "$app" 2>/dev/null; then
             log_success "Successfully installed: $app"
         else
-            log_warning "Failed to install: $app (may not be available or already installed)"
+            log_warning "Failed or timed out installing: $app (may not be available, already installed, or network is slow)"
         fi
     done
     
@@ -613,7 +621,7 @@ EOF
     # Configure Flatpak permissions for better system integration
     log_info "Setting up Telegram Flatpak permissions for system integration..."
     
-    # Override permissions for optimal integration
+    # Override permissions for optimal integration (log a warning instead of appearing to hang)
     flatpak override --user \
         --socket=wayland \
         --socket=x11 \
@@ -630,9 +638,9 @@ EOF
         --talk-name=org.kde.StatusNotifierItem \
         --talk-name=org.freedesktop.portal.Desktop \
         --talk-name=org.freedesktop.portal.FileChooser \
-        --talk-name=org.freedesktop.portal.Notification \
-        --own-name=org.mpris.MediaPlayer2.telegram \
-        org.telegram.desktop
+    --talk-name=org.freedesktop.portal.Notification \
+    --own-name=org.mpris.MediaPlayer2.telegram \
+    org.telegram.desktop || log_warning "Telegram Flatpak override failed; you can adjust permissions later with Flatseal or flatpak override."
     
     # Set up system tray and notification integration
     log_info "Configuring system tray and notification integration..."
@@ -782,12 +790,12 @@ EOF
     # Configure Flatpak Discord for better integration
     log_info "Configuring Flatpak Discord permissions for optimal performance..."
     
-    # Grant necessary permissions for screensharing and updates
-    flatpak permission-set webkitgtk com.discordapp.Discord webkit:enable-webgl yes 2>/dev/null || true
-    flatpak permission-set portals.desktop com.discordapp.Discord screenshot yes 2>/dev/null || true
-    flatpak permission-set portals.desktop com.discordapp.Discord screencast yes 2>/dev/null || true
+    # Grant necessary permissions for screensharing and updates; if they fail, log a warning and continue
+    flatpak permission-set webkitgtk com.discordapp.Discord webkit:enable-webgl yes 2>/dev/null || log_warning "Failed to set Discord WebGL permission; continuing."
+    flatpak permission-set portals.desktop com.discordapp.Discord screenshot yes 2>/dev/null || log_warning "Failed to set Discord screenshot permission; continuing."
+    flatpak permission-set portals.desktop com.discordapp.Discord screencast yes 2>/dev/null || log_warning "Failed to set Discord screencast permission; continuing."
     
-    # Override Flatpak permissions for better functionality including rich presence
+    # Override Flatpak permissions for better functionality including rich presence; log issues instead of appearing to hang
     flatpak override --user \
         --socket=wayland \
         --socket=pulseaudio \
@@ -801,9 +809,9 @@ EOF
         --talk-name=org.freedesktop.Notifications \
         --talk-name=org.kde.StatusNotifierItem \
         --talk-name=org.freedesktop.portal.Desktop \
-        --own-name=org.discord.Discord \
-        --own-name=com.discordapp.Discord \
-        com.discordapp.Discord
+    --own-name=org.discord.Discord \
+    --own-name=com.discordapp.Discord \
+    com.discordapp.Discord || log_warning "Discord Flatpak override failed; you can adjust permissions later with Flatseal or flatpak override."
     
     # Create update script for Discord
     mkdir -p "$HOME/.local/bin"
@@ -890,8 +898,12 @@ RestartSec=5
 WantedBy=graphical-session.target
 EOF
 
-    # Enable the service
-    systemctl --user enable discord-rpc.service 2>/dev/null || true
+    # Enable the service if user systemd is available
+    if systemctl --user show-environment &>/dev/null; then
+        systemctl --user enable discord-rpc.service 2>/dev/null || log_warning "Failed to enable discord-rpc user service; you can enable it manually later."
+    else
+        log_warning "User systemd not available; skipping discord-rpc user service enable."
+    fi
     
     # Create Discord activity monitor script
     cat > "$HOME/.local/bin/discord-activity" << 'EOF'
@@ -997,11 +1009,62 @@ WantedBy=timers.target
 EOF
 
     # Enable the timer (user can disable if they don't want auto-updates)
-    systemctl --user enable discord-update.timer 2>/dev/null || true
+    if systemctl --user show-environment &>/dev/null; then
+        systemctl --user enable discord-update.timer 2>/dev/null || log_warning "Failed to enable discord-update timer; you can enable it manually later."
+    else
+        log_warning "User systemd not available; skipping discord-update.timer enable."
+    fi
     
     log_success "Discord configuration completed"
     log_info "Discord Flatpak will auto-update and support screensharing"
     log_info "Manual update: run 'update-discord' or 'flatpak update com.discordapp.Discord'"
+}
+
+# Configure Telegram auto-update via Flatpak (optional, similar to Discord)
+configure_telegram_updates() {
+    log_info "Configuring Telegram Flatpak auto-update (optional)..."
+
+    # Ensure Telegram Flatpak is installed
+    if ! flatpak list | grep -q "org.telegram.desktop"; then
+        log_warning "Telegram Flatpak not found; skipping Telegram auto-update configuration."
+        return 0
+    fi
+
+    mkdir -p "$HOME/.config/systemd/user"
+
+    cat > "$HOME/.config/systemd/user/telegram-update.service" << 'EOF'
+[Unit]
+Description=Update Telegram Flatpak
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flatpak update --noninteractive org.telegram.desktop
+EOF
+
+    cat > "$HOME/.config/systemd/user/telegram-update.timer" << 'EOF'
+[Unit]
+Description=Update Telegram daily
+Requires=telegram-update.service
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+EOF
+
+    # Enable the timer (user can disable if they don't want auto-updates)
+    if systemctl --user show-environment &>/dev/null; then
+        systemctl --user enable telegram-update.timer 2>/dev/null || log_warning "Failed to enable telegram-update timer; you can enable it manually later."
+    else
+        log_warning "User systemd not available; skipping telegram-update.timer enable."
+    fi
+
+    log_success "Telegram auto-update configuration completed (via Flatpak)"
+    log_info "Manual update: run 'flatpak update org.telegram.desktop'"
 }
 
 # Configure system services
@@ -1020,9 +1083,13 @@ configure_services() {
     sudo systemctl start tuned.service
     sudo tuned-adm profile desktop
     
-    # Enable and start xdg-desktop-portal for screensharing
-    systemctl --user enable xdg-desktop-portal.service
-    systemctl --user enable xdg-desktop-portal-wlr.service
+    # Enable and start xdg-desktop-portal for screensharing (only if user systemd is available)
+    if systemctl --user show-environment &>/dev/null; then
+        systemctl --user enable xdg-desktop-portal.service 2>/dev/null || log_warning "Failed to enable xdg-desktop-portal user service; you may need to enable it manually."
+        systemctl --user enable xdg-desktop-portal-wlr.service 2>/dev/null || log_warning "Failed to enable xdg-desktop-portal-wlr user service; you may need to enable it manually."
+    else
+        log_warning "User systemd is not available in this session; skipping xdg-desktop-portal user service configuration."
+    fi
     
     log_success "System services configured"
 }
@@ -1082,6 +1149,7 @@ main() {
     configure_services
     configure_discord
     configure_telegram
+    configure_telegram_updates
     
     echo
     log_success "Installation completed successfully!"
@@ -1110,7 +1178,7 @@ main() {
     log_info "  - Use 'Telegram (System Integrated)' from your application menu"
     log_info "  - Automatically starts in system tray on login (can be disabled)"
     log_info "  - Full system notifications, file handling, and tray integration"
-    log_info "  - Updates: 'flatpak update org.telegram.desktop'"
+    log_info "  - Updates: 'flatpak update org.telegram.desktop' or rely on the optional daily auto-update timer"
     log_info "  - Supports tg:// URLs and native file associations"
     echo
 }
