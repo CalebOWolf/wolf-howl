@@ -1,132 +1,188 @@
 #!/bin/bash
-# Fedora Installation Script for my system of the hardware being an AMD Ryzen 5700X and Nvidia 5060 this will setup the CPU and GPU drivers and optimizations for the system to run the way id like it to run. 
-# Additionally it will install a variety of applications via RPM and Flatpak to get a good base system setup for general use, gaming, and content creation. 
-# If this script is run on a fresh Fedora install it will also update the system and install essential tools. such as rpm fusion and development tools. Among that my script will also install 32-bit libraries for compatibility with games and other applications that may require them.
-# Finally the script will reboot the system to ensure all changes take effect.
-# I ASSUME THIS SCRIPT IS BEING RUN AS USER WITH SUDO PRIVILEGES. I PRESSUME YOU KNOW WHAT YOUR DOING IF YOU RUN THIS SCRIPT. ALONG EWITH THAT I TAKE NO RESPONSIBILITY FOR ANY DAMAGE OR DATA LOSS THAT MAY OCCUR FROM RUNNING THIS SCRIPT. BACKUP YOUR DATA BEFORE RUNNING THIS SCRIPT.
-# Suggestions can be made to improve this script by opening an issue on my GitHub page: CalebOWolf/wolf-howl/fedora-setup-script
+# Fedora Installation Script for AMD Ryzen 5700X and Nvidia 5060
+# This script sets up the system with essential tools, drivers, and applications for general use, gaming, and content creation.
+# Suggestions for improvement can be made on GitHub: CalebOWolf/wolf-howl/fedora-setup-script
+#
+# DISCLAIMER:
+# This script is provided "AS IS" without any warranties or guarantees. The author assumes no responsibility for any data loss, irreversible changes, or damage to your system resulting from the use of this script. Use it at your own risk and ensure you have proper backups before proceeding.
 
-# Start of the script
-echo "Starting Fedora installation and setup script..."
+# Constants
+LOG_FILE="fedora-setup.log"
 
-# Update the system
-echo "Updating the system..."
-sudo dnf update -y
-sudo dnf upgrade -y
-sudo dnf install -y dnf-plugins-core kernel-devel kernel-headers
+# Logging function
+log() {
+    echo "$(date +'%Y-%m-%d %H:%M:%S') - $1" | tee -a "$LOG_FILE"
+}
 
-# Install essential tools
-echo "Installing essential tools..."
-sudo dnf install -y wget curl git vim gcc make dkms git vim vi bat fzf tmux zsh sed xargs nnn htop nmtui ncdu cmus mc playerctl notify-send xdotool youtube-dl
+# Error handling
+handle_error() {
+    log "Error occurred during: $1"
+    exit 1
+}
 
-# Update after enabling RPM Fusion
-echo "Updating The System..."
-sudo dnf update -y
+# Function to update the system
+update_system() {
+    log "Updating the system..."
+    sudo dnf update -y && sudo dnf upgrade -y || handle_error "System update"
+    sudo dnf install -y dnf-plugins-core kernel-devel kernel-headers || handle_error "Installing essential packages"
+}
 
-# Install AMD Radeon Drivers
-echo "Swapping Mesa Drivers"
-sudo dnf swap -y mesa-va-drivers mesa-va-drivers-freeworld
-sudo dnf swap -y mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
-sudo dnf swap -y mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686
-sudo dnf swap -y mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
+# Function to install essential tools
+install_essential_tools() {
+    log "Installing essential tools..."
+    sudo dnf install -y wget curl git vim gcc make dkms bat fzf tmux zsh sed xargs nnn htop nmtui ncdu cmus mc playerctl notify-send xdotool youtube-dl || handle_error "Installing essential tools"
+}
 
-# Install additional multimedia codecs (RPM Fusion)
-echo "Installing multimedia codecs..."
-sudo dnf install -y gstreamer1-plugins-base gstreamer1-plugins-good-extras gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-plugins-ugly-free gstreamer1-libav lame ffmpeg libdvdcss libdvdread handbrake vlc obs-studio simplescreenrecorder
+# Function to enable RPM Fusion
+enable_rpm_fusion() {
+    log "Enabling RPM Fusion..."
+    sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm || handle_error "Enabling RPM Fusion"
+    sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm || handle_error "Enabling RPM Fusion"
+    sudo dnf update -y || handle_error "Updating after enabling RPM Fusion"
+}
 
-# Install tools for AMD Ryzen optimization
-echo "Installing tools for AMD Ryzen optimization..."
-sudo dnf install -y amd-ucode
-sudo dnf install -y tuned cpupower
-echo "Enabling and starting tuned service..."
-sudo systemctl enable tuned
-sudo systemctl start tuned
-echo "Setting tuned profile to 'latency-performance'..."
-sudo tuned-adm profile latency-performance
+# Function to enable RPM Fusion Tainted repository
+enable_rpmfusion_tainted() {
+    log "Enabling RPM Fusion Tainted repository..."
+    sudo dnf install -y rpmfusion-free-release-tainted || handle_error "Enabling RPM Fusion Tainted repository"
+}
 
-# Install temperature monitoring tools
-echo "Installing temperature monitoring tools (lm_sensors)..."
-sudo dnf install -y lm_sensors
-echo "Detecting sensors (you may need to run 'sudo sensors-detect' interactively after install)..."
-# Optionally, uncomment the next line to run sensors-detect automatically (may require user input):
-# sudo sensors-detect --auto
+# Function to install RPM Fusion AppStream metadata
+install_rpmfusion_appstream_data() {
+    log "Installing RPM Fusion AppStream metadata..."
+    sudo dnf install -y rpmfusion-*-appstream-data || handle_error "Installing RPM Fusion AppStream metadata"
+}
 
-# Set CPU frequency scaling for Ryzen 5700X
-echo "Setting CPU frequency scaling for Ryzen 5700X..."
-# Set governor to performance and min/max frequency to safe values (adjust as needed)
-sudo cpupower frequency-set -g performance
-# Optionally, set min/max frequency (example: 3.4GHz min, 4.6GHz max for 5700X)
-sudo cpupower frequency-set -d 3.4GHz -u 4.6GHz
-echo "CPU frequency scaling set. You can check with: cpupower frequency-info"
+# Function to enable Cisco OpenH264 repository
+enable_cisco_openh264() {
+    log "Enabling Cisco OpenH264 repository..."
+    sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1 || handle_error "Enabling Cisco OpenH264 repository"
+}
 
-# Install OpenRGB for RGB control
-echo "Installing OpenRGB..."
-sudo dnf install -y https://openrgb.org/releases/openrgb-0.7-linux-x86_64.rpm
-# Note: You may need to adjust the above command based on the actual installation instructions for OpenRGB.
+# Function to install AMD Radeon drivers
+install_amd_drivers() {
+    log "Installing AMD Radeon drivers..."
+    sudo dnf swap -y mesa-va-drivers mesa-va-drivers-freeworld || handle_error "Swapping mesa-va-drivers"
+    sudo dnf swap -y mesa-vdpau-drivers mesa-vdpau-drivers-freeworld || handle_error "Swapping mesa-vdpau-drivers"
+}
 
-# Setup Flatpak
-echo "Setting up Flatpak..."
-sudo dnf install -y flatpak
+# Function to swap ffmpeg-free with ffmpeg
+swap_ffmpeg() {
+    log "Swapping ffmpeg-free with ffmpeg..."
+    sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing || handle_error "Swapping ffmpeg-free with ffmpeg"
+}
 
-# Add Flathub repository
-echo "Adding Flathub repository..."
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# Function to swap 32-bit mesa drivers
+swap_32bit_mesa_drivers() {
+    log "Swapping 32-bit mesa drivers..."
+    sudo dnf swap -y mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686 || handle_error "Swapping mesa-va-drivers.i686"
+    sudo dnf swap -y mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686 || handle_error "Swapping mesa-vdpau-drivers.i686"
+}
 
-# Update Flatpak
-flatpak update -y
+# Function to update multimedia packages
+update_multimedia_packages() {
+    log "Updating multimedia packages..."
+    sudo dnf update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin || handle_error "Updating multimedia packages"
+}
 
-# Install additional RPM applications
-echo "Installing additional RPM applications..."
-sudo dnf install -y openssh curl xorg-x11-font-utils fontconfig libreoffice lutris krita blender pavucontrol-qt bleachbit gparted steam hyfetch gimp obs-studio kdenlive vlc audacity simplescreenrecorder handbrake ffmpeg lm_sensors htop
+# Function to install multimedia codecs
+install_multimedia_codecs() {
+    log "Installing multimedia codecs..."
+    sudo dnf install -y gstreamer1-plugins-base gstreamer1-plugins-good-extras gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-libav lame ffmpeg libdvdcss vlc || handle_error "Installing multimedia codecs"
+}
 
-# Install 32-bit libraries for compatibility
-echo "Installing 32-bit libraries for compatibility..."
-sudo dnf install -y glibc.i686 libstdc++.i686 zlib.i686 libX11.i686 libXext.i686 libXrender.i686 libXrandr.i686 libXcursor.i686 libXfixes.i686 libXi.i686 libXdamage.i686 libXcomposite.i686 libXtst.i686 libSM.i686 libICE.i686 libGL.i686 libGLU.i686 mesa-libGL.i686 mesa-libGLU.i686 libdrm.i686 libdbus-glib-1.i686 alsa-lib.i686 pulseaudio-libs.i686 cups-libs.i686 libvdpau.i686 libva.i686 freetype.i686 fontconfig.i686 freetype-freeworld.i686 fontconfig-freeworld.i686 libpng.i686 libjpeg-turbo.i686
+# Function to install libdvdcss
+install_libdvdcss() {
+    log "Installing libdvdcss..."
+    sudo dnf install -y libdvdcss || handle_error "Installing libdvdcss"
+}
 
-# Install Applications via RPM packages
-# Install 1Password from their official website
-echo "Installing 1Password..."
-wget https://downloads.1password.com/linux/rpm/stable/x86_64/1password-latest.rpm -O /tmp/1password.rpm
-sudo dnf install -y /tmp/1password.rpm
-rm -f /tmp/1password.rpm
+# Function to install various firmwares
+install_firmwares() {
+    log "Enabling RPM Fusion Nonfree Tainted repository..."
+    sudo dnf install -y rpmfusion-nonfree-release-tainted || handle_error "Enabling RPM Fusion Nonfree Tainted repository"
 
-# Install Google Chrome
-echo "Downloading Google Chrome RPM package..."
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm -O /tmp/google-chrome.rpm
-echo "Installing Google Chrome..."
-sudo dnf install -y /tmp/google-chrome.rpm
-rm -f /tmp/google-chrome.rpm
+    log "Installing various firmwares..."
+    sudo dnf --repo=rpmfusion-nonfree-tainted install -y "*-firmware" || handle_error "Installing various firmwares"
+}
 
-# FS Voice
-echo "Installing FS Voice..."
-sudo dnf install -y libstdc++.i686 libidn1.34.i686 libidn2.i686 gstreamer1-plugins-bad-free.i686 gstreamer1-plugins-bad-free-extras.i686 gstreamer1-plugins-base.i686 gstreamer1-plugins-good.i686 gstreamer1-plugins-good-extras.i686 gstreamer1-plugins-ugly.i686 gstreamer1-plugins-ugly-free.i686 libuuid.i686 libzip.i686 alsa-plugins-pulseaudio.i686 libidn1.34.i686
+# Function to optimize AMD Ryzen
+optimize_amd_ryzen() {
+    log "Optimizing AMD Ryzen..."
+    sudo dnf install -y amd-ucode tuned cpupower || handle_error "Installing AMD Ryzen tools"
+    sudo systemctl enable tuned || handle_error "Enabling tuned service"
+    sudo systemctl start tuned || handle_error "Starting tuned service"
+    sudo tuned-adm profile latency-performance || handle_error "Setting tuned profile"
+    sudo cpupower frequency-set -g performance || handle_error "Setting CPU governor"
+}
 
-# Install Discord from their official website
-#echo "Installing Discord..."
-#wget https://discord.com/api/download?platform=linux&format=rpm -O /tmp/discord.rpm
-#sudo dnf install -y /tmp/discord.rpm
-#rm -f /tmp/discord.rpm
+# Function to install Flatpak and applications
+setup_flatpak() {
+    log "Setting up Flatpak..."
+    sudo dnf install -y flatpak || handle_error "Installing Flatpak"
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || handle_error "Adding Flathub repository"
+    flatpak update -y || handle_error "Updating Flatpak"
+}
 
-# Install Visual Studio Code
-echo "Installing VSCode..."
-wget https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64 -O /tmp/vscode.rpm
-sudo dnf install -y /tmp/vscode.rpm
-rm -f /tmp/vscode.rpm
+# Function to install additional applications
+install_additional_apps() {
+    log "Installing additional applications..."
+    sudo dnf install -y libreoffice lutris krita blender steam gimp obs-studio kdenlive vlc audacity || handle_error "Installing additional applications"
+}
 
-# Install Flatpak applications
-echo "Installing Flatpak applications..."
-flatpak install -y flathub com.discordapp.Discord org.telegram.desktop org.firestormviewer.FirestormViewer org.prismlauncher.PrismLauncher io.github.shiftey.Desktop io.mgba.mGBA sh.ppy.osu org.ppsspp.PPSSPP com.vysp3r.ProtonPlus net.davidotek.pupgui2 net.rpcs3.RPCS3 app.twintaillauncher.ttl com.github.joseexposito.touche org.nickvision.tubeconverter org.qbittorrent.qBittorrent org.remmina.Remmina com.transmissionbt.Transmission com.github.unrud.VideoDownloader io.github.wivrn.wivrn org.audacityteam.Audacity com.rafaelmardojai.Blanket io.github.celluloid_player.Celluloid com.obsproject.Studio fr.handbrake.ghb org.kde.kdenlive de.haeckerfelix.Shortwave io.github.arunsivaramanneo.GPUViewer io.gitlab.adhami3310.Impression io.github.ilya_zlobintsev.LACT com.usebottles.bottles com.github.tchx84.Flatseal it.mijorus.gearlever org.keepassxc.KeePassXC org.localsend.localsend_app org.x.Warpinator io.github.fastrizwaan.WineZGUI
+# Function to install 32-bit libraries
+install_32bit_libraries() {
+    log "Installing 32-bit libraries..."
+    sudo dnf install -y glibc.i686 libstdc++.i686 zlib.i686 libX11.i686 libXext.i686 || handle_error "Installing 32-bit libraries"
+}
 
-echo "Performing final system update and cleanup..."
-sudo dnf update -y
-sudo dnf autoremove -y
-sudo flatpak update -y
+# Function to install specific RPM packages
+install_rpm_packages() {
+    log "Installing specific RPM packages..."
+    wget https://downloads.1password.com/linux/rpm/stable/x86_64/1password-latest.rpm -O /tmp/1password.rpm || handle_error "Downloading 1Password"
+    sudo dnf install -y /tmp/1password.rpm || handle_error "Installing 1Password"
+    rm -f /tmp/1password.rpm
+}
 
-# Reboot the system
-echo "Fedora installation and setup script completed."
-echo "Installation complete. Rebooting the system..."
-sleep 5
-sudo reboot
+# Function to perform final cleanup
+final_cleanup() {
+    log "Performing final system update and cleanup..."
+    sudo dnf update -y || handle_error "Final system update"
+    sudo dnf autoremove -y || handle_error "Autoremove unused packages"
+    sudo flatpak update -y || handle_error "Updating Flatpak applications"
+}
+
+# Main script execution
+log "Starting Fedora installation and setup script..."
+update_system
+install_essential_tools
+enable_rpm_fusion
+enable_rpmfusion_tainted
+install_rpmfusion_appstream_data
+enable_cisco_openh264
+install_amd_drivers
+swap_ffmpeg
+swap_32bit_mesa_drivers
+update_multimedia_packages
+install_multimedia_codecs
+install_libdvdcss
+install_firmwares
+optimize_amd_ryzen
+setup_flatpak
+install_additional_apps
+install_32bit_libraries
+install_rpm_packages
+final_cleanup
+
+log "Fedora installation and setup script completed."
+read -p "Installation complete. Reboot the system now? (y/n): " confirm
+if [[ "$confirm" =~ ^[Yy]$ ]]; then
+    log "Rebooting the system..."
+    sleep 5
+    sudo reboot
+else
+    log "Reboot skipped. Please reboot manually to apply changes."
+fi
 
 # End of the script
 Copyright © 2025 CalebOWolf/Caleb Mignon. All rights reserved.
