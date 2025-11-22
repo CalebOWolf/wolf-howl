@@ -136,9 +136,20 @@ install_32bit_libraries() {
     sudo dnf install -y glibc.i686 libstdc++.i686 zlib.i686 libX11.i686 libXext.i686 || handle_error "Installing 32-bit libraries"
 }
 
+# Function to install Visual Studio Code (VS Code) from RPM
+install_vscode_rpm() {
+    log "Installing Visual Studio Code (VS Code)..."
+    # Import the Microsoft GPG key and create the repo file using dnf config-manager
+    # dnf config-manager handles key import automatically when adding the repo URL
+    sudo dnf config-manager --add-repo https://vscode.download.prss.microsoft.com/dbazure/microsoft-vscode.repo || handle_error "Adding VS Code repository"
+    sudo dnf install -y code || handle_error "Installing Visual Studio Code"
+}
+
 # Function to install specific RPM packages
 install_rpm_packages() {
     log "Installing specific RPM packages..."
+    install_vscode_rpm # Install VS Code
+
     wget https://downloads.1password.com/linux/rpm/stable/x86_64/1password-latest.rpm -O /tmp/1password.rpm || handle_error "Downloading 1Password"
     sudo dnf install -y /tmp/1password.rpm || handle_error "Installing 1Password"
     rm -f /tmp/1password.rpm
@@ -185,4 +196,4 @@ else
 fi
 
 # End of the script
-Copyright © 2025 CalebOWolf/Caleb Mignon. All rights reserved.
+Copyright © 2025 CalebOWolf/Caleb Mignano. All rights reserved.
