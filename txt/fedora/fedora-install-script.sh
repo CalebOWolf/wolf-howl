@@ -169,12 +169,6 @@ install_additional_apps() {
 install_gaming_tools() {
     log "Installing gaming performance tools and dependencies..."
     sudo dnf install -y gamemode gamemode-devel gamescope mangohud goverlay protontricks wine winetricks steam-devices vulkan-loader vulkan-loader.i686 mesa-vulkan-drivers mesa-vulkan-drivers.i686 || handle_error "Installing gaming performance tools"
-
-    log "Enabling gamemoded service..."
-    sudo systemctl enable --now gamemoded || handle_error "Enabling gamemoded service"
-
-    log "Installing Flatpak gaming utilities (Heroic, Bottles, ProtonUp-Qt)..."
-    flatpak install -y --noninteractive flathub com.heroicgameslauncher.hgl com.usebottles.bottles net.davidotek.pupgui2 || handle_error "Installing Flatpak gaming utilities"
 }
 
 # Function to install 32-bit libraries
