@@ -171,12 +171,6 @@ install_gaming_tools() {
     sudo dnf install -y gamemode gamemode-devel gamescope mangohud goverlay protontricks wine winetricks steam-devices vulkan-loader vulkan-loader.i686 mesa-vulkan-drivers mesa-vulkan-drivers.i686 || handle_error "Installing gaming performance tools"
 }
 
-# Function to install 32-bit libraries
-install_32bit_libraries() {
-    log "Installing 32-bit libraries..."
-    sudo dnf install -y glibc.i686 libstdc++.i686 zlib.i686 libX11.i686 libXext.i686 || handle_error "Installing 32-bit libraries"
-}
-
 # Function to install specific RPM packages
 install_rpm_packages() {
     log "Installing specific RPM packages..."
@@ -244,7 +238,6 @@ optimize_amd_ryzen
 setup_flatpak
 install_additional_apps
 install_gaming_tools
-install_32bit_libraries
 install_rpm_packages
 final_cleanup
 
