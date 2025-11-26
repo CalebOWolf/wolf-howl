@@ -44,8 +44,8 @@ preflight_checks() {
     fi
 
     # Ensure at least ~2GB free in / (rough check)
-    local avail_kb
-    avail_kb=$(df --output=avail / | tail -n1)
+    #!/bin/bash
+    # Fedora Installation Script for AMD Ryzen 5600X and AMD Radeon RX 6600 XT
     if [[ "$avail_kb" -lt 2000000 ]]; then
         handle_error "Insufficient disk space on / (need at least 2GB free)"
     fi
@@ -84,6 +84,16 @@ install_essential_tools() {
 # Function to enable RPM Fusion
 enable_rpm_fusion() {
     log "Enabling RPM Fusion..."
+        # Detect CPU and GPU for informational purposes
+        local cpu_model gpu_info
+        cpu_model=$(grep -m1 'model name' /proc/cpuinfo | cut -d: -f2 | xargs || echo "Unknown CPU")
+        gpu_info=$(lspci | grep -iE 'vga|3d|display' | xargs || echo "Unknown GPU")
+        log "Detected CPU:${cpu_model}"
+        log "Detected GPU(s): ${gpu_info}"
+
+        if echo "$gpu_info" | grep -qi 'nvidia'; then
+            log "Warning: Nvidia GPU detected. This script focuses on AMD GPU optimizations; proceed with caution."
+        fi
     sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm || handle_error "Enabling RPM Fusion"
     sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm || handle_error "Enabling RPM Fusion"
     sudo dnf update -y || handle_error "Updating after enabling RPM Fusion"
