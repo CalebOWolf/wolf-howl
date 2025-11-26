@@ -202,7 +202,7 @@ install_ms_sans_serif_fonts() {
 # Function to install fonts and emoji support
 install_fonts_and_emoji() {
     log "Installing fonts and emoji packages..."
-    sudo dnf install -y google-noto-fonts google-noto-sans-cjk-ttc-fonts google-noto-serif-cjk-ttc-fonts jetbrains-mono-fonts fira-code-fonts ibm-plex-mono-fonts dejavu-sans-mono-fonts adobe-source-code-pro-fonts mozilla-fira-sans-fonts google-noto-emoji-color-fonts mozilla-twemoji-colr-fonts cabextract msttcore-fonts-installer || handle_error "Installing font and emoji packages"
+    sudo dnf install -y google-noto-fonts google-noto-sans-cjk-ttc-fonts google-noto-serif-cjk-ttc-fonts jetbrains-mono-fonts fira-code-fonts ibm-plex-mono-fonts dejavu-sans-mono-fonts adobe-source-code-pro-fonts mozilla-fira-sans-fonts google-noto-emoji-color-fonts mozilla-twemoji-colr-fonts cabextract || handle_error "Installing font and emoji packages"
 
     if command -v fc-cache >/dev/null 2>&1; then
         log "Refreshing font cache..."
@@ -210,7 +210,50 @@ install_fonts_and_emoji() {
         fc-cache -f || log "Warning: failed to refresh user font cache"
     fi
 
-    install_ms_sans_serif_fonts
+    # Microsoft fonts section (user-supplied TrueType/OpenType)
+    install_ms_fonts
+}
+
+# Install Microsoft fonts (user-supplied TTF/OTF)
+install_ms_fonts() {
+    log "Installing Microsoft fonts from user-supplied TTF/OTF files..."
+    install_user_ms_fonts
+}
+
+# Install user-supplied Microsoft fonts from common home directories
+install_user_ms_fonts() {
+    log "Checking for user-supplied Microsoft fonts in home directory..."
+    local dest_dir="$HOME/.local/share/fonts/MSUser"
+    mkdir -p "$dest_dir"
+
+    # Candidate folders where the user might drop font files
+    shopt -s nullglob
+    local candidates=(
+        "$HOME/MSFonts"        
+        "$HOME/Fonts/MS"       
+        "$HOME/Fonts/Microsoft"
+        "$HOME/Downloads/MSFonts"
+    )
+    shopt -u nullglob
+
+    local copied=0
+    for dir in "${candidates[@]}"; do
+        if [ -d "$dir" ]; then
+            log "Scanning $dir for .ttf/.otf files..."
+            while IFS= read -r -d '' font_file; do
+                cp -f "$font_file" "$dest_dir/" && copied=$((copied+1))
+            done < <(find "$dir" -maxdepth 2 -type f \( -iname "*.ttf" -o -iname "*.otf" \) -print0 2>/dev/null)
+        fi
+    done
+
+    if [ "$copied" -gt 0 ]; then
+        log "Installed $copied user-supplied Microsoft font files to $dest_dir"
+        if command -v fc-cache >/dev/null 2>&1; then
+            fc-cache -f "$dest_dir" || log "Warning: failed to refresh user font cache for $dest_dir"
+        fi
+    else
+        log "No user-supplied Microsoft fonts found. Place .ttf/.otf files into ~/MSFonts or ~/Fonts/MS and re-run."
+    fi
 }
 
 # Function to configure KDE Plasma desktop
