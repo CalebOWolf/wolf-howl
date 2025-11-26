@@ -45,7 +45,7 @@ update_system() {
 # Function to install essential tools
 install_essential_tools() {
     log "Installing essential tools..."
-    sudo dnf install -y wget curl git vim gcc make dkms bat fzf tmux zsh sed xargs nnn htop nmtui ncdu mc playerctl notify-send xdotool yt-dlp || handle_error "Installing essential tools"
+    sudo dnf install -y wget curl git vim gcc make dkms bat fzf tmux zsh sed findutils nnn htop NetworkManager-tui ncdu mc playerctl libnotify xdotool yt-dlp || handle_error "Installing essential tools"
 }
 
 # Function to enable RPM Fusion
@@ -202,7 +202,7 @@ configure_kde_desktop() {
         return
     fi
 
-    sudo dnf install -y papirus-icon-theme breeze-gtk kvantum kvantum-manager latte-dock yakuake plasma-systemmonitor kde-gtk-config plasma-workspace-wayland plasma-discover sddm-breeze || handle_error "Installing KDE customization packages"
+    sudo dnf install -y papirus-icon-theme breeze-gtk kvantum kvantum-manager yakuake plasma-systemmonitor kde-gtk-config plasma-discover || handle_error "Installing KDE customization packages"
 
     if systemctl list-unit-files | grep -q '^sddm.service'; then
         sudo systemctl enable sddm || handle_error "Enabling SDDM display manager"
