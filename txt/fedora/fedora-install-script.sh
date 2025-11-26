@@ -1,5 +1,5 @@
 #!/bin/bash
-# Fedora Installation Script for AMD Ryzen 5700X and Nvidia 5060
+# Fedora Installation Script for AMD Ryzen 5700X and AMD Radeon RX 6600 XT
 # This script sets up the system with essential tools, drivers, and applications for general use, gaming, and content creation.
 # Suggestions for improvement can be made on GitHub: CalebOWolf/wolf-howl/fedora-setup-script
 #
@@ -90,8 +90,17 @@ swap_ffmpeg() {
 # Function to swap 32-bit mesa drivers
 swap_32bit_mesa_drivers() {
     log "Swapping 32-bit mesa drivers..."
-    sudo dnf swap -y mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686 || handle_error "Swapping mesa-va-drivers.i686"
-    sudo dnf swap -y mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686 || handle_error "Swapping mesa-vdpau-drivers.i686"
+    if dnf list --available mesa-va-drivers.i686 >/dev/null 2>&1 && dnf list --available mesa-va-drivers-freeworld.i686 >/dev/null 2>&1; then
+        sudo dnf swap -y mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686 || handle_error "Swapping mesa-va-drivers.i686"
+    else
+        log "Skipping mesa-va-drivers.i686 swap (packages not available)"
+    fi
+
+    if dnf list --available mesa-vdpau-drivers.i686 >/dev/null 2>&1 && dnf list --available mesa-vdpau-drivers-freeworld.i686 >/dev/null 2>&1; then
+        sudo dnf swap -y mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686 || handle_error "Swapping mesa-vdpau-drivers.i686"
+    else
+        log "Skipping mesa-vdpau-drivers.i686 swap (packages not available)"
+    fi
 }
 
 # Function to update multimedia packages
@@ -124,11 +133,22 @@ install_firmwares() {
 # Function to optimize AMD Ryzen
 optimize_amd_ryzen() {
     log "Optimizing AMD Ryzen..."
-    sudo dnf install -y amd-ucode tuned cpupower || handle_error "Installing AMD Ryzen tools"
+    sudo dnf install -y tuned kernel-tools || handle_error "Installing AMD Ryzen performance tools"
     sudo systemctl enable tuned || handle_error "Enabling tuned service"
     sudo systemctl start tuned || handle_error "Starting tuned service"
     sudo tuned-adm profile latency-performance || handle_error "Setting tuned profile"
-    sudo cpupower frequency-set -g performance || handle_error "Setting CPU governor"
+    if command -v cpupower >/dev/null 2>&1; then
+        if cpupower frequency-info >/dev/null 2>&1; then
+            # Attempt to set performance governor; if unsupported, just log and continue
+            if ! sudo cpupower frequency-set -g performance >/dev/null 2>&1; then
+                log "cpupower couldn't set performance governor (likely using amd_pstate_epp); skipping."
+            fi
+        else
+            log "cpupower frequency-info not supported on this platform; skipping governor change."
+        fi
+    else
+        log "cpupower not found; skipping governor change."
+    fi
 }
 
 # Function to install Flatpak and applications
