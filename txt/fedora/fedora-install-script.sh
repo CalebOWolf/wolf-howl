@@ -1,7 +1,4 @@
 #!/bin/bash
-# Exit on error, undefined vars, and fail on pipe errors
-set -euo pipefail
-
 # Fedora Installation Script for AMD Ryzen 5700X and Nvidia 5060
 # This script sets up the system with essential tools, drivers, and applications for general use, gaming, and content creation.
 # Suggestions for improvement can be made on GitHub: CalebOWolf/wolf-howl/fedora-setup-script
@@ -21,36 +18,6 @@ log() {
 handle_error() {
     log "Error occurred during: $1"
     exit 1
-}
-
-# Pre-flight checks to ensure environment is ready
-preflight_checks() {
-    log "Running pre-flight checks..."
-    # Ensure required commands exist
-    for cmd in dnf rpm flatpak sudo; do
-        command -v "$cmd" >/dev/null 2>&1 || handle_error "Required command '$cmd' not found"
-    done
-
-    # Verify Fedora version (40+ recommended)
-    local fedora_ver
-    fedora_ver=$(rpm -E %fedora || echo 0)
-    if [[ "$fedora_ver" -lt 38 ]]; then
-        log "Warning: Detected Fedora $fedora_ver; this script targets newer Fedora versions. Proceeding anyway."
-    fi
-
-    # Check internet connectivity
-    if ! curl -fsSL https://fedoraproject.org >/dev/null 2>&1; then
-        handle_error "Internet connectivity check failed"
-    fi
-
-    # Ensure at least ~2GB free in / (rough check)
-    #!/bin/bash
-    # Fedora Installation Script for AMD Ryzen 5600X and AMD Radeon RX 6600 XT
-    if [[ "$avail_kb" -lt 2000000 ]]; then
-        handle_error "Insufficient disk space on / (need at least 2GB free)"
-    fi
-
-    log "Pre-flight checks passed."
 }
 
 # Function to enable sudo password feedback (asterisks while typing)
@@ -84,16 +51,6 @@ install_essential_tools() {
 # Function to enable RPM Fusion
 enable_rpm_fusion() {
     log "Enabling RPM Fusion..."
-        # Detect CPU and GPU for informational purposes
-        local cpu_model gpu_info
-        cpu_model=$(grep -m1 'model name' /proc/cpuinfo | cut -d: -f2 | xargs || echo "Unknown CPU")
-        gpu_info=$(lspci | grep -iE 'vga|3d|display' | xargs || echo "Unknown GPU")
-        log "Detected CPU:${cpu_model}"
-        log "Detected GPU(s): ${gpu_info}"
-
-        if echo "$gpu_info" | grep -qi 'nvidia'; then
-            log "Warning: Nvidia GPU detected. This script focuses on AMD GPU optimizations; proceed with caution."
-        fi
     sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm || handle_error "Enabling RPM Fusion"
     sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm || handle_error "Enabling RPM Fusion"
     sudo dnf update -y || handle_error "Updating after enabling RPM Fusion"
@@ -439,7 +396,6 @@ final_cleanup() {
 
 # Main script execution
 log "Starting Fedora installation and setup script..."
-preflight_checks
 update_system
 install_essential_tools
 enable_sudo_pwfeedback
