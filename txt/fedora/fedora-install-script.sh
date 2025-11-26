@@ -45,7 +45,7 @@ update_system() {
 # Function to install essential tools
 install_essential_tools() {
     log "Installing essential tools..."
-    sudo dnf install -y wget curl git vim gcc make dkms bat fzf tmux zsh sed xargs nnn htop nmtui ncdu cmus mc playerctl notify-send xdotool yt-dlp || handle_error "Installing essential tools"
+    sudo dnf install -y wget curl git vim gcc make dkms bat fzf tmux zsh sed xargs nnn htop nmtui ncdu mc playerctl notify-send xdotool yt-dlp || handle_error "Installing essential tools"
 }
 
 # Function to enable RPM Fusion
