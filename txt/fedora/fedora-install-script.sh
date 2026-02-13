@@ -178,12 +178,6 @@ setup_flatpak() {
     flatpak update -y || handle_error "Updating Flatpak"
 }
 
-# Function to install Flatpak applications
-install_flatpaks() {
-    log "Installing Flatpaks..."
-    flatpak install -y flathub com.discordapp.Discord org.telegram.desktop org.firestormviewer.FirestormViewer org.prismlauncher.PrismLauncher io.github.shiftey.Desktop io.mgba.mGBA sh.ppy.osu org.ppsspp.PPSSPP com.vysp3r.ProtonPlus net.davidotek.pupgui2 net.rpcs3.RPCS3 app.twintaillauncher.ttl com.github.joseexposito.touche org.nickvision.tubeconverter org.qbittorrent.qBittorrent org.remmina.Remmina com.transmissionbt.Transmission com.github.unrud.VideoDownloader io.github.wivrn.wivrn com.rafaelmardojai.Blanket io.github.celluloid_player.Celluloid fr.handbrake.ghb de.haeckerfelix.Shortwave io.github.arunsivaramanneo.GPUViewer io.gitlab.adhami3310.Impression io.github.ilya_zlobintsev.LACT com.usebottles.bottles com.github.tchx84.Flatseal it.mijorus.gearlever org.keepassxc.KeePassXC org.localsend.localsend_app org.x.Warpinator io.github.fastrizwaan.WineZGUI org.fkoehler.KTailctl || handle_error "Installing Flatpak applications"
-}
-
 # Function to install additional applications
 install_additional_apps() {
     log "Installing additional applications..."
@@ -261,7 +255,6 @@ install_libdvdcss
 install_firmwares
 optimize_amd_ryzen
 setup_flatpak
-install_flatpaks
 install_additional_apps
 install_gaming_tools
 install_rpm_packages
