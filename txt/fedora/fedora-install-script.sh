@@ -6,6 +6,23 @@
 # DISCLAIMER:
 # This script is provided "AS IS" without any warranties or guarantees. The author assumes no responsibility for any data loss, irreversible changes, or damage to your system resulting from the use of this script. Use it at your own risk and ensure you have proper backups before proceeding.
 
+# --- Confirmation Prompt ---
+echo "--------------------------------------------------------------------------------"
+echo "DISCLAIMER:"
+echo "This script is provided 'AS IS' without any warranties or guarantees."
+echo "The author assumes no responsibility for any data loss, irreversible changes,"
+echo "or damage to your system resulting from the use of this script."
+echo "Please ensure you have proper backups before proceeding."
+echo "--------------------------------------------------------------------------------"
+read -p "Do you agree to the disclaimer and wish to proceed? (y/n) " -n 1 -r
+echo # Move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo "Aborted by user."
+    exit 1
+fi
+echo "Agreement confirmed. Starting setup..."
+echo # Adding a blank line for readability before the logs start.
+
 # Constants
 LOG_FILE="fedora-setup.log"
 
@@ -35,6 +52,7 @@ enable_sudo_pwfeedback() {
     sudo visudo -cf "$sudoers_file" || handle_error "Validating sudo pwfeedback configuration"
 }
 
+# System
 # Function to update the system
 update_system() {
     log "Updating the system..."
@@ -42,6 +60,7 @@ update_system() {
     sudo dnf install -y dnf-plugins-core kernel-devel kernel-headers || handle_error "Installing essential packages"
 }
 
+# Essential Tools
 # Function to install essential tools
 install_essential_tools() {
     log "Installing essential tools..."
