@@ -181,7 +181,7 @@ setup_flatpak() {
 # Function to install additional applications
 install_additional_apps() {
     log "Installing additional applications..."
-    sudo dnf install -y libreoffice lutris krita blender steam gimp obs-studio kdenlive vlc audacity || handle_error "Installing additional applications"
+    sudo dnf install -y libreoffice lutris krita blender steam gimp obs-studio kdenlive vlc audacity dnfdragora-gui dnfdragora || handle_error "Installing additional applications"
 }
 
 # Function to install gaming-focused tools and dependencies
