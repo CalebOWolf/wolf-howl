@@ -180,8 +180,8 @@ setup_flatpak() {
 
 # Function to install additional applications
 install_additional_apps() {
-    log "Installing additional applications..."
-    sudo dnf install -y libreoffice lutris krita blender steam gimp obs-studio kdenlive vlc audacity dnfdragora-gui dnfdragora || handle_error "Installing additional applications"
+    # log "Installing additional applications..."
+    # sudo dnf install -y libreoffice lutris krita blender steam gimp obs-studio kdenlive vlc audacity dnfdragora-gui dnfdragora || handle_error "Installing additional applications"
 }
 
 # Function to install gaming-focused tools and dependencies
@@ -193,23 +193,6 @@ install_gaming_tools() {
 # Function to install specific RPM packages
 install_rpm_packages() {
     log "Installing specific RPM packages..."
-    log "Configuring 1Password repository..."
-    sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc || handle_error "Importing 1Password GPG key"
-
-    sudo tee /etc/yum.repos.d/1password.repo >/dev/null <<'EOF' || handle_error "Creating 1Password repository"
-[1password]
-name=1Password Stable Channel
-baseurl=https://downloads.1password.com/linux/rpm/stable/$basearch
-enabled=1
-gpgcheck=1
-gpgkey=https://downloads.1password.com/linux/keys/1password.asc
-repo_gpgcheck=1
-repo_gpgkey=https://downloads.1password.com/linux/keys/1password.asc
-EOF
-
-    log "Installing 1Password..."
-    sudo dnf install -y 1password || handle_error "Installing 1Password"
-
     log "Configuring Visual Studio Code repository..."
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc || handle_error "Importing Microsoft GPG key"
 
@@ -255,7 +238,7 @@ install_libdvdcss
 install_firmwares
 optimize_amd_ryzen
 setup_flatpak
-install_additional_apps
+#install_additional_apps
 install_gaming_tools
 install_rpm_packages
 final_cleanup
