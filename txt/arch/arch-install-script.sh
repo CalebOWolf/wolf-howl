@@ -4,8 +4,12 @@ base base-devel git vim wget sudo networkmanager dhcpcd openssh net-tools linux 
 flatpak man-pages bleachbit firefox vlc discord telegram-desktop steam lutris blender krita gimp keepassxc libreoffice-fresh thunderbird bazaar handbrake btop lact qbittorrent
 # Unknown/Other SRC
 Pipewire control tailscale rustdesk
+# Paru
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
 # AUR Packages
-paru ttf-ms-fonts downgrade firstorm openrgb systemd-numlockontty prismlauncher 
+ttf-ms-fonts downgrade firstorm openrgb systemd-numlockontty prismlauncher 
 # Enable numLockOnTty service
 # Flatpacks
 Blanket cpu-x dolphin mgba ppsspp rpcs3 pcxs2 flatseal gpu viewer (+screen rec) impression ktailctl protonplus protontricks protonup-qt resources mission center (control?) retroarch shortwaave spotify spruce weather
