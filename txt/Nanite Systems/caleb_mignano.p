@@ -44,13 +44,19 @@ db interface.height-mlook 1009
 db interface.devices.scale 2
 db interface.altimeter.enabled 1
 db interface.speedometer.enabled 1
-db interface.crosshair 16
+db interface.crosshair 17
 db interface.sitrep.enabled 1
 db interface.fov 90
+db interface.boot.animate 1
+db interface.badge 14ed5c57-7425-d811-5eaf-6a8da637371e
+
 db repair.autorepair 0
 db id.chime.boot bb39b99e-3a18-eca1-0e07-b136d38d18dd
 db id.chime.halt 441cd8ec-e8e8-033b-d6a5-db9eaf0b2ee4
 
 reset id
+reset proc
 service interface restart
 service repair restart
+device probe
+exit
