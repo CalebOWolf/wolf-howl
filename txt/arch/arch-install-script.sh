@@ -1,15 +1,15 @@
 # Arch Offical PAckages
-base base-devel git vim wget sudo networkmanager dhcpcd openssh net-tools linux linux-firmware mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon gamescope gamemode git vim nano pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland ttf-arimo-nerd noto-fonts bluez bluez-utils otf-font-awesome glu gufw firewalld libxcrypt-compat gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly lib32-gst-plugins-base lib32-gst-plugins-good lib32-libpulse lib32-alsa-plugins lib32-alsa-lib gdk-pixbuf2 
+base base-devel git vim wget sudo networkmanager dhcpcd openssh net-tools linux linux-firmware mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon gamescope gamemode git vim nano pipewire wireplumber pavucontrol qt5-wayland qt6-wayland xdg-user-dirs xorg-xwayland ttf-arimo-nerd noto-fonts bluez bluez-utils otf-font-awesome glu gufw firewalld libxcrypt-compat gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly lib32-gst-plugins-base lib32-gst-plugins-good lib32-libpulse lib32-alsa-plugins lib32-alsa-lib gdk-pixbuf2
 # Other Packages
-flatpak man-pages bleachbit firefox vlc discord telegram-desktop steam lutris blender krita gimp keepassxc libreoffice-fresh thunderbird bazaar handbrake btop lact qbittorrent
+flatpak man-pages bleachbit firefox vlc discord telegram-desktop steam lutris blender krita gimp keepassxc libreoffice-fresh thunderbird bazaar handbrake btop htop lact qbittorrent
 # Unknown/Other SRC
-Pipewire control tailscale rustdesk
+pipewire control tailscale rustdesk
 # Paru
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 # AUR Packages
-ttf-ms-fonts downgrade firstorm openrgb systemd-numlockontty prismlauncher 
+ttf-ms-fonts downgrade firstorm-git systemd-numlockontty prismlauncher vrcx wivrn-dashboard wivrn-server 
 # Enable numLockOnTty service
 # Flatpacks
 Blanket cpu-x dolphin mgba ppsspp rpcs3 pcxs2 flatseal gpu viewer (+screen rec) impression ktailctl protonplus protontricks protonup-qt resources mission center (control?) retroarch shortwaave spotify spruce weather
