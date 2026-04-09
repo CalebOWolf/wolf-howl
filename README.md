@@ -21,7 +21,7 @@ Hi! I'm **Caleb Wolf** (CalebOWolf), a passionate technology enthusiast and life
 
 ### 🎮 Current Interests & Gaming
 - **Active Games**: Cyberpunk 2077, Warframe, Baldur's Gate 3, Subnautica, osu!, Muse Dash
-- **Virtual Worlds**: Second Life (Linden Labs), Resonite
+- **Virtual Worlds**: Second Life (Linden Labs), VRChat
 - **Creative Work**: Character design - my fursona [Luca Wood](https://toyhou.se/CalebOWolf)
 - **Development**: System administration, automation scripts, configuration management
 
@@ -89,7 +89,7 @@ I'm always interested in connecting with fellow developers, gamers, and technolo
 
 ### **Primary Platforms**
 - **Discord**: [calebowolf](https://discord.com/users/202196441593020416) *[Preferred for quick chats]*
-- **Telegram**: [@CalebMignano](https://t.me/@CalebMignano)
+- **Telegram**: [@CalebMignano](https://t.me/@calebowolf)
 - **Email**: Available in [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ### **Social & Creative**  
