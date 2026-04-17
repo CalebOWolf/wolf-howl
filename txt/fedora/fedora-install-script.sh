@@ -185,7 +185,7 @@ install_additional_apps() {
     sudo dnf copr enable -y g3tchoo/prismlauncher || log "Failed to enable Prism Launcher Copr repository"
 
     log "Installing additional applications..."
-    sudo dnf install -y libreoffice lutris krita blender steam gimp obs-studio kdenlive vlc audacity dnfdragora-gui dnfdragora man-pages bleachbit firefox discord telegram-desktop keepassxc thunderbird bazaar handbrake lact qbittorrent prismlauncher || handle_error "Installing additional applications"
+    sudo dnf install -y libreoffice lutris krita blender steam gimp obs-studio kdenlive vlc audacity dnfdragora-gui dnfdragora bleachbit firefox discord telegram-desktop keepassxc thunderbird handbrake lact qbittorrent prismlauncher || handle_error "Installing additional applications"
 
     log "Enabling lactd service..."
     sudo systemctl enable --now lactd || log "Failed to enable lactd service"
