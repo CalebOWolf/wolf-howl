@@ -10,9 +10,8 @@ This folder contains a comprehensive Fedora installation script tailored for sys
 - **Driver Setup**: Configures AMD drivers (freeworld VA/VDPAU swaps) and installs firmware bundles.
 - **Gaming Focus**: Installs Gamemode, Gamescope, MangoHud, Proton/Wine helpers, Steam device support, and required 32‑bit libraries; auto‑enables `gamemoded`.
 - **Flatpak Integration**: Sets up Flathub and optionally installs Heroic, Bottles, and ProtonUp‑Qt.
-- **Specific RPM Apps**: Adds official repositories and installs 1Password and Visual Studio Code.
+- **Specific RPM Apps**: Adds official repositories and installs Visual Studio Code.
 - **Fonts & Emoji**: Installs Noto/monospace fonts, emoji packs, Microsoft core fonts; optional import of MS Sans Serif from a Windows partition or a user folder.
-- **KDE Plasma Customization**: Applies Papirus icons, Breeze Dark base, aligns GTK themes, sets MS Sans Serif as the UI font, and configures a Kvantum "Win7Glass" Aero‑style theme (with customizable glow color, default `#00FF7F`).
 - **Quality of Life**: Enables sudo password feedback (`pwfeedback`), applies tuned performance profiles for Ryzen, and performs final cleanup.
 - **Error Handling & Logging**: Centralized logging (`fedora-setup.log`) and guarded steps with informative errors.
 

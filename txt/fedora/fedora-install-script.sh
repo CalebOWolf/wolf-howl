@@ -179,15 +179,25 @@ setup_flatpak() {
 }
 
 # Function to install additional applications
-# install_additional_apps() {
-    # log "Installing additional applications..."
-    # sudo dnf install -y libreoffice lutris krita blender steam gimp obs-studio kdenlive vlc audacity dnfdragora-gui dnfdragora || handle_error "Installing additional applications"
-# }
+install_additional_apps() {
+    log "Enabling Copr repositories for LACT and Prism Launcher..."
+    sudo dnf copr enable -y ilyaz/LACT || log "Failed to enable LACT Copr repository"
+    sudo dnf copr enable -y g3tchoo/prismlauncher || log "Failed to enable Prism Launcher Copr repository"
+
+    log "Installing additional applications..."
+    sudo dnf install -y libreoffice lutris krita blender steam gimp obs-studio kdenlive vlc audacity dnfdragora-gui dnfdragora man-pages bleachbit firefox discord telegram-desktop keepassxc thunderbird bazaar handbrake lact qbittorrent prismlauncher || handle_error "Installing additional applications"
+
+    log "Enabling lactd service..."
+    sudo systemctl enable --now lactd || log "Failed to enable lactd service"
+}
 
 # Function to install gaming-focused tools and dependencies
 install_gaming_tools() {
     log "Installing gaming performance tools and dependencies..."
     sudo dnf install -y gamemode gamemode-devel gamescope mangohud goverlay protontricks wine winetricks steam-devices vulkan-loader vulkan-loader.i686 mesa-vulkan-drivers mesa-vulkan-drivers.i686 || handle_error "Installing gaming performance tools"
+
+    log "Enabling gamemoded user service..."
+    systemctl --user enable --now gamemoded.service 2>/dev/null || log "gamemoded user service not found or already running."
 }
 
 # Function to install specific RPM packages
@@ -209,7 +219,50 @@ EOF
 
     log "Installing Visual Studio Code..."
     sudo dnf install -y code || handle_error "Installing Visual Studio Code"
+}
 
+# Function to install fonts and emoji support
+install_fonts_and_emoji() {
+    log "Installing fonts and emoji..."
+    sudo dnf install -y google-noto-color-emoji-fonts google-noto-sans-fonts google-noto-serif-fonts \
+        fira-code-fonts cascadia-code-fonts jetbrains-mono-fonts \
+        curl cabextract fontconfig || handle_error "Installing core fonts"
+
+    log "Installing Microsoft Core Fonts..."
+    sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm 2>/dev/null || log "Microsoft Core Fonts already installed or skipped."
+
+    log "Checking for optional MS Sans Serif fonts..."
+    local font_dir="$HOME/.local/share/fonts/MSSansSerif"
+    local imported=false
+    mkdir -p "$font_dir"
+
+    # Save shopt state and enable nullglob
+    shopt -s nullglob
+    local user_fonts=("$HOME/MSSansFonts/"micross.ttf "$HOME/MSSansFonts/"sserif*.ttf)
+    if [ ${#user_fonts[@]} -gt 0 ]; then
+        cp "${user_fonts[@]}" "$font_dir/"
+        imported=true
+    fi
+
+    # Check mounted drives
+    if [ "$imported" = false ]; then
+        for path in /mnt/c/Windows/Fonts /run/media/"$USER"/*/Windows/Fonts; do
+            local win_fonts=("$path/"micross.ttf "$path/"sserif*.ttf)
+            if [ ${#win_fonts[@]} -gt 0 ]; then
+                cp "${win_fonts[@]}" "$font_dir/"
+                imported=true
+                break
+            fi
+        done
+    fi
+    shopt -u nullglob
+
+    if [ "$imported" = true ]; then
+        log "MS Sans Serif fonts imported successfully."
+        fc-cache -f "$font_dir"
+    else
+        log "MS Sans Serif fonts not found for import. Skipping."
+    fi
 }
 
 # Function to perform final cleanup
@@ -218,6 +271,15 @@ final_cleanup() {
     sudo dnf update -y || handle_error "Final system update"
     sudo dnf autoremove -y || handle_error "Autoremove unused packages"
     sudo flatpak update -y || handle_error "Updating Flatpak applications"
+
+    log "Enabling weekly SSD TRIM timer..."
+    sudo systemctl enable --now fstrim.timer || log "Failed to enable fstrim.timer"
+
+    log "Enabling pcscd socket for Smart Cards/Security Keys..."
+    sudo systemctl enable --now pcscd.socket || log "Failed to enable pcscd.socket"
+
+    log "Enabling monthly BTRFS scrub timer for root filesystem..."
+    sudo systemctl enable --now btrfs-scrub@-.timer || log "Failed to enable btrfs-scrub@-.timer"
 }
 
 # Main script execution
@@ -238,9 +300,10 @@ install_libdvdcss
 install_firmwares
 optimize_amd_ryzen
 setup_flatpak
-#install_additional_apps
+install_additional_apps
 install_gaming_tools
 install_rpm_packages
+install_fonts_and_emoji
 final_cleanup
 
 log "Fedora installation and setup script completed."
@@ -254,4 +317,4 @@ else
 fi
 
 # End of the script
-Copyright © 2025 CalebOWolf/Caleb Mignano. All rights reserved.
+Copyright © 2026 CalebOWolf/Caleb Mignano. All rights reserved.
