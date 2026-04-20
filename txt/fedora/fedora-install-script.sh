@@ -145,8 +145,9 @@ install_firmwares() {
     log "Enabling RPM Fusion Nonfree Tainted repository..."
     sudo dnf install -y rpmfusion-nonfree-release-tainted || handle_error "Enabling RPM Fusion Nonfree Tainted repository"
 
-    log "Installing various firmwares..."
-    sudo dnf --repo=rpmfusion-nonfree-tainted install -y "*-firmware" || handle_error "Installing various firmwares"
+    log "Installing AMD CPU/GPU firmwares and additional device firmwares..."
+    sudo dnf install -y linux-firmware amd-ucode-firmware amd-gpu-firmware || handle_error "Installing AMD firmwares"
+    sudo dnf --repo=rpmfusion-nonfree-tainted install -y "*-firmware" || handle_error "Installing various tainted firmwares"
 }
 
 # Function to optimize AMD Ryzen
@@ -194,10 +195,13 @@ install_additional_apps() {
 # Function to install gaming-focused tools and dependencies
 install_gaming_tools() {
     log "Installing gaming performance tools and dependencies..."
-    sudo dnf install -y gamemode gamemode-devel gamescope mangohud goverlay protontricks wine winetricks steam-devices vulkan-loader vulkan-loader.i686 mesa-vulkan-drivers mesa-vulkan-drivers.i686 || handle_error "Installing gaming performance tools"
+    sudo dnf install -y gamemode gamemode-devel gamescope mangohud goverlay protontricks wine winetricks steam-devices vulkan-loader vulkan-loader.i686 mesa-vulkan-drivers mesa-vulkan-drivers.i686 vkbasalt vkbasalt.i686 corectrl vulkan-tools || handle_error "Installing gaming performance tools"
 
     log "Enabling gamemoded user service..."
     systemctl --user enable --now gamemoded.service 2>/dev/null || log "gamemoded user service not found or already running."
+
+    log "Installing gaming Flatpaks (Heroic, Bottles, ProtonUp-Qt)..."
+    sudo flatpak install -y flathub com.heroicgameslauncher.hgl com.usebottles.bottles net.davidotek.pupgui2 || log "Failed to install some gaming Flatpaks."
 }
 
 # Function to install specific RPM packages
@@ -228,40 +232,17 @@ install_fonts_and_emoji() {
         fira-code-fonts cascadia-code-fonts jetbrains-mono-fonts \
         curl cabextract fontconfig || handle_error "Installing core fonts"
 
-    log "Installing Microsoft Core Fonts..."
-    sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm 2>/dev/null || log "Microsoft Core Fonts already installed or skipped."
-
-    log "Checking for optional MS Sans Serif fonts..."
-    local font_dir="$HOME/.local/share/fonts/MSSansSerif"
-    local imported=false
-    mkdir -p "$font_dir"
-
-    # Save shopt state and enable nullglob
-    shopt -s nullglob
-    local user_fonts=("$HOME/MSSansFonts/"micross.ttf "$HOME/MSSansFonts/"sserif*.ttf)
-    if [ ${#user_fonts[@]} -gt 0 ]; then
-        cp "${user_fonts[@]}" "$font_dir/"
-        imported=true
-    fi
-
-    # Check mounted drives
-    if [ "$imported" = false ]; then
-        for path in /mnt/c/Windows/Fonts /run/media/"$USER"/*/Windows/Fonts; do
-            local win_fonts=("$path/"micross.ttf "$path/"sserif*.ttf)
-            if [ ${#win_fonts[@]} -gt 0 ]; then
-                cp "${win_fonts[@]}" "$font_dir/"
-                imported=true
-                break
-            fi
-        done
-    fi
-    shopt -u nullglob
-
-    if [ "$imported" = true ]; then
-        log "MS Sans Serif fonts imported successfully."
-        fc-cache -f "$font_dir"
+    local ms_fonts_dir="/home/calebowolf/fonts"
+    local dest_fonts_dir="/usr/share/fonts/microsoft"
+    if [ -d "$ms_fonts_dir" ]; then
+        log "Installing Microsoft fonts from $ms_fonts_dir..."
+        sudo mkdir -p "$dest_fonts_dir"
+        sudo cp -r "$ms_fonts_dir/." "$dest_fonts_dir/" || log "Failed to copy Microsoft fonts."
+        sudo find "$dest_fonts_dir" -type d -exec chmod 755 {} +
+        sudo find "$dest_fonts_dir" -type f -exec chmod 644 {} +
+        sudo fc-cache -f || log "Failed to update font cache."
     else
-        log "MS Sans Serif fonts not found for import. Skipping."
+        log "Microsoft fonts directory not found at $ms_fonts_dir. Skipping custom font installation."
     fi
 }
 
@@ -270,7 +251,9 @@ final_cleanup() {
     log "Performing final system update and cleanup..."
     sudo dnf update -y || handle_error "Final system update"
     sudo dnf autoremove -y || handle_error "Autoremove unused packages"
+    sudo dnf clean all || log "Failed to clean DNF cache"
     sudo flatpak update -y || handle_error "Updating Flatpak applications"
+    flatpak uninstall --unused -y || log "Failed to remove unused Flatpak dependencies"
 
     log "Enabling weekly SSD TRIM timer..."
     sudo systemctl enable --now fstrim.timer || log "Failed to enable fstrim.timer"
