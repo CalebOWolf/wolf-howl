@@ -23,6 +23,13 @@ fi
 echo "Agreement confirmed. Starting setup..."
 echo # Adding a blank line for readability before the logs start.
 
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until the script has finished
+# This prevents the script from pausing midway through a long installation to prompt for a password.
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 # Constants
 LOG_FILE="fedora-setup.log"
 
@@ -232,7 +239,7 @@ install_fonts_and_emoji() {
         fira-code-fonts cascadia-code-fonts jetbrains-mono-fonts \
         curl cabextract fontconfig || handle_error "Installing core fonts"
 
-    local ms_fonts_dir="/home/calebowolf/fonts"
+    local ms_fonts_dir="$HOME/fonts"
     local dest_fonts_dir="/usr/share/fonts/microsoft"
     if [ -d "$ms_fonts_dir" ]; then
         log "Installing Microsoft fonts from $ms_fonts_dir..."
@@ -300,4 +307,4 @@ else
 fi
 
 # End of the script
-Copyright © 2026 CalebOWolf/Caleb Mignano. All rights reserved.
+# Copyright © 2026 CalebOWolf/Caleb Mignano. All rights reserved.
