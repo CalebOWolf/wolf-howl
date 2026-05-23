@@ -17,7 +17,7 @@ Brief description of what this PR does and why.
 - [ ] Blog content
 - [ ] Image assets
 - [ ] Configuration files
-- [ ] Fedora resources
+- [ ] CachyOS resources
 - [ ] Other: ____________
 
 ## ✅ Checklist

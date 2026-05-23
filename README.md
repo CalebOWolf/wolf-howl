@@ -15,13 +15,13 @@ Hi! I'm **Caleb Wolf** (CalebOWolf), a passionate technology enthusiast and life
 ### 🔧 What I Do
 - **Technology Enthusiast**: Always exploring new tools, frameworks, and development practices
 - **Virtual World Mentor**: Active mentor in Resonite, helping others learn and grow
-- **Linux User**: Proudly running Fedora Linux (I use Fedora BTW! 🐧)
+- **Linux User**: Proudly running CachyOS (I use CachyOS BTW! 🐧)
 - **Open Source Advocate**: Contributing to and maintaining various projects
 - **Second Life Participant**: Regular in virtual worlds and communities
 
 ### 🎮 Current Interests & Gaming
 - **Active Games**: Cyberpunk 2077, Warframe, Baldur's Gate 3, Subnautica, osu!, Muse Dash
-- **Virtual Worlds**: Second Life (Linden Labs), VRChat
+- **Virtual Worlds**: Second Life (Linden Labs), VRChat, Resonite (Depends on various factors)
 - **Creative Work**: Character design - my fursona [Luca Wood](https://toyhou.se/CalebOWolf)
 - **Development**: System administration, automation scripts, configuration management
 
@@ -37,7 +37,7 @@ wolf-howl/
 │   ├── Wallpapers/       # Custom desktop backgrounds
 │   └── [Character Art]/  # Personal and commissioned artwork
 ├── 📄 txt/               # Configuration files and resources
-│   ├── fedora/           # Fedora Linux setup scripts & guides
+│   ├── cachyos/          # CachyOS setup scripts & guides
 │   └── [Configs]/        # Various application configurations
 └── 📋 [Documentation]/   # Project guides and references
 ```
@@ -49,7 +49,7 @@ wolf-howl/
 - **🛠️ Automation Tools**: Scripts for system management and workflow optimization
 - **🎨 Creative Assets**: Personal branding, artwork, and visual resources
 - **📖 Documentation**: Project guides, technical writing, and knowledge sharing
-- **🐧 Linux Resources**: Fedora-specific configurations and installation guides
+- **🐧 Linux Resources**: CachyOS-specific configurations and installation guides
 
 ## 💻 Current Setup
 
@@ -61,12 +61,11 @@ wolf-howl/
 | **Graphics**   | ASUS ROG Strix RX 6600 XT           |
 | **Memory**     | 48GB DDR4 Corsair Vengeance RGB Pro (3200MHz) |
 | **Storage**    | 1TB Samsung 990 Pro NVMe            |
-|                | 512GB WD Black SSD                  |
 |                | 512GB TForce SSD                    |
-| **Cooling**    | NZXT Kraken 240mm AIO               |
+| **Cooling**    | Corsair Nautilus 240mm AIO          |
 | **Power**      | 750W NZXT PSU                       |
 | **Case**       | Fractal Design North                |
-| **OS**         | Fedora Linux (Latest)               |
+| **OS**         | CachyOS                             |
 
 ### **Peripherals & Workspace**
 
@@ -77,6 +76,7 @@ wolf-howl/
 | **Audio**        | SteelSeries Arctis 7P+                               |
 | **Display**      | KTC H27S17 (Primary)                                 |
 |                  | Dell P2219H 22" (Secondary)                          |
+|                  | Dell Monitor                                         |
 | **Workspace**    | LTT Northern Lights Desk Mat                         |
 | **Network**      | Google Fiber                                         |
 
@@ -94,7 +94,7 @@ I'm always interested in connecting with fellow developers, gamers, and technolo
 
 ### **Social & Creative**  
 - **Mastodon**: [@CalebOWolf@pawb.fun](https://pawb.fun/@CalebOWolf)
-- **BlueSky**: [@calebowolf.bsky.social](https://bsky.app/profile/calebowolf.bsky.social)
+- **BlueSky**: [@wolfhowl.xyz](https://bsky.app/profile/wolfhowl.xyz)
 - **Character Portfolio**: [Toyhou.se/CalebOWolf](https://toyhou.se/CalebOWolf)
 
 ### **Gaming**

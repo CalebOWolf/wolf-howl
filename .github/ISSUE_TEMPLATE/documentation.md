@@ -16,7 +16,7 @@ assignees: 'CalebOWolf'
 - [ ] Blog README
 - [ ] Image directory documentation
 - [ ] Text files documentation
-- [ ] Fedora setup guides
+- [ ] CachyOS setup guides
 - [ ] Other: ____________
 
 ### **What's the issue?**

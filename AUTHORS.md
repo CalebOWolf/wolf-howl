@@ -22,7 +22,7 @@ This document acknowledges the people who have contributed to this project.
 
 ### **Community Assets**
 - **Open Source Community** - Inspiration for repository structure and best practices
-- **Fedora Project** - Linux distribution and documentation that inspired setup scripts
+- **CachyOS Project** - Linux distribution and documentation that inspired setup scripts
 - **Virtual World Communities** - Resonite and Second Life communities that shaped mentoring approach
 
 ## 🤝 Code & Documentation Contributors
@@ -49,7 +49,7 @@ This document acknowledges the people who have contributed to this project.
 - **Creative Commons** - Licensing framework for personal content protection
 
 ### **Technical Resources**
-- **Fedora Project Documentation** - Linux setup and administration guidance
+- **CachyOS Wiki** - Linux setup and administration guidance
 - **Mozilla Developer Network** - Web standards and accessibility best practices
 - **Open Source Initiative** - Licensing and community guidelines inspiration
 

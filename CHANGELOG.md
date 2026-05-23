@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 🎯 Planned
 - Additional blog content and technical articles
-- Enhanced Fedora setup automation
+- Enhanced CachyOS setup automation
 - Extended brand asset collection
 - Community contribution guidelines refinement
 
@@ -23,7 +23,7 @@ This release represents a complete professional transformation of the repository
 ### ✨ Added
 - **Professional Documentation Suite**
   - Comprehensive main README with portfolio presentation
-  - Individual README files for all major directories (txt/, img/, blog/, fedora/)
+  - Individual README files for all major directories (txt/, img/, blog/, cachyos/)
   - Professional CONTRIBUTING guidelines with clear processes
   - Community values documentation (updated no-judge.md)
 
@@ -41,7 +41,7 @@ This release represents a complete professional transformation of the repository
   - Structured directory documentation with clear purposes
   - Technical specifications for image assets and configurations
   - Blog framework with content strategy and guidelines
-  - Fedora Linux resources with compatibility documentation
+  - CachyOS resources with compatibility documentation
 
 ### 🔄 Changed
 - **Repository Identity**: Transformed from casual personal space to professional portfolio
@@ -68,7 +68,7 @@ This release represents a complete professional transformation of the repository
 ### 📁 Core Content
 - Personal configuration files and backups
 - Image assets and creative content
-- Fedora Linux setup resources
+- CachyOS setup resources
 - Basic project documentation
 
 ---

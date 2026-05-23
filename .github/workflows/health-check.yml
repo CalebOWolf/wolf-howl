@@ -71,9 +71,9 @@ jobs:
       with:
         sarif_file: 'trivy-results.sarif'
 
-  validate-fedora-scripts:
+  validate-cachyos-scripts:
     runs-on: ubuntu-latest
-    name: Validate Fedora scripts
+    name: Validate CachyOS scripts
     
     steps:
     - name: Checkout repository
@@ -131,7 +131,7 @@ jobs:
       run: |
         echo "Checking for directory documentation..."
         
-        directories=("txt" "img" "blog" "txt/fedora")
+        directories=("txt" "img" "blog" "txt/cachyos")
         missing_readmes=()
         
         for dir in "${directories[@]}"; do

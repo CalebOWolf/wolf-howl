@@ -24,7 +24,7 @@ Which part of the repository would this affect?
 - [ ] Blog content and articles
 - [ ] Image assets and branding
 - [ ] Text files and configurations
-- [ ] Fedora Linux resources
+- [ ] CachyOS resources
 - [ ] Other: ____________
 
 ## 🎨 Type of Enhancement
