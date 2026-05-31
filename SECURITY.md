@@ -6,7 +6,7 @@ This repository contains primarily configuration files, documentation, and perso
 
 | Content Type | Security Scope | Support Status |
 | ------------ | -------------- | -------------- |
-| Scripts & Configurations | CachyOS setup scripts | ✅ Maintained |
+| Scripts & Configurations | Fedora setup scripts | ✅ Maintained |
 | Documentation | All README and guide files | ✅ Current |
 | Personal Content | Images, artwork, personal files | ⚠️ Protected under CC license |
 
@@ -80,7 +80,7 @@ If you discover a security vulnerability in this repository:
 ## 📚 Security Resources
 
 ### **For Users of This Repository**
-- **CachyOS Security**: [CachyOS Wiki](https://wiki.cachyos.org/)
+- **Fedora Security**: [Fedora Documentation](https://docs.fedoraproject.org/)
 - **Linux Security**: General Linux security best practices
 - **Configuration Security**: Review all configurations before implementing
 

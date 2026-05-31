@@ -25,7 +25,7 @@ Cooler: Corsair Nautilus 240
 PSU: 750W NZXT  
 RAM: 48GB DDR4 Corsair Vengeance RGB Pro 3200MHz  
 SSD’s: 1TB 990 Pro | 512 GB TForce Drive  
-OS: CachyOS (I definitely use CachyOS BTW)  
+OS: Fedora (I definitely use Fedora BTW)  
 Keyboard: Keychron V1 (Wired, barebones W/Chosfox x Kailh Arctic Fox Switches)  
 Mouse: Razer Basilisk V3 (Wired) -> Logitech MX Master 4  
 Headset: Steelseries Arctis 7P+  

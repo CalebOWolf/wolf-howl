@@ -15,9 +15,19 @@ Hi! I'm **Caleb Wolf** (CalebOWolf), a passionate technology enthusiast and life
 ### 🔧 What I Do
 - **Technology Enthusiast**: Always exploring new tools, frameworks, and development practices
 - **Virtual World Mentor**: Active mentor in Resonite, helping others learn and grow
-- **Linux User**: Proudly running CachyOS (I use CachyOS BTW! 🐧)
+- **Linux User**: Proudly running Fedora (I use Fedora BTW! 🐧)
 - **Open Source Advocate**: Contributing to and maintaining various projects
 - **Second Life Participant**: Regular in virtual worlds and communities
+- **Discord Moderator**: Long-time user (since 2016) with hands-on experience running collaborative and fair moderation teams
+
+### 🛡️ Discord Moderation Experience
+
+Joined Discord on **July 11, 2016**, and have built extensive experience in community moderation and server management over the years:
+
+- **Community Host**: Moderate a private and close-knit Discord server, creating a safe, engaging, and welcoming home for friends and members.
+- **Technical Mastery**: Proficient with Discord's built-in moderation ecosystem, safety features, team tools, permissions, and server setup structures to maintain server health and safety.
+- **Fair & Impartial Approach**: Firm believer in balanced, objective moderation. I advocate for a team that operates without bias, avoiding one-sided judgments or showing favoritism to any individual or team member.
+- **Collaborative Teamwork**: Strongly believe that moderation is a collective effort. A server's moderation team must work together as a unified front, ensuring all members take part and contribute equally rather than relying on only one or two individuals.
 
 ### 🎮 Current Interests & Gaming
 - **Active Games**: Cyberpunk 2077, Warframe, Baldur's Gate 3, Subnautica, osu!, Muse Dash
@@ -37,7 +47,7 @@ wolf-howl/
 │   ├── Wallpapers/       # Custom desktop backgrounds
 │   └── [Character Art]/  # Personal and commissioned artwork
 ├── 📄 txt/               # Configuration files and resources
-│   ├── cachyos/          # CachyOS setup scripts & guides
+│   ├── fedora/           # Fedora setup scripts & guides
 │   └── [Configs]/        # Various application configurations
 └── 📋 [Documentation]/   # Project guides and references
 ```
@@ -49,7 +59,7 @@ wolf-howl/
 - **🛠️ Automation Tools**: Scripts for system management and workflow optimization
 - **🎨 Creative Assets**: Personal branding, artwork, and visual resources
 - **📖 Documentation**: Project guides, technical writing, and knowledge sharing
-- **🐧 Linux Resources**: CachyOS-specific configurations and installation guides
+- **🐧 Linux Resources**: Fedora-specific configurations and installation guides
 
 ## 💻 Current Setup
 
@@ -65,7 +75,7 @@ wolf-howl/
 | **Cooling**    | Corsair Nautilus 240mm AIO          |
 | **Power**      | 750W NZXT PSU                       |
 | **Case**       | Fractal Design North                |
-| **OS**         | CachyOS                             |
+| **OS**         | Fedora                              |
 
 ### **Peripherals & Workspace**
 
@@ -116,6 +126,30 @@ I value clear, efficient communication and appreciate when people:
 - **Gaming and creative collaboration** - love connecting with fellow enthusiasts
 - **Learning opportunities** - happy to help others or learn from your expertise
 - **Respectful dialogue** - please ask before DMs or friend requests
+
+### 🤝 Friendship & Personal Boundaries
+
+If you are looking to build a friendship or connect on a personal level, please keep these essential guidelines in mind. I am a friendly individual, but healthy boundaries and mutual respect are non-negotiable:
+
+- 👥 **Recognize the Person Behind the Screen**: While I may appear as an avatar, a character, or a Discord profile, please acknowledge that there is a real human being living in real life behind the screen. I expect to be treated with the same real-world respect.
+- 🛡️ **Zero Drama & Safety First**: I do not tolerate drama, and I expect complete safety and respect. Any form of harm, harassment, or doxxing is an absolute dealbreaker.
+- 🔄 **Mutual Effort & Intent**: Acknowledge that building a friendship is a two-way street. If you are requesting to connect, you should be willing to actively contribute to the conversation and relationship.
+- 🛑 **Respect Boundaries & Limits**: We must always respect each other's personal limits and boundaries. Consent and comfort are key—**no means no**.
+- 💬 **Balanced & Healthy Communication**:
+  - **No Pressure for Instant Replies**: I do not expect immediate or exact-time replies, and I ask for the same understanding in return. We all have offline lives.
+  - **Keep it Mutual (No Leaving "On Read")**: While instant replies aren't needed, please avoid leaving me on read or hanging in a one-sided conversation. If we converse, I want to actually converse back-and-forth, not be ignored or have to carry the entire conversation alone.
+  - **No Hounding**: Let's keep interactions comfortable and natural. Please do not hound me or act as a nuisance; friendly, steady dialogue is always the best way to go.
+  - **Handling Disconnects**: If there is ever a disconnect in our communication and I reach out to reconnect, I ask that we allow for at least some basic, respectful communication to talk things through rather than shutting down or cutting off completely without a word.
+
+### 🧠 Neurodivergence & Accessibility Needs
+
+I am autistic and have Sensory Processing Disorder (SPD), ADD, and ADHD. To help me navigate communication and collaboration effectively, I appreciate when others understand:
+
+- 💬 **Direct & Explicit Communication**: Literal and straightforward language is best. Please avoid hints, sarcasm, or ambiguous expectations.
+- 🧩 **Clear & Structured Information**: Bullets and broken-down tasks help me process information without getting overwhelmed by large blocks of text.
+- ⚡ **Sensory Awareness**: Large volumes of rapid messages, flashing media, or excessive pings can trigger sensory overload. Smooth, steady communication is highly appreciated.
+- ⏳ **Patience with Response/Processing Times**: My focus and processing speeds vary. Sometimes I need a bit more time to fully parse and respond.
+- 🤝 **Patience & Supportive Interaction**: If I do not understand something clearly or struggle with specific internet lingo, abbreviations, or slang, please remain patient. Please do not get frustrated, upset, or hold a negative view of me. Allow me the time to read up, research, and clarify so I can fully grasp what you are trying to communicate.
 
 ---
 
