@@ -16,7 +16,7 @@
   boot.loader.timeout = 10;
   boot.loader.systemd-boot.netbootxyz.enable = true;
   boot.loader.systemd-boot.memtest86.enable = true;
-  
+
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -121,7 +121,7 @@
       proton-vpn
       protonup-qt
       protontricks
-      osu-lazar-bin
+      osu-lazer-bin
       tailscale
       flatpak
       xdg-utils
