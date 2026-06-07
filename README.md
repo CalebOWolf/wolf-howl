@@ -35,23 +35,6 @@ Joined Discord on **July 11, 2016**, and have built extensive experience in comm
 - **Creative Work**: Character design - my fursona [Luca Wood](https://toyhou.se/CalebOWolf)
 - **Development**: System administration, automation scripts, configuration management
 
-## 📁 Repository Structure
-
-This repository is organized to showcase different aspects of my technical journey:
-
-```
-wolf-howl/
-├── 📝 blog/              # Technical articles and thoughts
-├── 🖼️ img/               # Brand assets and creative work
-│   ├── Brand Assets/     # Logo and branding materials  
-│   ├── Wallpapers/       # Custom desktop backgrounds
-│   └── [Character Art]/  # Personal and commissioned artwork
-├── 📄 txt/               # Configuration files and resources
-│   ├── fedora/           # Fedora setup scripts & guides
-│   └── [Configs]/        # Various application configurations
-└── 📋 [Documentation]/   # Project guides and references
-```
-
 ## 🚀 What You'll Find Here
 
 - **🔧 System Configurations**: Dotfiles, setup scripts, and system optimization
@@ -68,6 +51,7 @@ wolf-howl/
 | Component      | Specification                        |
 |----------------|-------------------------------------|
 | **Processor**  | AMD Ryzen 7 5700X                   |
+| **Motherboard** | ASUS ROG Strix B550-F Gaming WiFi II        |
 | **Graphics**   | ASUS ROG Strix RX 6600 XT           |
 | **Memory**     | 48GB DDR4 Corsair Vengeance RGB Pro (3200MHz) |
 | **Storage**    | 1TB Samsung 990 Pro NVMe            |
@@ -79,16 +63,16 @@ wolf-howl/
 
 ### **Peripherals & Workspace**
 
-| Category         | Device                                                |
-|------------------|------------------------------------------------------|
-| **Input**        | Keychron V1 (Chosfox x Kailh Arctic Fox switches)    |
-|                  | Razer Basilisk V3 → Logitech MX Master 4             |
-| **Audio**        | SteelSeries Arctis 7P+                               |
-| **Display**      | KTC H27S17 (Primary)                                 |
-|                  | Dell P2219H 22" (Secondary)                          |
-|                  | Dell Monitor                                         |
-| **Workspace**    | LTT Northern Lights Desk Mat                         |
-| **Network**      | Google Fiber                                         |
+| Category         | Device                                                  |
+|------------------|--------------------------------------------------------|
+| **Input**        | Keychron V1 (Chosfox x Kailh Arctic Fox switches)      |
+|                  | Pulsar X2 CrazyLight RFP edition                       |
+| **Audio**        | SteelSeries Arctis 7P+                                 |
+| **Display**      | KTC H27S17 (Primary)                                   |
+|                  | Dell P2219H 22" (Secondary)                            |
+|                  | Dell Monitor                                           |
+| **Workspace**    | LTT Northern Lights Desk Mat                           |
+| **Network**      | Google Fiber                                           |
 
 ### 🔮 **Future Upgrades**
 *Planning next-generation build - details coming soon!*
