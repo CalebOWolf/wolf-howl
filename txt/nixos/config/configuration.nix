@@ -16,17 +16,16 @@
   boot.loader.timeout = 10;
   boot.loader.systemd-boot.netbootxyz.enable = true;
   boot.loader.systemd-boot.memtest86.enable = true;
+  
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Networking
   networking.hostName = "wolfhowlnixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
-
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -55,12 +54,11 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.plasma-login-manager.enable = true;
   services.desktopManager.plasma6.enable = true;
-
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -91,18 +89,18 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.calebowolf = {
+  users.users."calebowolf" = {
     isNormalUser = true;
     description = "Caleb Mignano";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
-      thunderbird
     ];
   };
 
-  # Install firefox.
+  # Install firefox and thunderbird.
   programs.firefox.enable = true;
+  programs.thunderbird.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -110,61 +108,52 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    krita
-    gimp
-    gnome-disk-utility
-    telegram-desktop
-    discord
-    _1password-gui
-    alcom
-    google-chrome
-    gale
-    obs-studio
-    steam
-    steamcmd
-    unityhub
-    vlc
-    vrcx
-    vscode
-    protonplus
-    bazaar
-    yt-dlp
-    openlinkhub
-    wivrn
-    wlx-overlay-s
-    libimobiledevice
-    hyfetch
-    prismlauncher
-    osu-lazer
-    spotify
-    docker
-    docker-compose
-    blueberry
-    blueman
-    bluejay
-    bluez
+      vim
+      wget
+      curl
+      git
+      vlc
+      discord
+      telegram-desktop
+      steam
+      steamcmd
+      protonplus
+      proton-vpn
+      protonup-qt
+      protontricks
+      osu-lazar-bin
+      tailscale
+      flatpak
+      xdg-utils
+      xdg-launch
+      xdg-user-dirs
+      xdg-desktop-portal
+      krita
+      gimp
+      gnome-disk-utility
+      obs-studio
+      bazaar
+      yt-dlp
+      openlinkhub
+      hyfetch
+      prismlauncher
   ];
 
   # KDE Partition Manager
   programs.partition-manager.enable = true;
-
-  # Flatpaks/Flathub
-  services.flatpak.enable = true;
-  # sudo nixos-rebuild switch
-  # flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-  # Reboot
-
   # Steam
-  programs.steam = {
-  enable = true; # Master switch, already covered in installation
-  remotePlay.openFirewall = true;  # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server hosting
-  # Other general flags if available can be set here.
-  };
-  # Tip: For improved gaming performance, you can also enable GameMode:
+  programs.steam.enable = true;
+  programs.steam.extest.enable = true;
+  hardware.steam-hardware.enable = true;
   programs.gamemode.enable = true;
+
+  # Flatpak
+  services.flatpak.enable = true;
+
+  # XDG
+  xdg.sounds.enable = true;
+  xdg.portal.enable = true;
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -191,6 +180,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "26.05"; # Did you read the comment?
 
 }
