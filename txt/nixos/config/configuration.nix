@@ -113,6 +113,7 @@
       curl
       git
       vlc
+			btop
       discord
       telegram-desktop
       steam
@@ -137,6 +138,13 @@
       openlinkhub
       hyfetch
       prismlauncher
+			impression
+			antigravity
+			bleachbit
+			blender
+			ghostty
+      firewalld
+      firewalld-gui
   ];
 
   # KDE Partition Manager
@@ -151,8 +159,12 @@
   services.flatpak.enable = true;
 
   # XDG
+  xdg.autostart.enable = true;
   xdg.sounds.enable = true;
   xdg.portal.enable = true;
+  xdg.icons.enable = true;
+  xdg.menus.enable = true;
+  xdg.mime.enable = true;
 
 
   # Some programs need SUID wrappers, can be configured further or are
