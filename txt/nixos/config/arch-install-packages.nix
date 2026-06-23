@@ -16,7 +16,7 @@
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-ugly
-    libxcrypt-compat     # For running some legacy binaries / voice clients
+    libxcrypt-legacy     # For running some legacy binaries / voice clients
 
     # --- Productivity & Tools ---
     lutris               # Game manager/launcher
