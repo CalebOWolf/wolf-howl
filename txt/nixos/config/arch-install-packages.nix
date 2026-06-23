@@ -25,21 +25,10 @@
     handbrake            # Video transcoder
     qbittorrent          # Torrent client
 
-    # --- Emulators (from Flatpak list) ---
-    dolphin-emu          # GameCube/Wii emulator
-    mgba                 # Game Boy Advance emulator
-    ppsspp               # PSP emulator
-    rpcs3                # PS3 emulator
-    pcsx2                # PS2 emulator
-    retroarch            # Multi-system emulator frontend
-
-    # --- VR Chat & VR Companion Apps ---
-    vrcx                 # VRChat companion application
 
     # --- Flatpak equivalents packaged in NixOS ---
     blanket              # Ambient noise player
     cpu-x                # System profiling and hardware info (CPU-Z clone)
-    # flatseal             # Flatpak permission manager (Managed via flatpak.nix)
     gpu-viewer           # Frontend to glxinfo/vulkaninfo
     ktailctl             # GUI client for Tailscale
     resources            # Modern system monitor
@@ -56,9 +45,4 @@
     nerd-fonts.arimo     # Arimo Nerd Font (ttf-arimo-nerd)
   ];
 
-  # --- WiVRn (Wireless VR Streaming Service) ---
-  services.wivrn = {
-    enable = true;
-    openFirewall = true; # Open ports in the system firewall automatically
-  };
 }

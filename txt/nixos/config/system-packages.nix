@@ -35,7 +35,6 @@
     ghostty
     pciutils
     ethtool
-    rustdesk
   ];
 
   # Install firefox, thunderbird, partition manager, and enable fish shell.
