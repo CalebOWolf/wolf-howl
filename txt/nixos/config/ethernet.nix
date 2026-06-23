@@ -7,14 +7,13 @@
   # Intel I226-V Support (igc driver)
   # Load igc driver module early in boot and ensure kernel module is available
   boot.initrd.kernelModules = [ "igc" ];
-  boot.kernelModules = [ "igc" ];
+  boot.kernelModules = [ "igc" "r8125" ];
 
   # Realtek RTL8125 Support (r8125 driver)
   # Blacklist the default in-kernel r8169 driver to prevent driver conflicts
   boot.blacklistedKernelModules = [ "r8169" ];
   # Use and build the proprietary/out-of-tree r8125 kernel module
   boot.extraModulePackages = [ config.boot.kernelPackages.r8125 ];
-  boot.kernelModules = [ "r8125" ];
 
   # Kernel driver options for r8125 stability:
   # - Disable Energy Efficient Ethernet (eee=0)
