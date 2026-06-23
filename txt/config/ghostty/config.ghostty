@@ -1,0 +1,4 @@
+theme = Pro
+window-width = 110
+window-height = 40
+command = "bash -c 'hyfetch'; exec bash"
