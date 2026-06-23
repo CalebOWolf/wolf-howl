@@ -7,6 +7,7 @@ let
     # Add your Flatpak package IDs here:
     "org.firestormviewer.FirestormViewer"
     "io.github.shonubot.Spruce"
+    "com.github.tchx84.Flatseal"
   ];
 in
 {

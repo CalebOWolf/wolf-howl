@@ -39,7 +39,7 @@
     # --- Flatpak equivalents packaged in NixOS ---
     blanket              # Ambient noise player
     cpu-x                # System profiling and hardware info (CPU-Z clone)
-    flatseal             # Flatpak permission manager
+    # flatseal             # Flatpak permission manager (Managed via flatpak.nix)
     gpu-viewer           # Frontend to glxinfo/vulkaninfo
     ktailctl             # GUI client for Tailscale
     resources            # Modern system monitor
