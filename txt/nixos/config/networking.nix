@@ -2,7 +2,7 @@
 
 {
   networking.hostName = "wolfhowlnixos"; # Define your hostname.
-  networking.wireless.enable = false;  # Disabled to prevent conflict with NetworkManager
+  # networking.wireless.enable = false;  # Disabled to prevent conflict with NetworkManager
   
   # Enable networking
   networking.networkmanager.enable = true;

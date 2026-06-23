@@ -7,10 +7,8 @@
   # Core fonts for daily use, terminal, and emoji rendering
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    fira-code
-
+    noto-fonts-color-emoji
+    
     # pkgs.nerdfonts has been deprecated/removed in recent NixOS/nixpkgs versions.
     # Individual fonts are now packaged under the `pkgs.nerd-fonts` attribute set.
     # You can list specific ones you want to install:

@@ -42,7 +42,7 @@
     kdePackages.kruler
     kdePackages.ktimer
     kdePackages.kzones
-    kdePackages.koxygen
+    kdePackages.oxygen
     kdePackages.taglib
     kdePackages.dolphin
     kdePackages.drkonqi
@@ -68,5 +68,7 @@
     kdePackages.kpackage
     kdePackages.kservice
     kdePackages.ktorrent
+    kdePackages.oxygen-icons
+    kdePackages.oxygen-sounds
   ];
 }
