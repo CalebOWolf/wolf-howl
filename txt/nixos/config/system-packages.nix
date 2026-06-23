@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./arch-install-packages.nix
+  ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -14,7 +18,6 @@
     btop
     discord
     telegram-desktop
-    tailscale
     xdg-utils
     xdg-user-dirs
     krita
@@ -24,15 +27,19 @@
     bazaar
     yt-dlp
     hyfetch
+    fastfetch
     impression
     antigravity
     bleachbit
     blender
     ghostty
+    pciutils
+    ethtool
   ];
 
-  # Install firefox, thunderbird, and partition manager.
+  # Install firefox, thunderbird, partition manager, and enable fish shell.
   programs.firefox.enable = true;
   programs.thunderbird.enable = true;
   programs.partition-manager.enable = true;
+  programs.fish.enable = true;
 }

@@ -16,6 +16,9 @@
       ./gaming.nix
       ./nix-settings.nix
       ./fonts.nix
+      ./amd.nix
+      ./ethernet.nix
+      ./samsung.nix
     ];
 
   # Bootloader.
@@ -51,6 +54,7 @@
     isNormalUser = true;
     description = "Caleb Mignano";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
   };
 
   # This value determines the NixOS release from which the default

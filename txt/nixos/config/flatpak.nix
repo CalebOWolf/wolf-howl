@@ -6,6 +6,7 @@ let
   flatpaks = [
     # Add your Flatpak package IDs here:
     "org.firestormviewer.FirestormViewer"
+    "io.github.shonubot.Spruce"
   ];
 in
 {
