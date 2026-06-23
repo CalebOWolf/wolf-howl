@@ -19,6 +19,7 @@
       ./amd.nix
       ./ethernet.nix
       ./samsung.nix
+      ./kernel.nix
     ];
 
   # Bootloader.
@@ -27,9 +28,6 @@
   boot.loader.timeout = 10;
   boot.loader.systemd-boot.netbootxyz.enable = true;
   boot.loader.systemd-boot.memtest86.enable = true;
-
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
