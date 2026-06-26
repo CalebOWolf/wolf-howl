@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     kdePackages.kate
     kdePackages.gwenview
-    kdePackages.ark
     kdePackages.kdf
     kdePackages.kup
     kdePackages.kalk
@@ -63,7 +62,6 @@
     kdePackages.kwallet
     kdePackages.kwrited
     kdePackages.discover
-    kdePackages.karchive
     kdePackages.khangman
     kdePackages.kpackage
     kdePackages.kservice

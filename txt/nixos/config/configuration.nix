@@ -12,6 +12,7 @@
       ./desktop.nix
       ./system-packages.nix
       ./kde-packages.nix
+      ./extraction.nix
       ./flatpak.nix
       ./gaming.nix
       ./nix-settings.nix
