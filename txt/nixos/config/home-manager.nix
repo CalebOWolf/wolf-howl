@@ -29,5 +29,46 @@
         init.defaultBranch = "main";
       };
     };
+
+    # Configure Fish shell at the user level
+    programs.fish = {
+      enable = true;
+      shellAliases = {
+        ll = "ls -la";
+        nix-boot = "sudo nixos-rebuild boot";
+        nix-upgrade = "sudo nixos-rebuild boot --upgrade";
+        nix-clean = "sudo nix-collect-garbage -d && nix-store --optimise";
+      };
+      interactiveShellInit = ''
+        # Disable the default Fish welcome greeting
+        set fish_greeting ""
+      '';
+    };
+
+    # Enable and configure Starship prompt
+    programs.starship = {
+      enable = true;
+    };
+
+    # Modern CLI Utilities
+    programs.zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    programs.fzf = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    programs.eza = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
   };
 }
