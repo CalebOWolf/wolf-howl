@@ -8,7 +8,7 @@
 			pkgs.kdePackages.kget
 			pkgs.kdePackages.kgpg
 			pkgs.kdePackages.kmag
-			pkgs.kdePackages.kmix
+			pkgs.pavucontrol-qt
 			pkgs.kdePackages.koko
 			pkgs.kdePackages.kolf
 			pkgs.kdePackages.kpat
