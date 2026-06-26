@@ -3,7 +3,7 @@
 {
   # File extension extraction and archiving programs
   environment.systemPackages = with pkgs; [
-    7zip
+    _7zz
     kdePackages.ark
     kdePackages.karchive
   ];
