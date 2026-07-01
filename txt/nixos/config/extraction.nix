@@ -3,8 +3,15 @@
 {
   # File extension extraction and archiving programs
   environment.systemPackages = with pkgs; [
-    _7zz
-    kdePackages.ark
-    kdePackages.karchive
+    unar
+    unzip
+    p7zip
+    lz4
+    zstd
+    xz
+    lrzip
+    brotli
+    karchive
+    ark
   ];
 }

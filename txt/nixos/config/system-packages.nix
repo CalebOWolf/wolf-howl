@@ -35,8 +35,6 @@
     ghostty
     pciutils
     ethtool
-    sops
-    age
   ];
 
   # Install firefox, thunderbird, partition manager, and enable fish shell.

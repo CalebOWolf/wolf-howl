@@ -11,7 +11,7 @@
     kdePackages.kget
     kdePackages.kgpg
     kdePackages.kmag
-    pavucontrol-qt
+    kdePackages.kmix
     kdePackages.koko
     kdePackages.kolf
     kdePackages.kpat
