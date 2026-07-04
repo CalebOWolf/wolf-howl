@@ -22,6 +22,10 @@
       ./samsung.nix
       ./kernel.nix
       ./performance.nix
+      ./steam-timeout-inhibit.nix
+      ./syncthing.nix
+      ./sunshine.nix
+      ./krdp.nix
     ];
 
   # Bootloader.

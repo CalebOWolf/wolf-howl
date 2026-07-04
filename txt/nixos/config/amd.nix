@@ -6,7 +6,13 @@
 
   # Enable the AMD P-State Scaling Driver for better power efficiency and performance
   # on modern Ryzen processors (Zen 2 and newer).
-  boot.kernelParams = [ "amd_pstate=active" ];
+  boot.kernelParams = [ 
+    "amd_pstate=active" 
+    # Unlocks OverDrive features (overclocking/undervolting/fan control) for LACT
+    "amdgpu.ppfeaturemask=0xffffffff"
+    # Enable GPU driver recovery to automatically reset the GPU instead of freezing the system on hang
+    "amdgpu.gpu_recovery=1"
+  ];
 
   # AMD GPU (Radeon RX) Optimizations
   # Enable early KMS (Kernel Mode Setting) to load amdgpu driver early in boot,
@@ -21,6 +27,10 @@
     extraPackages = with pkgs; [
       rocmPackages.clr.icd # OpenCL/HIP support for compute tasks (e.g. Blender)
       libvdpau-va-gl       # VDPAU driver wrapper for VA-API
+      amdvlk               # AMD official Vulkan driver (can toggle with AMD_VULKAN_ICD=AMDVLK)
+    ];
+    extraPackages32Bit = with pkgs; [
+      driversi686Linux.amdvlk # 32-bit AMDVLK support
     ];
   };
 
