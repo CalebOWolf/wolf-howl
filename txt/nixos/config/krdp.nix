@@ -6,23 +6,24 @@
   networking.firewall.allowedTCPPorts = [ 3389 ];
   networking.firewall.allowedUDPPorts = [ 3389 ];
 
-  # Configure environment variables for the KRDP systemd user services.
-  # This fixes the common "black screen" or session disconnection issues by:
-  # 1. Forcing KPIPEWIRE to use software encoding (libx264) which is much more stable than VA-API.
-  # 2. Preventing VA-API / hardware acceleration crashes by pointing to a dummy driver.
-  systemd.user.services.app-org.kde.krdpserver = {
-    environment = {
-      KPIPEWIRE_FORCE_ENCODER = "libx264";
-      LIBVA_DRIVER_NAME = "dummy";
-      LIBVA_DRIVERS_PATH = "/nonexistent";
-    };
+  # Enable KDE KRDP service
+  services.xserver.desktopManager.kde5.enable = true;
+
+  # Configure environment variables for the KRDP systemd user services using systemd.user.sessionVariables
+  environment.sessionVariables = {
+    KPIPEWIRE_FORCE_ENCODER = "libx264";
+    LIBVA_DRIVER_NAME = "dummy";
+    LIBVA_DRIVERS_PATH = "/nonexistent";
   };
 
-  systemd.user.services.plasma-krdp_server = {
-    environment = {
-      KPIPEWIRE_FORCE_ENCODER = "libx264";
-      LIBVA_DRIVER_NAME = "dummy";
-      LIBVA_DRIVERS_PATH = "/nonexistent";
-    };
-  };
+  # Alternatively, if you need to set these per-user, add to your user's home-manager config:
+  # (This goes in ~/.config/home-manager/home.nix or similar)
+  # systemd.user.services.krdp-setup = {
+  #   Unit.Description = "KRDP environment setup";
+  #   Install.WantedBy = [ "graphical-session.target" ];
+  #   Service = {
+  #     Type = "oneshot";
+  #     ExecStart = "${pkgs.bash}/bin/bash -c 'export KPIPEWIRE_FORCE_ENCODER=libx264; export LIBVA_DRIVER_NAME=dummy'";
+  #   };
+  # };
 }
