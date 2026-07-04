@@ -1,14 +1,17 @@
 { pkgs, ... }:
 
 {
-  # Archive extraction and compression tools
   environment.systemPackages = with pkgs; [
-    # CLI tools
-    lz4      # LZ4 compression
-    p7zip    # 7-Zip format support
-    unar     # Universal archive extractor
-    unzip    # ZIP extraction
-    xz       # XZ compression
-    zstd     # Zstandard compression
+    # Universal archive extraction
+    unar      # Supports most archive formats
+
+    # Compression/decompression tools
+    bzip2
+    gzip
+    lz4
+    p7zip     # 7-Zip format support
+    unzip
+    xz        # LZMA compression
+    zstd      # Modern compression algorithm
   ];
 }
