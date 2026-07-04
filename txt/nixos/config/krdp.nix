@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  # Enable KDE Plasma desktop (modern alternative to kde5)
-  services.xserver.desktopManager.plasma5.enable = true;
+  # Enable KDE Plasma 6 desktop (modern alternative to plasma5, which reached EOL)
+  services.xserver.desktopManager.plasma6.enable = true;
 
   # Open RDP port for KRDP connections
   networking.firewall.allowedTCPPorts = [ 3389 ];
