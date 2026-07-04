@@ -1,52 +1,62 @@
-{ pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
+
+with lib;
 
 let
+  cfg = config.services.steam-bpm-screen-saver;
+
   steam-bpm-screen-saver-script = pkgs.writeShellScriptBin "steam-bpm-screen-saver" ''
     # Environment dependencies: kreadconfig6, kwriteconfig6, qdbus6, pgrep
     export PATH="${lib.makeBinPath [ pkgs.kdePackages.kconfig pkgs.qt6.qttools pkgs.procps pkgs.gnugrep pkgs.coreutils ]}:$PATH"
 
-    ORIG_FILE="$XDG_CACHE_HOME/steam-bpm-screen-saver.orig"
+    # Configuration
+    DISPLAY_TIMEOUT_AC=${toString cfg.displayTimeoutAc}
+    DISPLAY_TIMEOUT_BATT=${toString cfg.displayTimeoutBatt}
+    LOCK_TIMEOUT=${toString cfg.lockTimeout}
+    
     : "''${XDG_CACHE_HOME:=$HOME/.cache}"
     ORIG_FILE="$XDG_CACHE_HOME/steam-bpm-screen-saver.orig"
+    LOG_TAG="steam-bpm-screen-saver"
 
-    is_steam_bpm_running() {
-      # Check all running processes' cmdlines
-      for cmdfile in /proc/[0-9]*/cmdline; do
-        if [ -f "$cmdfile" ]; then
-          # cmdline is null-separated, replace nulls with spaces
-          cmdline=$(tr '\0' ' ' < "$cmdfile" 2>/dev/null)
-          # Check if it contains "steam" (case-insensitive) and either "-gamepadui" or "-tenfoot"
-          if echo "$cmdline" | grep -iq "steam" && echo "$cmdline" | grep -E -q -- "-(gamepadui|tenfoot)"; then
-            return 0
-          fi
-        fi
-      done
-      return 1
+    # Helper function to run dbus commands with fallback
+    run_dbus() {
+      qdbus6 "$@" 2>/dev/null || qdbus "$@" 2>/dev/null
+      return 0
     }
 
-    # Clean up function to restore settings if the script receives a SIGTERM/SIGINT
+    is_steam_bpm_running() {
+      # Use pgrep to efficiently find Steam BPM processes
+      # Matches: steam, steamerror, etc. with -gamepadui or -tenfoot flags
+      pgrep -af 'steam.*-(gamepadui|tenfoot)' >/dev/null 2>&1
+      return $?
+    }
+
+    # Restore original settings and clean up
     cleanup() {
       if [ -f "$ORIG_FILE" ]; then
-        echo "Restoring original timeout and screen lock settings..."
-        # Read from orig file
-        . "$ORIG_FILE"
-        
-        if [ -n "$ORIG_DISPLAY_TIMEOUT_AC" ]; then
-          kwriteconfig6 --file powerdevilrc --group AC --group Display --key TurnOffDisplayIdleTimeoutSec "$ORIG_DISPLAY_TIMEOUT_AC"
-        fi
-        if [ -n "$ORIG_DISPLAY_TIMEOUT_BATT" ]; then
-          kwriteconfig6 --file powerdevilrc --group Battery --group Display --key TurnOffDisplayIdleTimeoutSec "$ORIG_DISPLAY_TIMEOUT_BATT"
-        fi
-        if [ -n "$ORIG_LOCK_TIMEOUT" ]; then
-          kwriteconfig6 --file kscreenlockerrc --group Daemon --key Timeout "$ORIG_LOCK_TIMEOUT"
-        fi
+        echo "[$LOG_TAG] Restoring original timeout and screen lock settings..." >&2
+        # Read from orig file (source in subshell to avoid pollution)
+        (
+          . "$ORIG_FILE"
+          
+          if [ -n "$ORIG_DISPLAY_TIMEOUT_AC" ]; then
+            kwriteconfig6 --file powerdevilrc --group AC --group Display \
+              --key TurnOffDisplayIdleTimeoutSec "$ORIG_DISPLAY_TIMEOUT_AC"
+          fi
+          if [ -n "$ORIG_DISPLAY_TIMEOUT_BATT" ]; then
+            kwriteconfig6 --file powerdevilrc --group Battery --group Display \
+              --key TurnOffDisplayIdleTimeoutSec "$ORIG_DISPLAY_TIMEOUT_BATT"
+          fi
+          if [ -n "$ORIG_LOCK_TIMEOUT" ]; then
+            kwriteconfig6 --file kscreenlockerrc --group Daemon --key Timeout "$ORIG_LOCK_TIMEOUT"
+          fi
+        )
         
         # Trigger reload
-        qdbus6 org.freedesktop.PowerManagement /org/kde/Solid/PowerManagement org.kde.Solid.PowerManagement.reparseConfiguration 2>/dev/null || \
-        qdbus org.freedesktop.PowerManagement /org/kde/Solid/PowerManagement org.kde.Solid.PowerManagement.reparseConfiguration 2>/dev/null
+        run_dbus org.freedesktop.PowerManagement /org/kde/Solid/PowerManagement \
+          org.kde.Solid.PowerManagement.reparseConfiguration
         
-        qdbus6 org.freedesktop.ScreenSaver /ScreenSaver configure 2>/dev/null || \
-        qdbus org.freedesktop.ScreenSaver /ScreenSaver configure 2>/dev/null
+        run_dbus org.freedesktop.ScreenSaver /ScreenSaver configure
         
         rm -f "$ORIG_FILE"
       fi
@@ -69,12 +79,14 @@ let
     while true; do
       if is_steam_bpm_running; then
         if [ "$is_active" = "false" ]; then
-          echo "Steam Big Picture Mode detected! Adjusting screen timeout and lock settings to higher values..."
+          echo "[$LOG_TAG] Steam Big Picture Mode detected! Adjusting screen timeout and lock settings..." >&2
           is_active=true
           
           # Read current config values
-          ORIG_DISPLAY_TIMEOUT_AC=$(kreadconfig6 --file powerdevilrc --group AC --group Display --key TurnOffDisplayIdleTimeoutSec 2>/dev/null)
-          ORIG_DISPLAY_TIMEOUT_BATT=$(kreadconfig6 --file powerdevilrc --group Battery --group Display --key TurnOffDisplayIdleTimeoutSec 2>/dev/null)
+          ORIG_DISPLAY_TIMEOUT_AC=$(kreadconfig6 --file powerdevilrc --group AC --group Display \
+            --key TurnOffDisplayIdleTimeoutSec 2>/dev/null)
+          ORIG_DISPLAY_TIMEOUT_BATT=$(kreadconfig6 --file powerdevilrc --group Battery --group Display \
+            --key TurnOffDisplayIdleTimeoutSec 2>/dev/null)
           ORIG_LOCK_TIMEOUT=$(kreadconfig6 --file kscreenlockerrc --group Daemon --key Timeout 2>/dev/null)
           
           # Use defaults if not set
@@ -83,30 +95,38 @@ let
           : "''${ORIG_LOCK_TIMEOUT:=5}"
           
           # Save to the cache file
-          mkdir -p "$(dirname "$ORIG_FILE")"
-          cat <<EOF > "$ORIG_FILE"
+          if ! mkdir -p "$(dirname "$ORIG_FILE")" 2>/dev/null; then
+            echo "[$LOG_TAG] Error: Failed to create cache directory" >&2
+            sleep 10
+            continue
+          fi
+          
+          if ! cat > "$ORIG_FILE" <<EOF; then
+            echo "[$LOG_TAG] Error: Failed to write original settings file" >&2
+            sleep 10
+            continue
+          fi
 ORIG_DISPLAY_TIMEOUT_AC="$ORIG_DISPLAY_TIMEOUT_AC"
 ORIG_DISPLAY_TIMEOUT_BATT="$ORIG_DISPLAY_TIMEOUT_BATT"
 ORIG_LOCK_TIMEOUT="$ORIG_LOCK_TIMEOUT"
 EOF
           
-          # Set new timeouts:
-          # Display timeout: 7200 seconds (2 hours)
-          # Lock timeout: 120 minutes (2 hours)
-          kwriteconfig6 --file powerdevilrc --group AC --group Display --key TurnOffDisplayIdleTimeoutSec 7200
-          kwriteconfig6 --file powerdevilrc --group Battery --group Display --key TurnOffDisplayIdleTimeoutSec 7200
-          kwriteconfig6 --file kscreenlockerrc --group Daemon --key Timeout 120
+          # Set new timeouts
+          kwriteconfig6 --file powerdevilrc --group AC --group Display \
+            --key TurnOffDisplayIdleTimeoutSec "$DISPLAY_TIMEOUT_AC"
+          kwriteconfig6 --file powerdevilrc --group Battery --group Display \
+            --key TurnOffDisplayIdleTimeoutSec "$DISPLAY_TIMEOUT_BATT"
+          kwriteconfig6 --file kscreenlockerrc --group Daemon --key Timeout "$LOCK_TIMEOUT"
           
           # Apply the configuration
-          qdbus6 org.freedesktop.PowerManagement /org/kde/Solid/PowerManagement org.kde.Solid.PowerManagement.reparseConfiguration 2>/dev/null || \
-          qdbus org.freedesktop.PowerManagement /org/kde/Solid/PowerManagement org.kde.Solid.PowerManagement.reparseConfiguration 2>/dev/null
+          run_dbus org.freedesktop.PowerManagement /org/kde/Solid/PowerManagement \
+            org.kde.Solid.PowerManagement.reparseConfiguration
           
-          qdbus6 org.freedesktop.ScreenSaver /ScreenSaver configure 2>/dev/null || \
-          qdbus org.freedesktop.ScreenSaver /ScreenSaver configure 2>/dev/null
+          run_dbus org.freedesktop.ScreenSaver /ScreenSaver configure
         fi
       else
         if [ "$is_active" = "true" ]; then
-          echo "Steam Big Picture Mode is no longer running. Restoring original settings..."
+          echo "[$LOG_TAG] Steam Big Picture Mode is no longer running. Restoring original settings..." >&2
           cleanup
           is_active=false
         fi
@@ -116,19 +136,46 @@ EOF
   '';
 in
 {
-  # Install the script system-wide (optional, but good for testing or troubleshooting)
-  environment.systemPackages = [ steam-bpm-screen-saver-script ];
-
-  # Systemd user service to run the monitoring daemon
-  systemd.user.services.steam-bpm-screen-saver = {
-    description = "Steam Big Picture Mode Screen Saver / Timeout Adjuster";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
+  options.services.steam-bpm-screen-saver = {
+    enable = mkEnableOption "Steam Big Picture Mode screen saver timeout inhibitor";
     
-    serviceConfig = {
-      ExecStart = "${steam-bpm-screen-saver-script}/bin/steam-bpm-screen-saver";
-      Restart = "always";
-      RestartSec = "10s";
+    displayTimeoutAc = mkOption {
+      type = types.int;
+      default = 7200;
+      description = "Display idle timeout in seconds when Steam BPM is active (AC power). Default: 2 hours.";
+    };
+    
+    displayTimeoutBatt = mkOption {
+      type = types.int;
+      default = 7200;
+      description = "Display idle timeout in seconds when Steam BPM is active (battery). Default: 2 hours.";
+    };
+    
+    lockTimeout = mkOption {
+      type = types.int;
+      default = 120;
+      description = "Screen lock timeout in minutes when Steam BPM is active. Default: 2 hours.";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    # Install the script system-wide
+    environment.systemPackages = [ steam-bpm-screen-saver-script ];
+
+    # Systemd user service to run the monitoring daemon
+    systemd.user.services.steam-bpm-screen-saver = {
+      description = "Steam Big Picture Mode Screen Saver / Timeout Adjuster";
+      wantedBy = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
+      
+      serviceConfig = {
+        ExecStart = "${steam-bpm-screen-saver-script}/bin/steam-bpm-screen-saver";
+        Restart = "always";
+        RestartSec = "10s";
+        StandardOutput = "journal";
+        StandardError = "journal";
+        SyslogIdentifier = "steam-bpm-screen-saver";
+      };
     };
   };
 }
