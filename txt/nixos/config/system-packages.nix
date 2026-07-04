@@ -35,6 +35,7 @@
     ghostty
     pciutils
     ethtool
+    ghostty              # GPU-accelerated terminal emulator
   ];
 
   # Install firefox, thunderbird, partition manager, and enable fish shell.
