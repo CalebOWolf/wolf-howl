@@ -1,19 +1,18 @@
 { pkgs, ... }:
 
 {
-  # Nix package manager settings
   nix = {
     settings = {
-      # Automatically hard-link duplicate files in the store to save space
       auto-optimise-store = true;
-      # Enable Flakes and new Nix commands
       experimental-features = [ "nix-command" "flakes" ];
 
-      # Maximize CPU core usage for compilations
+      # Parallel build jobs (auto detects CPU count)
       max-jobs = "auto";
-      cores = 0; # Use all CPU cores/threads for each job
+      cores = "auto";  # Fixed: was incorrectly set to 0
+      
+      # Limit parallel downloads to prevent network saturation
+      max-substitution-jobs = 8;
 
-      # Add community binary caches to avoid building from source
       substituters = [
         "https://cache.nixos.org"
         "https://nix-community.cachix.org"
@@ -23,26 +22,26 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
 
-      # Required sandbox paths for ccache
       extra-sandbox-paths = [ "/var/cache/ccache" ];
+      
+      # Preserve build outputs for development workflows
+      keep-outputs = true;
+      keep-derivations = true;
     };
-    # Set up automatic garbage collection
+    
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "weekly";  # Consider "daily" if disk space is limited
       options = "--delete-older-than 7d";
     };
   };
 
-  # Enable compiler cache (ccache) system-wide
+  # Compiler cache for faster rebuilds (requires ccache integration in build setup)
   programs.ccache = {
     enable = true;
     cacheDir = "/var/cache/ccache";
   };
 
-  # zram swap for efficient memory compression
   zramSwap.enable = true;
-
-  # Firmware update service
   services.fwupd.enable = true;
 }
