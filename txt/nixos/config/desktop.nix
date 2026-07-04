@@ -1,47 +1,33 @@
 { pkgs, ... }:
 
 {
-  # Enable the X11 windowing system.
+  # KDE Plasma 6 on Wayland (X11 disabled)
   services.xserver.enable = false;
-
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.plasma-login-manager.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Configure console keymap to use xkb config
-  console.useXkbConfig = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
+  # Audio
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
     pulse.enable = true;
   };
 
-  # Wayland scaling for Electron apps
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
+  # Printing
+  services.printing.enable = true;
 
-  # XDG Desktop integration
-  xdg = {
-    autostart.enable = true;
-    sounds.enable = true;
-    portal.enable = true;
-    icons.enable = true;
-    menus.enable = true;
-    mime.enable = true;
-  };
+  # Wayland optimization for Electron
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # Qt/Plasma integration
+  qt.enable = true;
+  qt.style = "breeze";
+
+  # Fonts
+  fonts.fontconfig.enable = true;
 }
