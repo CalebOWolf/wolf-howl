@@ -1,40 +1,59 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./networking.nix
-      ./desktop.nix
-      ./system-packages.nix
-      ./kde-packages.nix
-      ./extraction.nix
-      ./flatpak.nix
-      ./gaming.nix
-      ./nix-settings.nix
-      ./fonts.nix
-      ./amd.nix
-      ./ethernet.nix
-      ./samsung.nix
-      ./kernel.nix
-      ./performance.nix
-      ./steam-timeout-inhibit.nix
-      ./syncthing.nix
-      ./sunshine.nix
-      ./krdp.nix
+      
+      # System configuration modules
+      ./networking.nix               # Network settings and connectivity
+      ./kernel.nix                   # Kernel configuration
+      ./performance.nix              # Performance tuning
+      ./amd.nix                      # AMD-specific settings
+      ./ethernet.nix                 # Ethernet configuration
+      ./nix-settings.nix             # Nix package manager settings
+      
+      # Desktop environment and UI
+      ./desktop.nix                  # Desktop environment base
+      ./kde-packages.nix             # KDE Plasma packages
+      ./fonts.nix                    # Font configuration
+      
+      # Application modules
+      ./system-packages.nix          # System-wide packages
+      ./extraction.nix               # Archive extraction tools
+      ./flatpak.nix                  # Flatpak support
+      ./syncthing.nix                # File synchronization
+      
+      # Gaming and media
+      ./gaming.nix                   # Gaming support
+      ./steam-timeout-inhibit.nix    # Steam idle timeout prevention
+      ./sunshine.nix                 # Sunshine streaming server
+      
+      # Hardware-specific
+      ./samsung.nix                  # Samsung device support
+      ./krdp.nix                     # Remote desktop protocol
     ];
 
-  # Bootloader.
+  # ============================================================================
+  # Bootloader Configuration
+  # ============================================================================
+  
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 10;
+  
+  # Additional boot utilities
   boot.loader.systemd-boot.netbootxyz.enable = true;
   boot.loader.systemd-boot.memtest86.enable = true;
 
+  # ============================================================================
+  # Locale and Internationalization
+  # ============================================================================
+  
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
@@ -53,23 +72,86 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # ============================================================================
+  # Console Configuration
+  # ============================================================================
+  
+  console.keyMap = "us";
+
+  # ============================================================================
+  # Nixpkgs Configuration
+  # ============================================================================
+  
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = false;
+  };
+
+  # ============================================================================
+  # Nix Package Manager Settings
+  # ============================================================================
+  
+  nix.settings = {
+    # Enable Flakes and new `nix` command
+    experimental-features = [ "nix-command" "flakes" ];
+    
+    # Improve build performance and allow more parallelism
+    max-jobs = "auto";
+    cores = 0; # Use all available cores
+  };
+  
+  # Automatic garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+  
+  # Automatic store optimization (deduplication)
+  nix.optimise.automatic = true;
+
+  # ============================================================================
+  # Security Hardening
+  # ============================================================================
+  
+  security.sudo = {
+    wheelNeedsPassword = true;
+    execWheelOnly = true;
+  };
+  
+  # Kernel security hardening
+  security.protectKernelImage = true;
+  security.lockKernelModules = true;
+  security.apparmor.enable = true;
+
+  # ============================================================================
+  # User Accounts
+  # ============================================================================
+  
+  # Define a user account. Don't forget to set a password with 'passwd'.
   users.users."calebowolf" = {
     isNormalUser = true;
     description = "Caleb Mignano";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"  # Network management
+      "wheel"           # Sudo access
+      "audio"           # Audio device access
+      "video"           # Video/GPU access
+      "input"           # Input device access
+      "uucp"            # Serial port access (if needed)
+    ];
     shell = pkgs.fish;
   };
-  
-  # Wheel Hardening
-  security.sudo.wheelNeedsPassword = true;
 
+  # ============================================================================
+  # System State Version
+  # ============================================================================
+  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # on your system were taken. It's perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
-
 }
