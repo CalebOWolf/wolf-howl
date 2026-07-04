@@ -17,6 +17,8 @@
 
   # Enable Tailscale service and configure firewall.
   services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "both";
+  networking.firewall.checkReversePath = "loose";
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
   networking.firewall.allowedUDPPorts = [ 41641 ];
 }
