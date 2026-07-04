@@ -8,6 +8,10 @@
   # Load igc driver module early in boot and ensure kernel module is available
   boot.initrd.kernelModules = [ "igc" ];
   boot.kernelModules = [ "igc" "r8125" ];
+  # Network Interface naming consistency
+  boot.kernelParams = [ "net.ifnames=0" ];
+  ASPM config
+  boot.kernelParams = [ "pcie_aspm=off" ];  # Or "performance" for max stability
 
   # Realtek RTL8125 Support (r8125 driver)
   # Blacklist the default in-kernel r8169 driver to prevent driver conflicts
@@ -21,6 +25,25 @@
   boot.extraModprobeConfig = ''
     options r8125 eee=0 aspm=0
   '';
+
+  # TCP IP Tunneling Stability
+  boot.kernel.sysctl = {
+  "net.core.rmem_max" = 134217728;  # 128MB
+  "net.core.wmem_max" = 134217728;  # 128MB
+  "net.ipv4.tcp_rmem" = "4096 87380 67108864";
+  "net.ipv4.tcp_wmem" = "4096 65536 67108864";
+  "net.core.netdev_max_backlog" = 5000;
+  };
+
+  # Timer Reenforce EEE Settings
+  systemd.timers.disable-eee = {
+  description = "Periodically disable EEE on ethernet interfaces";
+  wantedBy = [ "timers.target" ];
+  timerConfig = {
+    OnBootSec = "1min";
+    OnUnitActiveSec = "5min";
+    };
+  };
 
   # Runtime service to dynamically disable EEE on all ethernet interfaces
   systemd.services.disable-eee = {
