@@ -34,7 +34,6 @@
       
       # Hardware-specific
       ./samsung.nix                  # Samsung device support
-      ./krdp.nix                     # Remote desktop protocol
     ];
 
   # ============================================================================
@@ -85,29 +84,6 @@
     allowUnfree = true;
     allowBroken = false;
   };
-
-  # ============================================================================
-  # Nix Package Manager Settings
-  # ============================================================================
-  
-  nix.settings = {
-    # Enable Flakes and new `nix` command
-    experimental-features = [ "nix-command" "flakes" ];
-    
-    # Improve build performance and allow more parallelism
-    max-jobs = "auto";
-    cores = 0; # Use all available cores
-  };
-  
-  # Automatic garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-  
-  # Automatic store optimization (deduplication)
-  nix.optimise.automatic = true;
 
   # ============================================================================
   # Security Hardening
