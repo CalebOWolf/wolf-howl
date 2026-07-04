@@ -1,43 +1,42 @@
 { pkgs, ... }:
 
 {
-  # Hardware acceleration for gaming
   hardware.graphics = {
     enable = true;
-    enable32Bit = true; # Required for many Steam games
+    enable32Bit = true;
     extraPackages = with pkgs; [
       vulkan-loader
       vulkan-validation-layers
+      vulkan-tools
     ];
     extraPackages32 = with pkgs; [
       vulkan-loader
+      vulkan-validation-layers
     ];
   };
 
-  # Steam configuration
+  hardware.steam-hardware.enable = true;
+  programs.gamemode.enable = true;
+  programs.gamescope.enable = true;
+
   programs.steam = {
     enable = true;
     extest.enable = true;
     remotePlay.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
+    gamescopeSession.enable = true;
   };
 
-  # Steam hardware support & performance optimization
-  hardware.steam-hardware.enable = true;
-  programs.gamemode.enable = true;
-
-  # Gaming packages
   environment.systemPackages = with pkgs; [
-    # Steam & Proton tools
     steam
     steamcmd
-    protonplus
-    proton-vpn
     protonup-qt
     protontricks
     
-    # Game launchers
     osu-lazer-bin
     prismlauncher
+    
+    # Optional: performance monitoring
+    mangohud
   ];
 }
