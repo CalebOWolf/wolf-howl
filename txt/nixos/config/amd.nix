@@ -27,17 +27,8 @@
     extraPackages = with pkgs; [
       rocmPackages.clr.icd # OpenCL/HIP support for compute tasks (e.g. Blender)
       libvdpau-va-gl       # VDPAU driver wrapper for VA-API
-      amdvlk               # AMD official Vulkan driver (can toggle with AMD_VULKAN_ICD=AMDVLK)
-    ];
-    extraPackages32Bit = with pkgs; [
-      driversi686Linux.amdvlk # 32-bit AMDVLK support
     ];
   };
-
-  # Fix for programs with hard-coded ROCm/HIP paths (like Blender)
-  systemd.tmpfiles.rules = [
-    "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}"
-  ];
 
   # Enable LACT (Linux AMDGPU Controller) daemon for overclocking, power profiles, and fan curves
   services.lact.enable = true;
