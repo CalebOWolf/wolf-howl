@@ -16,8 +16,8 @@
 
   # DNS configuration - using Cloudflare as default (change as needed)
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" "2606:4700:4700::1111" "2606:4700:4700::1001" ];
-  # Use DNSSEC
-  networking.resolvconf.dnsExtensions = [ "dnssec" ];
+  # Use resolver options (e.g., EDNS0 support for larger DNS queries)
+  networking.resolvconf.extraOptions = [ "edns0" ];
 
   # Firewall configuration with hardening
   networking.firewall = {
