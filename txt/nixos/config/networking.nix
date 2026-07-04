@@ -82,7 +82,5 @@
     #   "--accept-dns=false"  # Set to true if you want Tailscale to manage DNS
     #   "--advertise-routes=192.168.1.0/24"  # Advertise local subnet if acting as exit node
     # ];
-    # Automatically start Tailscale on boot
-    autoconnect = true;
   };
 }
