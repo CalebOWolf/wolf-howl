@@ -5,20 +5,20 @@
   networking.hostName = "wolfhowlnixos";
 
   # Networking stack - NetworkManager handles wireless and wired connections
-  # networking.wireless.enable is disabled to prevent conflicts with NetworkManager
   networking.networkmanager.enable = true;
 
-  # Firewall configuration
+  # Firewall configuration with hardening
   networking.firewall = {
     enable = true;
-    # Check reverse path to prevent spoofing, set to "loose" for Tailscale compatibility
-    checkReversePath = "loose";
-    # Log dropped reverse path packets for debugging
-    logReversePathDrops = true;
-    # Trust Tailscale interface
-    trustedInterfaces = [ "tailscale0" ];
-    # Tailscale WireGuard UDP port
+    # SSH is handled by the SSH service below
+    allowedTCPPorts = [ 22 ];
+    # Tailscale WireGuard UDP port (see services.tailscale below)
     allowedUDPPorts = [ 41641 ];
+    # Check reverse path to prevent spoofing; set to "loose" for Tailscale compatibility
+    checkReversePath = "loose";
+    logReversePathDrops = true;
+    # Trust Tailscale interface to prevent firewall blocking
+    trustedInterfaces = [ "tailscale0" ];
   };
 
   # Bluetooth support
@@ -32,19 +32,22 @@
   services.openssh = {
     enable = true;
     settings = {
-      # Disable password authentication; use SSH keys only
       PasswordAuthentication = false;
-      # Prevent root login via SSH
       PermitRootLogin = "no";
-      # Disable X11 forwarding unless explicitly needed
       X11Forwarding = false;
+      # Limit authentication attempts to prevent brute force
+      MaxAuthTries = 3;
+      # Close connection after 2 minutes of inactivity
+      ClientAliveInterval = 120;
+      ClientAliveCountMax = 1;
     };
   };
 
-  # Tailscale VPN service
+  # Tailscale VPN service for secure remote access
   services.tailscale = {
     enable = true;
-    # Use both subnet routes and exit node features
     useRoutingFeatures = "both";
+    # Optional: customize Tailscale behavior
+    # extraUpFlags = [ "--accept-dns=false" ];
   };
 }
