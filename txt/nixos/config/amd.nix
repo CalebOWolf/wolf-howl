@@ -10,17 +10,21 @@
     "amd_pstate=active"
     # Uncomment the line below for power-saving mode instead of performance-focused
     # "amd_pstate.prefer_performance_mode=0"
-    # Unlocks OverDrive features (overclocking/undervolting/fan control) for LACT
+    # Unlocks OverDrive features (overclocking, undervolting, fan control) for LACT
     "amdgpu.ppfeaturemask=0xffffffff"
     # Enable GPU driver recovery to automatically reset the GPU instead of freezing the system on hang
     "amdgpu.gpu_recovery=1"
     # Uncomment for cutting-edge hardware with experimental GPU features
     # "amdgpu.exp_hw_support=1"
+    # GPU memory management (uncomment if needed for older GPUs or memory issues)
+    # "amdgpu.vm_fault_stop=0"
+    # "amdgpu.gart_size=2048"
   ];
 
   # CPU frequency scaling governor
-  # Options: "powersave", "performance", "ondemand", "conservative"
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  # Note: amd_pstate=active handles this automatically via amd-pstate-epp
+  # Uncomment if you need explicit control:
+  # powerManagement.cpuFreqGovernor = lib.mkDefault "amd-pstate-epp";
 
   # AMD GPU (Radeon RX) Optimizations
   # Enable early KMS (Kernel Mode Setting) to load amdgpu driver early in boot,
@@ -35,12 +39,14 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      # OpenCL/HIP support for compute tasks (e.g., Blender, scientific computing)
+      # Compute & HIP support for GPGPU tasks
       rocmPackages.clr.icd
-      # VA-API and VDPAU support for hardware video decode/encode
+      
+      # Video decode/encode support
       libva
       libva-vdpau-driver
       libvdpau-va-gl
+      
       # Vulkan support for modern graphics applications and games
       vulkan-tools
       vulkan-loader
@@ -52,7 +58,7 @@
   #   HSA_OVERRIDE_GFX_VERSION = "";  # Uncomment if you need to override GPU detection
   # };
 
-  # Enable LACT (Linux AMDGPU Controller) daemon for overclocking, power profiles, and fan curves
+  # Enable LACT (Linux AMDGPU Controller) daemon for fan control, power profiles, and monitoring
   services.lact.enable = lib.mkDefault true;
 
   # AMD specific performance monitoring and utility packages
@@ -62,4 +68,9 @@
     nvtopPackages.amd   # Interactive GPU process monitor (AMD variant)
     clinfo              # Prints OpenCL platform and device information
   ];
+
+  # Wayland-specific optimizations (uncomment if using a Wayland compositor like Sway or Hyprland)
+  # environment.sessionVariables = {
+  #   WLR_RENDERER = "vulkan";  # Use Vulkan for wlroots compositors for better performance
+  # };
 }
