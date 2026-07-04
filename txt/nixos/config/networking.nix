@@ -74,13 +74,10 @@
 
   # Tailscale VPN service for secure remote access and subnet routing
   services.tailscale = {
-    enable = true;
-    # Use both subnet routes and exit node features
-    useRoutingFeatures = "both";
-    # Optional: customize Tailscale behavior on startup
-    # extraUpFlags = [
-    #   "--accept-dns=false"  # Set to true if you want Tailscale to manage DNS
-    #   "--advertise-routes=192.168.1.0/24"  # Advertise local subnet if acting as exit node
-    # ];
-  };
+  enable = true;
+  useRoutingFeatures = "both";
+  extraUpFlags = [
+    "--auto-update=true"
+  ];
+};
 }
