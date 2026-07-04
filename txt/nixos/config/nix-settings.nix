@@ -10,7 +10,6 @@
       # Parallel build jobs (auto detects CPU count)
       # Note: "auto" uses all cores; consider reducing for system responsiveness
       max-jobs = "auto";
-      cores = 4;  # Leave some cores free for system tasks
       
       # Limit parallel downloads to prevent network saturation
       max-substitution-jobs = 4;
