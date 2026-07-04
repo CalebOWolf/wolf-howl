@@ -28,14 +28,28 @@
     "net.ipv4.tcp_wmem" = "8192 131072 16777216";
 
     # TCP performance tuning for gaming/realtime
+    # NOTE: Aggressive reuse and low fin_timeout may break compatibility with
+    # poorly-behaved servers; monitor for connection issues if they appear.
     "net.ipv4.tcp_tw_reuse" = 1;            # Reuse TIME_WAIT sockets faster
     "net.ipv4.tcp_fin_timeout" = 30;        # Faster connection cleanup
     "net.core.netdev_max_backlog" = 5000;   # Higher backlog for bursty traffic
 
     # Disable TCP slow start after idle (bad for gaming)
     "net.ipv4.tcp_slow_start_after_idle" = 0;
-  };
 
-  # Optional: Disable transparent hugepages for more predictable gaming latency
-  # vm.transparent_hugepage = "never";
+    # TCP Fast Open: faster connection establishment (client + server modes)
+    "net.ipv4.tcp_fastopen" = 3;
+
+    # TCP retransmit tuning for faster failure detection in gaming scenarios
+    "net.ipv4.tcp_retries2" = 5;
+
+    # UDP buffer sizes for multiplayer gaming protocols
+    "net.core.udp_mem" = "8388608 12582912 16777216";
+
+    # Memory pressure: avoid unnecessary swap for responsive gaming
+    "vm.swappiness" = 10;
+
+    # Disable transparent hugepages for predictable gaming latency
+    "vm.transparent_hugepage" = "never";
+  };
 }
