@@ -2,71 +2,75 @@
 
 {
   environment.systemPackages = with pkgs; [
-    kdePackages.kate
-    kdePackages.gwenview
-    kdePackages.kdf
-    kdePackages.kup
-    kdePackages.kalk
-    kdePackages.kded
-    kdePackages.kget
-    kdePackages.kgpg
-    kdePackages.kmag
-    kdePackages.kmix
-    kdePackages.koko
-    kdePackages.kolf
-    kdePackages.kpat
-    kdePackages.krdc
-    kdePackages.krdp
-    kdePackages.krfb
-    kdePackages.ksvg
+    # Core Desktop Environment
     kdePackages.kwin
-    kdePackages.audex
-    kdePackages.elisa
-    kdePackages.kasts
-    kdePackages.kauth
-    kdePackages.kcalc
-    kdePackages.kcron
-    kdePackages.kfind
-    kdePackages.kmail
-    kdePackages.kwave
-    kdePackages.timed
-    kdePackages.breeze
-    kdePackages.dragon
-    kdePackages.falkon
-    kdePackages.kalarm
-    kdePackages.kapman
-    kdePackages.kcrash
-    kdePackages.kgamma
-    kdePackages.kmines
-    kdePackages.kruler
-    kdePackages.ktimer
-    kdePackages.kzones
-    kdePackages.oxygen
-    kdePackages.taglib
-    kdePackages.dolphin
-    kdePackages.drkonqi
-    kdePackages.kbackup
-    kdePackages.kblocks
-    kdePackages.kbounce
-    kdePackages.kcodecs
-    kdePackages.kconfig
-    kdePackages.kdialog
-    kdePackages.knights
-    kdePackages.kompare
-    kdePackages.konsole
-    kdePackages.kontact
-    kdePackages.kpeople
-    kdePackages.kpmcore
     kdePackages.krunner
-    kdePackages.kscreen
     kdePackages.kwallet
-    kdePackages.kwrited
-    kdePackages.discover
-    kdePackages.khangman
-    kdePackages.kpackage
-    kdePackages.kservice
-    kdePackages.ktorrent
+    kdePackages.kscreen
+    kdePackages.breeze
+    kdePackages.oxygen
     kdePackages.oxygen-icons
     kdePackages.oxygen-sounds
+
+    # File & System Management
+    kdePackages.dolphin
+    kdePackages.kdf
+    kdePackages.kup
+    kdePackages.kbackup
+
+    # Development & Utilities
+    kdePackages.kate
+    kdePackages.konsole
+    kdePackages.kdialog
+    kdePackages.kfind
+    kdePackages.kompare
+    kdePackages.kpmcore
+
+    # Media & Graphics
+    kdePackages.gwenview
+    kdePackages.elisa
+    kdePackages.kasts
+    kdePackages.dragon
+    kdePackages.audex
+    kdePackages.kwave
+    kdePackages.koko
+
+    # Communication
+    kdePackages.kontact  # Includes kmail, kaddressbook, etc.
+    kdePackages.kpeople
+
+    # Internet
+    kdePackages.falkon
+    kdePackages.krdc
+    kdePackages.krfb
+    kdePackages.kget
+
+    # Tools & Accessories
+    kdePackages.kcalc
+    kdePackages.kcron
+    kdePackages.kalarm
+    kdePackages.ktimer
+    kdePackages.kgpg
+    kdePackages.kmag
+    kdePackages.kruler
+    kdePackages.kzones
+    kdePackages.kmix
+    kdePackages.timed
+
+    # Games (optional - consider removing if not used)
+    kdePackages.kmines
+    kdePackages.kbounce
+    kdePackages.kblocks
+    kdePackages.kpat
+    kdePackages.khangman
+    kdePackages.kapman
+    kdePackages.kolf
+    kdePackages.knights
+    kdePackages.ktorrent
+
+    # Diagnostics & System
+    kdePackages.drkonqi
+    kdePackages.kcrash
+    kdePackages.discover
   ];
 }
