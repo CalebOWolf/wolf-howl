@@ -1,17 +1,14 @@
 { pkgs, ... }:
 
 {
-  # File extension extraction and archiving programs
+  # Archive extraction and compression tools
   environment.systemPackages = with pkgs; [
-    unar
-    unzip
-    p7zip
-    lz4
-    zstd
-    xz
-    lrzip
-    brotli
-    karchive
-    ark
+    # CLI tools
+    lz4      # LZ4 compression
+    p7zip    # 7-Zip format support
+    unar     # Universal archive extractor
+    unzip    # ZIP extraction
+    xz       # XZ compression
+    zstd     # Zstandard compression
   ];
 }
