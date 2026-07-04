@@ -10,7 +10,6 @@
     libGLU               # GLU utility library (glu)
     gdk-pixbuf           # GDK Pixbuf library (gdk-pixbuf2)
     less                 # Terminal pager (less)
-    ghostty              # GPU-accelerated terminal emulator
 
     # --- Media & GStreamer Plugins ---
     gst_all_1.gst-plugins-base
@@ -25,7 +24,6 @@
     libreoffice-fresh    # Office suite
     handbrake            # Video transcoder
     qbittorrent          # Torrent client
-
 
     # --- Flatpak equivalents packaged in NixOS ---
     blanket              # Ambient noise player
@@ -45,5 +43,4 @@
     font-awesome         # Icon fonts (otf-font-awesome)
     nerd-fonts.arimo     # Arimo Nerd Font (ttf-arimo-nerd)
   ];
-
 }
