@@ -10,35 +10,43 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    # Development & CLI tools
     vim
+    git
     wget
     curl
-    git
-    vlc
     btop
-    discord
-    telegram-desktop
-    xdg-utils
-    xdg-user-dirs
+
+    # Multimedia
+    vlc
+    obs-studio
+    yt-dlp
     krita
     gimp
+    blender
+
+    # System utilities
+    xdg-utils
+    xdg-user-dirs
     gnome-disk-utility
-    obs-studio
+    pciutils
+    ethtool
+    bleachbit
+
+    # Applications
+    discord
+    telegram-desktop
+    ghostty  # GPU-accelerated terminal emulator
     bazaar
-    yt-dlp
+
+    # System information
     hyfetch
     fastfetch
     impression
     antigravity
-    bleachbit
-    blender
-    ghostty
-    pciutils
-    ethtool
-    ghostty              # GPU-accelerated terminal emulator
   ];
 
-  # Install firefox, thunderbird, partition manager, and enable fish shell.
+  # Enable programs with their own modules
   programs.firefox.enable = true;
   programs.thunderbird.enable = true;
   programs.partition-manager.enable = true;
