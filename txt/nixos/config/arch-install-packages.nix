@@ -1,46 +1,54 @@
 { pkgs, ... }:
 
 {
-  # Packages that match your Arch Linux setup (from arch-install-script.sh)
   environment.systemPackages = with pkgs; [
     # --- System & Utilities ---
-    net-tools            # net-tools (ifconfig, netstat, etc.)
-    nano                 # Alternative command line text editor
-    pavucontrol          # PulseAudio Volume Control
-    libGLU               # GLU utility library (glu)
-    gdk-pixbuf           # GDK Pixbuf library (gdk-pixbuf2)
-    less                 # Terminal pager (less)
+    curl                 # Command-line downloader
+    git                  # Version control
+    net-tools            # Networking utilities (ifconfig, netstat, etc.)
+    nano                 # Command-line text editor
+    unzip                # Archive extraction
+    p7zip                # 7z archive support
 
-    # --- Media & GStreamer Plugins ---
+    # --- Media & GStreamer ---
     gst_all_1.gst-plugins-base
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-ugly
-    libxcrypt-legacy     # For running some legacy binaries / voice clients
+    libxcrypt-legacy     # Legacy binary support
+
+    # --- Audio & Video ---
+    pavucontrol          # PulseAudio volume control
+    handbrake            # Video transcoding
+    libGLU               # OpenGL utilities
 
     # --- Productivity & Tools ---
-    lutris               # Game manager/launcher
     keepassxc            # Password manager
     libreoffice-fresh    # Office suite
-    handbrake            # Video transcoder
     qbittorrent          # Torrent client
 
-    # --- Flatpak equivalents packaged in NixOS ---
-    blanket              # Ambient noise player
-    cpu-x                # System profiling and hardware info (CPU-Z clone)
-    gpu-viewer           # Frontend to glxinfo/vulkaninfo
-    ktailctl             # GUI client for Tailscale
+    # --- Gaming & System Performance ---
+    lutris               # Game launcher
     resources            # Modern system monitor
     mission-center       # Windows-style system monitor
-    shortwave            # Internet radio player
-    spotify              # Proprietary music streaming client
-    gnome-weather        # Weather application
+
+    # --- Desktop Applications ---
+    blanket              # Ambient noise player
+    cpu-x                # Hardware info tool
+    gpu-viewer           # GPU diagnostics
+    ktailctl             # Tailscale GUI
+    shortwave            # Internet radio
+    spotify              # Music streaming
+    gnome-weather        # Weather app
+
+    # --- Graphics & UI ---
+    gdk-pixbuf           # Image handling
+    less                 # Terminal pager
   ];
 
-  # --- Fonts ---
   fonts.packages = with pkgs; [
-    corefonts            # Microsoft Core Fonts (ttf-ms-fonts)
-    font-awesome         # Icon fonts (otf-font-awesome)
-    nerd-fonts.arimo     # Arimo Nerd Font (ttf-arimo-nerd)
+    corefonts            # Microsoft Core Fonts
+    font-awesome         # Icon fonts
+    nerd-fonts.arimo     # Arimo Nerd Font
   ];
 }
