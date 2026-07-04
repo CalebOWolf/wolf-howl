@@ -16,10 +16,14 @@
       support32Bit = true;
     };
     pulse.enable = true;
+    jack.enable = true;
   };
 
   # Printing
-  services.printing.enable = true;
+  services.printing = {
+  enable = true;
+  drivers = [ pkgs.gutenprint ];  # or other drivers you need
+  };
 
   # Wayland optimization for Electron
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
