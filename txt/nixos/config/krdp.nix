@@ -8,8 +8,8 @@
   networking.firewall.allowedTCPPorts = [ 3389 ];
   networking.firewall.allowedUDPPorts = [ 3389 ];
 
-  # Environment variables for KRDP (user-level, not global)
-  systemd.user.sessionVariables = {
+  # Environment variables for KRDP (global)
+  environment.variables = {
     KPIPEWIRE_FORCE_ENCODER = "libx264";
     LIBVA_DRIVER_NAME = "dummy";
     LIBVA_DRIVERS_PATH = "/nonexistent";
