@@ -16,6 +16,7 @@
     wget
     curl
     btop
+    vscode
 
     # Multimedia
     vlc
@@ -43,7 +44,6 @@
     hyfetch
     fastfetch
     impression
-    antigravity
   ];
 
   # Enable programs with their own modules
