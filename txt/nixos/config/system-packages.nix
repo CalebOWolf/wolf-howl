@@ -36,8 +36,9 @@
 
     # Filesystem tools
     dosfstools
-    exfatprogs
     ntfs3g
+    exfat
+    exfatprogs
 
     # Applications
     discord
