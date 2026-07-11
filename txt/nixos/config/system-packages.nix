@@ -34,6 +34,11 @@
     ethtool
     bleachbit
 
+    # Filesystem tools
+    dosfstools
+    exfatprogs
+    ntfs3g
+
     # Applications
     discord
     telegram-desktop
