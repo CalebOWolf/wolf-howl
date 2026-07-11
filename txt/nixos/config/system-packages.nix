@@ -15,10 +15,23 @@
     git
     git-credential-manager
     gh
+    ripgrep
+    fd
+    jq
+    tree
+    bat
     wget
     curl
     btop
     vscode
+    nixd
+    alejandra
+
+    # Hardware / diagnostics
+    lshw
+    usbutils
+    smartmontools
+    lm_sensors
 
     # Multimedia
     vlc
@@ -33,6 +46,9 @@
     xdg-user-dirs
     gnome-disk-utility
     seahorse
+    playerctl
+    networkmanagerapplet
+    kdeconnect
     pciutils
     ethtool
     bleachbit
