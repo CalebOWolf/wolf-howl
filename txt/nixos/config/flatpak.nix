@@ -24,7 +24,7 @@ in
     script = ''
       set -euo pipefail
       echo "[flatpak-setup] Adding Flathub repository..." >&2
-      flatpak remote-add --if-not-exists flathub ${flathubRemote}
+      flatpak remote-add --system --if-not-exists flathub ${flathubRemote}
       echo "[flatpak-setup] Flathub repository ready" >&2
     '';
 
@@ -46,22 +46,27 @@ in
     wants = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
     
-    path = [ pkgs.flatpak ];
+    path = [ pkgs.flatpak pkgs.desktop-file-utils pkgs.gtk3 ];
     
     script = ''
       set -euo pipefail
       echo "[flatpak-install] Installing Flatpak applications..." >&2
 
       ${lib.concatMapStringsSep "\n" (app: ''
-        if flatpak list --app | grep -q "${app}"; then
+        if flatpak info --system "${app}" >/dev/null 2>&1; then
           echo "[flatpak-install] ${app} already installed" >&2
         else
           echo "[flatpak-install] Installing ${app}..." >&2
-          if ! flatpak install --assume-yes --noninteractive flathub ${app}; then
+          if ! flatpak install --system --assume-yes --noninteractive flathub "${app}"; then
             echo "[flatpak-install] WARNING: Failed to install ${app}" >&2
           fi
         fi
       '') flatpaks}
+
+      # Refresh appstream and desktop metadata so launchers discover apps.
+      flatpak update --system --appstream --assume-yes --noninteractive || true
+      update-desktop-database /var/lib/flatpak/exports/share/applications || true
+      gtk-update-icon-cache -qtf /var/lib/flatpak/exports/share/icons/hicolor || true
 
       echo "[flatpak-install] Application installation complete" >&2
     '';

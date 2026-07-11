@@ -25,15 +25,6 @@
   # ============================================================================
 
   boot.kernelParams = [
-    # Network interface naming: eth0, eth1, etc. (instead of enp0s3, etc.)
-    # Provides consistent naming across reboots for scripting
-    "net.ifnames=0"
-
-    # PCIe Active State Power Management
-    # Disabled for maximum stability; can be set to "performance" for aggressive power savings
-    # Tradeoff: lower power consumption vs. potential link instability
-    "pcie_aspm=off"
-
     # I/O Scheduler: MQ-Deadline optimized for NVMe (low latency, good throughput)
     "elevator=mq-deadline"
   ];
@@ -52,7 +43,7 @@
   # ============================================================================
   # Network Tuning for TCP/IP Tunneling and Performance
   # ============================================================================
-  # Merged tuning from both ethernet.nix and performance.nix
+  # Consolidated network and performance tuning.
   # Using balanced settings optimized for both stability and low latency
 
   boot.kernel.sysctl = {
@@ -95,8 +86,6 @@
     # Memory pressure: avoid unnecessary swap for responsive gaming
     "vm.swappiness" = 10;
 
-    # Disable transparent hugepages for predictable gaming latency
-    "vm.transparent_hugepage" = "never";
   };
 
   # ============================================================================

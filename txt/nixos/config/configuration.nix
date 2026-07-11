@@ -12,7 +12,7 @@
       # System configuration modules
       ./networking.nix               # Network settings and connectivity
       ./kernel.nix                   # Kernel configuration
-      ./network.nix                  # Network and performance tuning (merged from ethernet.nix and performance.nix)
+      ./network.nix                  # Network and performance tuning
       ./amd.nix                      # AMD-specific settings
       ./nix-settings.nix             # Nix package manager settings
       

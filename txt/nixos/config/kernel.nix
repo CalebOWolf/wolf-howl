@@ -9,7 +9,7 @@
     "amdgpu.ppfeaturemask=0xffffffff"
     "amdgpu.gpu_recovery=1"
     
-    # Networking (from ethernet.nix)
+    # Networking (from network.nix)
     "net.ifnames=0"
     "pcie_aspm=off"
     
@@ -17,6 +17,7 @@
     "nvme_core.default_ps_max_latency_us=0"
     
     # General/Performance additions
+    "transparent_hugepage=never"  # More predictable latency under gaming workloads
     "quiet"              # Suppress boot messages
     "splash"             # Show splash screen if bootloader supports it
   ];

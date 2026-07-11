@@ -25,13 +25,23 @@
     remotePlay.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
+
+    # Improves compatibility for some Windows games.
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+
+    # Uncomment if you host Steam dedicated servers.
+    # dedicatedServer.openFirewall = true;
   };
 
   environment.systemPackages = with pkgs; [
-    steam
     steamcmd
     protonup-qt
     protontricks
+
+    # Optional launchers.
+    # heroic
+    # lutris
+    # bottles
     
     osu-lazer-bin
     prismlauncher

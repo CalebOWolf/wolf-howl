@@ -32,6 +32,15 @@
   qt.enable = true;
   qt.style = "breeze";
 
-  # Fonts
-  fonts.fontconfig.enable = true;
+  # XDG portals for Wayland and Flatpak integration.
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+    config = {
+      common = {
+        default = [ "kde" ];
+      };
+    };
+  };
 }
