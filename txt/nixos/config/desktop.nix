@@ -25,8 +25,18 @@
   drivers = [ pkgs.gutenprint ];  # or other drivers you need
   };
 
-  # Wayland optimization for Electron
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # Wayland and portal behavior for Electron/Chromium OAuth callbacks.
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    GTK_USE_PORTAL = "1";
+  };
+
+  # Secret service backend used by many desktop apps and credential helpers.
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services = {
+    login.enableGnomeKeyring = true;
+    sddm.enableGnomeKeyring = true;
+  };
 
   # Qt/Plasma integration
   qt.enable = true;
@@ -42,5 +52,11 @@
         default = [ "kde" ];
       };
     };
+  };
+
+  # Keep URL handlers explicit so OAuth browser handoff works consistently.
+  xdg.mime.defaultApplications = {
+    "x-scheme-handler/http" = [ "firefox.desktop" ];
+    "x-scheme-handler/https" = [ "firefox.desktop" ];
   };
 }

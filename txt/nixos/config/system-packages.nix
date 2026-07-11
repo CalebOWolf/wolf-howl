@@ -13,6 +13,8 @@
     # Development & CLI tools
     vim
     git
+    git-credential-manager
+    gh
     wget
     curl
     btop
@@ -30,6 +32,7 @@
     xdg-utils
     xdg-user-dirs
     gnome-disk-utility
+    seahorse
     pciutils
     ethtool
     bleachbit
@@ -57,4 +60,14 @@
   programs.thunderbird.enable = true;
   programs.partition-manager.enable = true;
   programs.fish.enable = true;
+
+  programs.git = {
+    enable = true;
+    config = {
+      credential = {
+        helper = "manager";
+        useHttpPath = true;
+      };
+    };
+  };
 }
