@@ -59,4 +59,3 @@ reset proc
 service interface restart
 service repair restart
 device probe
-exit
