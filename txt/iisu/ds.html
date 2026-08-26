@@ -1,0 +1,25 @@
+Yay a smol ds clock
+NOTE: i just yoinked everything from a [ds module](https://css.ds.dreamyard.xyz/) for html/css and i didnt make this from scratch everything was just thrown together!
+it works best on 1x1, 2x2, or 3x3 widgets!
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ds Clock :3</title>
+    <link rel="stylesheet" href="https://unpkg.com/@spiritov/ds.css" />
+    <script type="module" src="https://unpkg.com/@spiritov/ds.css/dist/widgets/ds-clock.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ds-grid" style="display: inline-block; padding: 32px; margin: 0;">
+      <ds-clock style="--color: var(--color-ds-turquoise)" hide-border></ds-clock>
+    </div>
+  </body>
+</html>
+```
