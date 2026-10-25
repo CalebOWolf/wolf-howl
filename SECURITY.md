@@ -1,102 +1,132 @@
-# Security Policy
+# Authors & Contributors
 
-## 🛡️ Supported Versions
+This document acknowledges the people who have contributed to this project.
 
-This repository contains primarily configuration files, documentation, and personal content. Security updates apply to:
+## 🏗️ Project Creator & Maintainer
 
-| Content Type | Security Scope | Support Status |
-| ------------ | -------------- | -------------- |
-| Scripts & Configurations | Fedora setup scripts | ✅ Maintained |
-| Documentation | All README and guide files | ✅ Current |
-| Personal Content | Images, artwork, personal files | ⚠️ Protected under CC license |
+**Caleb Wolf** ([@CalebOWolf](https://github.com/CalebOWolf))
+- *Project creator and primary maintainer*
+- *Repository architecture and organization*
+- *Documentation and content creation*
+- *Community guidelines and values establishment*
 
-## 🔍 Security Considerations
+## 🎨 Creative Contributors
 
-### **Configuration Files**
-- **Review before use**: All scripts and configurations should be reviewed before implementation
-- **Personal data**: Some configuration backups may contain personal preferences but no sensitive data
-- **System impact**: Shell scripts may modify system configurations - understand before running
+### **Character Art & Commissions**
+*Artist attribution for commissioned artwork found in `img/` directory*
 
-### **Personal Content**
-- **Privacy protection**: Personal images and content are protected under CC BY-NC-SA 4.0
-- **No sensitive data**: Repository does not contain passwords, API keys, or sensitive personal information
-- **Public repository**: All content is intentionally public and curated for sharing
+- **Various commissioned artists** - Character artwork and relationship art
+  - *Contact repository maintainer for specific artist attribution*
+  - *All commissioned work used with proper permissions*
+  - *Artists' rights and business privacy respected*
 
-## 🚨 Reporting a Vulnerability
+### **Community Assets**
+- **Open Source Community** - Inspiration for repository structure and best practices
+- **Cachy Linux Project** - Linux distribution and documentation that inspired setup scripts
+- **Virtual World Communities** - Resonite and Second Life communities that shaped mentoring approach
 
-If you discover a security vulnerability in this repository:
+## 🤝 Code & Documentation Contributors
 
-### **For Configuration/Script Issues**
-1. **Check if it's a real security issue**: Ensure it's not just a configuration preference
-2. **Create a private report**: Use GitHub's private vulnerability reporting if available
-3. **Contact directly**: Email details in [CONTRIBUTING.md](CONTRIBUTING.md) for private discussion
-4. **Provide details**: Include affected files, potential impact, and suggested fixes
+### **Direct Contributors**
+*Contributors who have submitted pull requests or issues*
 
-### **For Personal Content Issues**
-1. **Privacy concerns**: If personal content raises privacy concerns, contact directly
-2. **Licensing violations**: Report any misuse of licensed content through appropriate channels
-3. **Inappropriate usage**: Report any inappropriate use of personal content or images
+<!-- This section will be populated as contributors join the project -->
+*No external contributors yet - be the first!*
 
-## 📞 Contact Information
+### **Indirect Contributors**
+*People who have provided feedback, suggestions, or inspiration*
 
-### **Primary Contact Methods**
-- **Email**: Available in [CONTRIBUTING.md](CONTRIBUTING.md)
-- **Discord**: calebowolf (for immediate issues)
-- **GitHub Issues**: For non-sensitive security discussions
+- **Mentees and students** - From virtual world mentoring sessions
+- **Community members** - Who provided feedback on documentation and approaches
+- **Open source maintainers** - Whose projects served as examples for best practices
 
-### **Response Timeline**
-- **Acknowledgment**: Within 48 hours
-- **Initial assessment**: Within 1 week
-- **Resolution**: Depends on complexity, but prioritized for genuine security issues
+## 💡 Inspiration & References
 
-## ⚡ What to Report
+### **Documentation Standards**
+- **GitHub** - Issue and PR template inspiration
+- **Keep a Changelog** - Changelog format and structure
+- **Semantic Versioning** - Versioning approach adapted for portfolio repositories
+- **Creative Commons** - Licensing framework for personal content protection
 
-### **Please Report**
-- **Script vulnerabilities**: Commands that could cause system damage
-- **Configuration exposures**: Settings that might expose sensitive information
-- **Documentation errors**: Security-related misinformation in guides
-- **Privacy concerns**: Accidental exposure of sensitive information
+### **Technical Resources**
+- **Cachy Docs** - Linux setup and administration guidance
+- **Mozilla Developer Network** - Web standards and accessibility best practices
+- **Open Source Initiative** - Licensing and community guidelines inspiration
 
-### **Not Security Issues**
-- **Personal preferences**: Configuration choices that are intentional
-- **Platform-specific issues**: Problems specific to your system setup
-- **License questions**: These are policy questions, not security issues
-- **Content opinions**: Disagreements with personal content or choices
+### **Community Values**
+- **Furry community** - Inclusive and creative community values
+- **Open source community** - Collaboration and knowledge sharing principles
+- **Virtual world communities** - Teaching and mentorship approaches
+- **Accessibility advocates** - Inclusive design and communication principles
 
-## 🔒 Repository Security Features
+## 🌟 Recognition Categories
 
-### **Preventive Measures**
-- **Comprehensive .gitignore**: Prevents accidental commit of sensitive files
-- **Public by design**: All content is intentionally curated for public sharing
-- **Documentation focus**: Emphasis on educational and reference content
-- **Regular review**: Content is regularly reviewed for appropriateness
+### **🏆 Major Contributors**
+*Significant code, documentation, or content contributions*
 
-### **Community Protection**
-- **Clear licensing**: All content has clear usage terms
-- **Attribution requirements**: Personal content requires attribution
-- **Non-commercial protection**: Personal content protected from commercial exploitation
-- **Respectful community guidelines**: Code of conduct protects all participants
+### **📚 Documentation Contributors** 
+*Improvements to README files, guides, or explanatory content*
 
-## 📚 Security Resources
+### **🐛 Bug Reporters**
+*People who identified and reported issues*
 
-### **For Users of This Repository**
-- **Fedora Security**: [Fedora Documentation](https://docs.fedoraproject.org/)
-- **Linux Security**: General Linux security best practices
-- **Configuration Security**: Review all configurations before implementing
+### **💡 Feature Suggesters**
+*Community members who suggested improvements or new features*
+
+### **🎨 Creative Contributors**
+*Artists, designers, and creative collaborators*
+
+### **🧪 Testers**
+*People who tested configurations, scripts, or provided feedback*
+
+### **📢 Community Advocates**
+*People who helped promote or share the project*
+
+## 📞 How to Get Listed
 
 ### **For Contributors**
-- **GitHub Security**: [GitHub Security Best Practices](https://docs.github.com/en/code-security)
-- **Open Source Security**: Best practices for open source contributions
-- **Personal Data Protection**: Guidelines for protecting personal information in public repositories
+- **Submit a pull request** - Code, documentation, or content contributions
+- **Report issues** - Help identify bugs or improvement opportunities
+- **Suggest features** - Propose new ideas or enhancements
+- **Test configurations** - Validate scripts or setups on different systems
+- **Improve documentation** - Enhance clarity, accuracy, or completeness
+
+### **For Community Members**
+- **Provide feedback** - Share thoughts on content, approach, or presentation
+- **Share knowledge** - Contribute expertise or alternative approaches
+- **Support others** - Help answer questions or provide assistance
+- **Spread awareness** - Help others discover and benefit from the project
+
+## 🎯 Attribution Guidelines
+
+### **Automatic Attribution**
+- **Git commits** - All commit authors are automatically tracked
+- **GitHub contributions** - Pull requests and issues create automatic attribution
+- **Documentation updates** - README and guide contributions noted in changelog
+
+### **Manual Attribution**
+- **Inspiration sources** - Credited in relevant documentation sections
+- **Creative work** - Artists and creators acknowledged with respect for privacy
+- **Community feedback** - Significant suggestions credited when implemented
+- **Mentorship influence** - Learning sources and teachers acknowledged appropriately
+
+## 📋 Contribution Types
+
+This project recognizes diverse contribution types:
+
+- **💻 Code** - Scripts, configurations, automation
+- **📖 Documentation** - READMEs, guides, explanations  
+- **🎨 Design** - Visual assets, branding, layout
+- **🐛 Testing** - Bug reports, validation, feedback
+- **💡 Ideas** - Feature suggestions, improvements
+- **📢 Outreach** - Promotion, community building
+- **🎓 Education** - Teaching others, creating tutorials
+- **🤝 Support** - Helping other contributors and users
 
 ---
 
-## 🤝 Responsible Disclosure
+## 🙏 Thank You
 
-We believe in responsible disclosure and appreciate security researchers who:
-- **Report issues privately first**: Allow time for assessment and fixes
-- **Provide clear details**: Help us understand and reproduce issues
-- **Suggest solutions**: Offer constructive suggestions when possible
-- **Respect the community**: Maintain professional and respectful communication
+Every contribution, whether large or small, helps make this project better and more valuable to the community. Thank you to everyone who has participated, provided feedback, or simply used and benefited from the project.
 
-Thank you for helping keep this repository and its community safe!
+*Special thanks to the open source community for creating the tools, standards, and culture that make projects like this possible.*
