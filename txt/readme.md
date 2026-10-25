@@ -1,93 +1,89 @@
-# Changelog
+# 📄 Text Files & Configuration Collection
 
-All notable changes to this project will be documented in this file.
+This directory contains various configuration files, settings backups, documentation, and reference materials organized for easy access and study.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) principles adapted for a personal portfolio repository.
+## 📁 Directory Structure
 
-## [Unreleased]
+```
+txt/
+├── 📋 readme.md                          # This file - directory documentation
+├── 📝 todo.txt                           # Personal task and project tracking
+├── 🔧 AdNauseam.json                     # AdNauseam browser extension configuration
+├── 🎮 vencord-settings-backup.json       # Vencord Discord client mod settings
+├── 🐧 fedora/                           # Fedora Linux resources and scripts
+│   ├── fedora-install-script.sh         # Automated Fedora setup script
+│   ├── notes.txt                        # Installation notes and tips
+│   └── rpm-fusion.txt                   # RPM Fusion repository setup commands
+└── 🏢 Nanite Systems/                   # Project-specific documentation
+    ├── caleb_mignano.md                 # Documentation file
+    └── caleb_mignano.p                  # Project file
+```
 
-### 🎯 Planned
-- Additional blog content and technical articles
-- Enhanced Cachy setup automation
-- Extended brand asset collection
-- Community contribution guidelines refinement
+## 🔧 Configuration Files
+
+### **Browser & Extensions**
+- **`AdNauseam.json`** - Configuration backup for AdNauseam ad blocker
+  - *Purpose*: Maintains consistent ad-blocking settings across installations
+  - *Usage*: Import into AdNauseam extension for restored functionality
+
+### **Discord Modifications**  
+- **`vencord-settings-backup.json`** - Vencord client modification settings
+  - *Purpose*: Backup of Discord enhancement configurations
+  - *Usage*: Restore Vencord plugins, themes, and custom settings
+  - *Note*: Client modifications for improved Discord functionality
+
+## 🐧 Linux Resources (`fedora/`)
+
+Fedora Linux-specific setup files and documentation:
+
+- **`fedora-install-script.sh`** - Automated post-installation setup
+  - Installs essential packages and configurations
+  - Streamlines new Fedora system setup process
+  
+- **`rpm-fusion.txt`** - RPM Fusion repository setup commands
+  - Enables additional software repositories
+  - Compatible with Fedora 43 and current releases
+  
+- **`notes.txt`** - Personal installation notes and troubleshooting tips
+
+## 🏢 Project Files (`Nanite Systems/`)
+
+Project-specific documentation and files:
+- **`caleb_mignano.md`** - Project documentation
+- **`caleb_mignano.p`** - Project data/configuration file
+
+## 📋 Personal Organization
+
+### **`todo.txt`**
+Personal task management and project tracking file for:
+- Development goals and milestones
+- System maintenance reminders  
+- Learning objectives and progress
+- Project ideas and future plans
+
+## 🎯 Usage Guidelines
+
+### **Configuration Backups**
+These files serve as:
+- **Backup solutions** for quick system restoration
+- **Reference materials** for setting up new installations
+- **Version control** for personal configurations
+- **Documentation** of preferred settings and workflows
+
+### **Study & Reference**
+Files in this directory are organized for:
+- **Quick access** during system setup or troubleshooting
+- **Learning reference** for configuration management
+- **Backup restoration** when migrating between systems
+- **Documentation** of personal workflows and preferences
+
+## 🔗 Related Resources
+
+- **Main Repository**: See [README.md](../README.md) for full project overview
+- **Fedora Setup**: Check `fedora/` for Linux-specific resources
+- **Contributing**: See [CONTRIBUTING.md](../CONTRIBUTING.md) for contribution guidelines
+- **License**: Configuration files follow the [Hybrid License](../LICENSE) terms
 
 ---
 
-## [2.0.0] - 2025-11-09
-
-### 🎉 Major Repository Restructure
-This release represents a complete professional transformation of the repository.
-
-### ✨ Added
-- **Professional Documentation Suite**
-  - Comprehensive main README with portfolio presentation
-  - Individual README files for all major directories (txt/, img/, blog/, fedora/)
-  - Professional CONTRIBUTING guidelines with clear processes
-  - Community values documentation (updated no-judge.md)
-
-- **Licensing & Legal**
-  - Hybrid licensing system (MIT for code, CC BY-NC-SA 4.0 for personal content)
-  - Security policy and vulnerability reporting procedures
-  - Clear usage guidelines and attribution requirements
-
-- **GitHub Integration**
-  - Issue templates (bug reports, feature requests, documentation)
-  - Pull request template with comprehensive checklists
-  - Professional .gitignore covering multiple development scenarios
-
-- **Content Organization**
-  - Structured directory documentation with clear purposes
-  - Technical specifications for image assets and configurations
-  - Blog framework with content strategy and guidelines
-  - Cachy resources with compatibility documentation
-
-### 🔄 Changed
-- **Repository Identity**: Transformed from casual personal space to professional portfolio
-- **Documentation Tone**: Elevated to professional standards while maintaining authentic voice
-- **Content Presentation**: Organized and categorized all assets with clear descriptions
-- **Community Guidelines**: Restructured for inclusive, respectful, and productive collaboration
-
-### 🛠️ Technical Improvements
-- **Cross-Platform Support**: Enhanced .gitignore for multiple development environments
-- **File Organization**: Clear directory structure with documented purposes
-- **Accessibility**: Improved documentation structure and navigation
-- **Contribution Process**: Streamlined workflow for community contributions
-
----
-
-## [1.0.0] - 2024-XX-XX
-
-### 🌱 Initial Release
-- Basic repository structure established
-- Initial personal content and configurations
-- MIT License implementation
-- Basic README and project foundation
-
-### 📁 Core Content
-- Personal configuration files and backups
-- Image assets and creative content
-- Cachy setup resources
-- Basic project documentation
-
----
-
-## 📋 Change Categories
-
-This changelog uses the following categories to organize changes:
-
-- **✨ Added** for new features and content
-- **🔄 Changed** for changes in existing functionality or content
-- **🗑️ Deprecated** for soon-to-be removed features
-- **🚫 Removed** for removed features or content
-- **🐛 Fixed** for bug fixes and corrections
-- **🛡️ Security** for vulnerability fixes and security improvements
-- **📚 Documentation** for documentation-only changes
-- **🎨 Style** for formatting and presentation changes
-
-## 🔮 Versioning Strategy
-
-This repository uses a adapted semantic versioning approach:
-
-- **Major Version** (X.0.0): Significant restructuring, major content overhauls, or breaking changes to repository organization
+*This collection represents practical configurations and documentation used in real-world setups. Files are maintained for personal use and shared for educational purposes.*

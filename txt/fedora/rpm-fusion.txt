@@ -1,76 +1,11 @@
-# This prevents the script from pausing midway through a long installation to prompt for a password.
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-# Constants
-LOG_FILE="cachy-setup.log"
-
-# Logging function
-log() {
-    echo "$(date +'%Y-%m-%d %H:%M:%S') - $1" | tee -a "$LOG_FILE"
-}
-
-# Error handling
-handle_error() {
-    log "Error occurred during: $1"
-    exit 1
-}
-
-# Function to enable sudo password feedback (asterisks while typing)
-enable_sudo_pwfeedback() {
-    log "Enabling sudo password feedback..."
-    local sudoers_file="/etc/sudoers.d/00-pwfeedback"
-
-    if sudo grep -q "Defaults pwfeedback" "$sudoers_file" 2>/dev/null; then
-        log "sudo password feedback already enabled."
-        return
-    fi
-
-    echo "Defaults pwfeedback" | sudo tee "$sudoers_file" >/dev/null || handle_error "Writing sudo pwfeedback configuration"
-    sudo chmod 440 "$sudoers_file" || handle_error "Setting permissions on sudo pwfeedback configuration"
-    sudo visudo -cf "$sudoers_file" || handle_error "Validating sudo pwfeedback configuration"
-}
-
-# System
-# Function to update the system
-update_system() {
-    log "Updating the system..."
-    sudo dnf update -y && sudo dnf upgrade -y || handle_error "System update"
-    sudo dnf install -y dnf-plugins-core kernel-devel kernel-headers || handle_error "Installing essential packages"
-}
-
-# Essential Tools
-# Function to install essential tools
-install_essential_tools() {
-    log "Installing essential tools..."
-    sudo dnf install -y wget curl git vim gcc make dkms bat fzf tmux zsh sed findutils nnn htop NetworkManager-tui ncdu mc playerctl libnotify xdotool yt-dlp btop git-lfs neovim || handle_error "Installing essential tools"
-}
-
-# Function to enable RPM Fusion
-enable_rpm_fusion() {
-    log "Enabling RPM Fusion..."
-    sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm || handle_error "Enabling RPM Fusion"
-    sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm || handle_error "Enabling RPM Fusion"
-    sudo dnf update -y || handle_error "Updating after enabling RPM Fusion"
-}
-
-# Function to enable RPM Fusion Tainted repository
-enable_rpmfusion_tainted() {
-    log "Enabling RPM Fusion Tainted repository..."
-    sudo dnf install -y rpmfusion-free-release-tainted || handle_error "Enabling RPM Fusion Tainted repository"
-}
-
-# Function to install RPM Fusion AppStream metadata
-install_rpmfusion_appstream_data() {
-    log "Installing RPM Fusion AppStream metadata..."
-    sudo dnf install -y rpmfusion-*-appstream-data || handle_error "Installing RPM Fusion AppStream metadata"
-}
-
-# Function to enable Cisco OpenH264 repository
-enable_cisco_openh264() {
-    log "Enabling Cisco OpenH264 repository..."
-    sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1 || handle_error "Enabling Cisco OpenH264 repository"
-}
-
-# Function to install AMD Radeon drivers
-install_amd_drivers() {
-    log "Installing AMD Radeon drivers..."
+Enable RPM Fusion repositories
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
+sudo dnf update @core
+sudo dnf install rpmfusion-\*-appstream-data
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+sudo dnf install rpmfusion-free-release-tainted
+sudo dnf install rpmfusion-nonfree-release-tainted
+sudo dnf install libdvdcss
+sudo dnf --repo=rpmfusion-nonfree-tainted install "*-firmware"

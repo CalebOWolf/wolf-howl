@@ -1,185 +1,47 @@
-# 📝 Blog & Technical Writing
+# Fedora Installation Script
 
-Welcome to the blog section of my digital portfolio. This space is dedicated to technical articles, learning experiences, project insights, and thoughts on technology, development, and the community.
+This folder contains a comprehensive Fedora installation script tailored for systems with AMD Ryzen 5700X and Nvidia 5060 hardware. The script automates the setup of essential tools, drivers, and applications for general use, gaming, and content creation. It also includes desktop customization for KDE Plasma and expanded font/emoji support.
 
-## 📁 Directory Structure
+## Features
 
-```
-blog/
-├── 📋 README.md              # This documentation file
-└── 📄 test.md                # Initial test post/placeholder
-```
+- **System Updates**: Ensures the system is up-to-date with the latest packages.
+- **Essential Tools**: Installs a variety of utilities for productivity and system management.
+- **RPM Fusion & Multimedia**: Enables RPM Fusion (free, nonfree, tainted), Cisco OpenH264, swaps `ffmpeg-free` → `ffmpeg`, and installs codecs.
+- **Driver Setup**: Configures AMD drivers (freeworld VA/VDPAU swaps) and installs firmware bundles.
+- **Gaming Focus**: Installs Gamemode, Gamescope, MangoHud, Proton/Wine helpers, Steam device support, and required 32‑bit libraries; auto‑enables `gamemoded`.
+- **Flatpak Integration**: Sets up Flathub and optionally installs Heroic, Bottles, and ProtonUp‑Qt.
+- **Specific RPM Apps**: Adds official repositories and installs Visual Studio Code.
+- **Fonts & Emoji**: Installs Noto/monospace fonts, emoji packs, Microsoft core fonts; optional import of MS Sans Serif from a Windows partition or a user folder.
+- **Quality of Life**: Enables sudo password feedback (`pwfeedback`), applies tuned performance profiles for Ryzen, and performs final cleanup.
+- **Error Handling & Logging**: Centralized logging (`fedora-setup.log`) and guarded steps with informative errors.
 
-## ✍️ Content Focus Areas
+## Usage
 
-### **🔧 Technical Articles**
-- **Development tutorials** and how-to guides
-- **Linux administration** tips and system configuration
-- **Open source project** insights and contributions
-- **Tool reviews** and workflow optimization
+1. Clone this repository or download the script.
+2. Ensure the script has executable permissions:
+   ```bash
+   chmod +x txt/fedora/fedora-install-script.sh
+   ```
+3. Run the script (sudo may be prompted automatically by individual steps):
+   ```bash
+   ./txt/fedora/fedora-install-script.sh
+   ```
 
-### **🎓 Learning Experiences**
-- **Technology exploration** and new framework discoveries
-- **Problem-solving journeys** and debugging adventures  
-- **Community learning** from mentoring in virtual worlds
-- **Best practices** discovered through real-world projects
+### Optional: MS Sans Serif fonts
 
-### **🌐 Community Insights**
-- **Virtual world development** experiences (Resonite, Second Life)
-- **Open source community** participation and observations
-- **Technology accessibility** and inclusive design thoughts
-- **Gaming and technology** intersection discussions
+To use MS Sans Serif across KDE/GTK, provide the font files before running the script:
 
-### **📊 Project Documentation**
-- **Repository development** stories and decision-making processes
-- **Configuration management** approaches and lessons learned
-- **Personal workflow** evolution and optimization
-- **Tool integration** experiences and recommendations
+- Place `micross.ttf` and/or `sserif*.ttf` in `~/MSSansFonts` or mount your Windows partition so the script can copy from `/mnt/c/Windows/Fonts` or `/run/media/$USER/<drive>/Windows/Fonts`.
+- The script will import the fonts to `~/.local/share/fonts/MSSansSerif` and refresh caches automatically.
 
-## 🎯 Writing Philosophy
+## Disclaimer
 
-### **Educational Focus**
-- **Share knowledge** gained through hands-on experience
-- **Document solutions** to help others facing similar challenges
-- **Explain complex topics** in accessible, approachable ways
-- **Provide context** for technical decisions and trade-offs
+This script is provided "AS IS" without any warranties or guarantees. The author assumes no responsibility for any data loss, irreversible changes, or damage to your system resulting from the use of this script. Use it at your own risk and ensure you have proper backups before proceeding.
 
-### **Authentic Voice**
-- **Personal experiences** rather than theoretical discussions
-- **Honest assessments** of tools, techniques, and approaches
-- **Community perspective** from active participation in tech spaces
-- **Learning mindset** - acknowledging both successes and failures
+## Contributions
 
-### **Inclusive Approach**
-- **Welcoming content** for readers at different experience levels
-- **Clear explanations** with appropriate context and background
-- **Respectful discussion** of different approaches and preferences
-- **Community values** reflected in content and presentation
+Suggestions for improvement can be made by opening an issue or submitting a pull request on the [GitHub repository](https://github.com/CalebOWolf/wolf-howl).
 
-## 📚 Content Guidelines
+## License
 
-### **Technical Standards**
-- **Code examples** properly formatted and tested
-- **Step-by-step instructions** with clear prerequisites
-- **Screenshots and diagrams** where helpful for understanding
-- **Version information** and compatibility notes included
-
-### **Writing Quality**
-- **Clear structure** with descriptive headings and organization
-- **Concise explanations** balanced with necessary detail
-- **Proper attribution** for sources, inspirations, and collaborations
-- **Regular updates** to maintain accuracy and relevance
-
-### **Community Respect**
-- **Constructive tone** even when discussing challenges or criticisms
-- **Attribution and credit** for community contributions and inspiration
-- **Inclusive language** welcoming to diverse readers and perspectives
-- **Professional presentation** while maintaining authentic personality
-
-## 🚀 Planned Content Areas
-
-### **System Administration Series**
-- **Cachy Linux setup** and optimization guides
-- **Configuration management** with version control
-- **Automation scripts** development and maintenance
-- **Troubleshooting common issues** and solutions
-
-### **Development Insights**
-- **Project architecture** decisions and evolution
-- **Tool evaluation** and workflow optimization
-- **Community contributions** and open source experiences  
-- **Learning resources** and educational pathways
-
-### **Virtual World Technology**
-- **Resonite mentoring** experiences and teaching techniques
-- **Virtual world development** insights and technical challenges
-- **Community building** in digital spaces
-- **Accessibility considerations** in virtual environments
-
-### **Personal Workflow Documentation**
-- **Development environment** setup and customization
-- **Productivity techniques** and tool integration
-- **Creative process** documentation for projects
-- **Time management** and project prioritization
-
-## 📖 Reading Guide
-
-### **For Developers**
-- **Technical tutorials** with practical, tested solutions
-- **Tool reviews** based on real-world usage experience
-- **Project insights** showing decision-making processes
-- **Community perspectives** from active open source participation
-
-### **For System Administrators**
-- **Linux configuration** guides and automation techniques
-- **Problem-solving approaches** for common and unique challenges
-- **Best practices** developed through hands-on experience
-- **Tool recommendations** with honest pros and cons assessments
-
-### **For Community Members**
-- **Virtual world insights** and mentoring experiences
-- **Inclusive technology** discussions and accessibility considerations
-- **Learning journeys** and skill development approaches
-- **Community collaboration** stories and lessons learned
-
-### **For Learners**
-- **Step-by-step guides** with clear explanations and context
-- **Resource recommendations** for continued learning
-- **Common pitfalls** and how to avoid or resolve them
-- **Encouragement and support** for technology learning journeys
-
-## 🔗 Content Integration
-
-### **Repository Connection**
-- **Blog posts about repository development** and decision-making processes
-- **Documentation of configuration files** found in `txt/` directory
-- **Project evolution** stories showing growth and learning
-- **Tool explanations** for scripts and automation found throughout repository
-
-### **Cross-References**
-- **Main repository** documentation and project context
-- **Configuration files** detailed explanation and usage guides
-- **Community guidelines** and values demonstrated through content
-- **Learning resources** connected to repository contents and focus areas
-
-## 💬 Interaction & Feedback
-
-### **Discussion Welcome**
-- **Technical questions** and clarification requests
-- **Alternative approaches** and different perspective sharing
-- **Experience sharing** from readers with similar challenges
-- **Constructive feedback** on content accuracy and usefulness
-
-### **Contact Methods**
-- **Repository issues** for technical discussions and corrections
-- **Direct contact** through methods listed in main repository
-- **Community platforms** for broader discussions and collaboration
-- **Professional networking** for career-related technical discussions
-
-### **Content Requests**
-- **Topic suggestions** based on reader interests or needs
-- **Tutorial requests** for specific technologies or challenges
-- **Deep-dive requests** on repository projects and decisions
-- **Community-focused content** ideas and collaboration opportunities
-
-## 📋 Publishing Standards
-
-### **Quality Assurance**
-- **Technical accuracy** verified through testing and review
-- **Code examples** tested in appropriate environments
-- **Links and references** checked for accuracy and accessibility
-- **Regular content review** and updates as technologies evolve
-
-### **Licensing & Attribution**
-- **Content licensing** follows repository hybrid license terms
-- **Proper attribution** for all sources, inspirations, and collaborations
-- **Community contributions** acknowledged and credited appropriately
-- **Open source values** reflected in content sharing and collaboration
-
----
-
-## 🌟 Mission Statement
-
-This blog aims to bridge the gap between technical expertise and accessible learning, sharing real-world experiences and solutions while fostering an inclusive, supportive community around technology and creativity.
-
-*Whether you're here to learn, share experiences, or explore new perspectives on technology and community, you're welcome to join the conversation and contribute to our collective learning journey.*
+Copyright © 2025 CalebOWolf/Caleb Mignano. All rights reserved.
