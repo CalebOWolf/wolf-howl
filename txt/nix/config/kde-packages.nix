@@ -55,7 +55,6 @@
     kdePackages.kruler
     kdePackages.kzones
     kdePackages.kmix
-    kdePackages.timed
 
     # Games (optional - consider removing if not used)
     kdePackages.kmines

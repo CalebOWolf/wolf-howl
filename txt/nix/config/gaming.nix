@@ -35,8 +35,10 @@
 
   environment.systemPackages = with pkgs; [
     steamcmd
+    protonplus
     protonup-qt
     protontricks
+    alcom
 
     # Optional launchers.
     # heroic

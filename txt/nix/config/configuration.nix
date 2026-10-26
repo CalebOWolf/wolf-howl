@@ -29,6 +29,7 @@
       
       # Gaming and media
       ./gaming.nix                   # Gaming support
+      ./unity.nix                    # Unity Hub
       ./steam-timeout-inhibit.nix    # Steam idle timeout prevention
       ./sunshine.nix                 # Sunshine streaming server
       
@@ -96,7 +97,6 @@
   
   # Kernel security hardening
   security.protectKernelImage = true;
-  security.lockKernelModules = true;
   security.apparmor.enable = true;
 
   # ============================================================================
