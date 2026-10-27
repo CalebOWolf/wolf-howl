@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 let
   nixcordRevision = "f873f1e32925b870e68addeeb193fbc07e80a598";
@@ -7,7 +7,7 @@ let
     rev = nixcordRevision;
   };
   nixcord = import nixcordSource {
-    nixpkgs = pkgs.path;
+    nixpkgs = <nixpkgs>;
     revision = nixcordRevision;
   };
 in
