@@ -13,6 +13,10 @@ Place the target machine's generated file beside `configuration.nix` in
 corresponding hardware is present; adjust those imports for a different
 machine.
 
+Discord is managed by the Nixcord NixOS module with Vencord enabled. The
+upstream source is pinned to commit
+`f873f1e32925b870e68addeeb193fbc07e80a598` in `config/nixcord.nix`.
+
 ## Validate and activate
 
 After placing the files in `/etc/nixos/` and adding the generated hardware

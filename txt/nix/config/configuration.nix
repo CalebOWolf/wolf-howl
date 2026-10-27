@@ -23,6 +23,7 @@
       
       # Application modules
       ./system-packages.nix          # System-wide packages
+      ./nixcord.nix                  # Discord with Vencord
       ./extraction.nix               # Archive extraction tools
       ./flatpak.nix                  # Flatpak support
       ./syncthing.nix                # File synchronization

@@ -60,7 +60,6 @@
     exfatprogs
 
     # Applications
-    discord
     telegram-desktop
     ghostty  # GPU-accelerated terminal emulator
     bazaar
