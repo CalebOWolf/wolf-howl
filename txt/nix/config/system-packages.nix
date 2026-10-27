@@ -48,7 +48,6 @@
     seahorse
     playerctl
     networkmanagerapplet
-    kdeconnect
     pciutils
     ethtool
     bleachbit
@@ -73,6 +72,7 @@
   # Enable programs with their own modules
   programs.firefox.enable = true;
   programs.thunderbird.enable = true;
+  programs.kdeconnect.enable = true;
   programs.partition-manager.enable = true;
   programs.fish.enable = true;
 
