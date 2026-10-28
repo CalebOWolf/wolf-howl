@@ -39,6 +39,7 @@
     protonup-qt
     protontricks
     alcom
+    wivrn
 
     # Optional launchers.
     # heroic

@@ -18,7 +18,7 @@ in
     enable = true;
     user = "calebowolf";
     discord.enable = true;
-    discord.vencord.enable = false;
+    discord.vencord.enable = true;
     equibop.enable = true;
   };
 }

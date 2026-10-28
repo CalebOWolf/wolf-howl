@@ -32,6 +32,8 @@
     usbutils
     smartmontools
     lm_sensors
+    android-tools
+    scrcpy
 
     # Multimedia
     vlc
