@@ -4,28 +4,6 @@
   # AMD CPU (Ryzen) Optimizations
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  # Enable the AMD P-State Scaling Driver for better power efficiency and performance
-  # on modern Ryzen processors (Zen 2 and newer).
-  boot.kernelParams = [ 
-    "amd_pstate=active"
-    # Uncomment the line below for power-saving mode instead of performance-focused
-    # "amd_pstate.prefer_performance_mode=0"
-    # Unlocks OverDrive features (overclocking, undervolting, fan control) for LACT
-    "amdgpu.ppfeaturemask=0xffffffff"
-    # Enable GPU driver recovery to automatically reset the GPU instead of freezing the system on hang
-    "amdgpu.gpu_recovery=1"
-    # Uncomment for cutting-edge hardware with experimental GPU features
-    # "amdgpu.exp_hw_support=1"
-    # GPU memory management (uncomment if needed for older GPUs or memory issues)
-    # "amdgpu.vm_fault_stop=0"
-    # "amdgpu.gart_size=2048"
-  ];
-
-  # CPU frequency scaling governor
-  # Note: amd_pstate=active handles this automatically via amd-pstate-epp
-  # Uncomment if you need explicit control:
-  # powerManagement.cpuFreqGovernor = lib.mkDefault "amd-pstate-epp";
-
   # AMD GPU (Radeon RX) Optimizations
   # Enable early KMS (Kernel Mode Setting) to load amdgpu driver early in boot,
   # preventing screen flickering and helping Wayland start smoothly.

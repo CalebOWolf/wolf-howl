@@ -43,6 +43,7 @@ in
       "network-online.target"
       "flatpak-setup.service"
     ];
+    requires = [ "flatpak-setup.service" ];
     wants = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
     
@@ -57,16 +58,18 @@ in
           echo "[flatpak-install] ${app} already installed" >&2
         else
           echo "[flatpak-install] Installing ${app}..." >&2
-          if ! flatpak install --system --assume-yes --noninteractive flathub "${app}"; then
-            echo "[flatpak-install] WARNING: Failed to install ${app}" >&2
-          fi
+          flatpak install --system --assume-yes --noninteractive flathub "${app}"
         fi
       '') flatpaks}
 
       # Refresh appstream and desktop metadata so launchers discover apps.
-      flatpak update --system --appstream --assume-yes --noninteractive || true
-      update-desktop-database /var/lib/flatpak/exports/share/applications || true
-      gtk-update-icon-cache -qtf /var/lib/flatpak/exports/share/icons/hicolor || true
+      flatpak update --system --appstream --assume-yes --noninteractive
+      if [ -d /var/lib/flatpak/exports/share/applications ]; then
+        update-desktop-database /var/lib/flatpak/exports/share/applications
+      fi
+      if [ -d /var/lib/flatpak/exports/share/icons/hicolor ]; then
+        gtk-update-icon-cache -qtf /var/lib/flatpak/exports/share/icons/hicolor
+      fi
 
       echo "[flatpak-install] Application installation complete" >&2
     '';
@@ -88,7 +91,7 @@ in
     script = ''
       set -euo pipefail
       echo "[flatpak-update] Starting Flatpak update..." >&2
-      flatpak update --assume-yes --noninteractive
+      flatpak update --system --assume-yes --noninteractive
       echo "[flatpak-update] Flatpak update complete" >&2
     '';
 

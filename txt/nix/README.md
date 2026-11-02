@@ -1,25 +1,99 @@
 # NixOS configuration
 
 The modular configuration entry point is `config/configuration.nix`. Copy the
-contents of `config/` into `/etc/nixos/` so the entry point and its imported
-modules are together and their relative imports resolve.
+contents of `config/` into `/etc/nixos/` so the flake, entry point, and imported
+modules are together and their relative imports resolve. The checked-in
+`config/flake.lock` pins the flake inputs; keep it with the configuration.
+
+## What the flake does
+
+If you are used to Arch, you may be used to installing a package with `pacman`
+and having that change the machine right away. NixOS can work differently:
+instead of treating the installed system as a list of changes made over time,
+you describe the system you want in configuration files, then ask NixOS to
+build and activate that described system.
+
+A **flake** is the project's starting point for that process. In this
+configuration, `flake.nix` says which external sources to use and defines the
+system Nix should produce. The `nixpkgs` input is the collection of packages
+and NixOS modules—roughly comparable to package repositories, but pinned to a
+specific snapshot here. The configuration modules say what to enable or
+install, and the flake exposes the resulting system as `wolfhowlnixos`.
+
+The accompanying `flake.lock` records the exact versions of those sources.
+Keeping it means a rebuild uses the same pinned revisions rather than
+automatically moving to newer ones. To intentionally update those sources, run
+`nix flake update`, review the lock-file changes, and rebuild.
+
+Home Manager is included as a NixOS module in the flake. NixOS continues to
+manage the machine, while `config/home.nix` is the starting point for managing
+Caleb's user-level settings, packages, and dotfiles. Its initial configuration
+only enables Home Manager; add user-specific settings there as you choose what
+you want Nix to manage. The Home Manager release follows the NixOS release,
+and its nixpkgs input follows the system's pinned nixpkgs.
+
+To apply the configuration, run
+`sudo nixos-rebuild switch --flake /etc/nixos#wolfhowlnixos`. This tells NixOS
+to use the flake in `/etc/nixos`, build its `wolfhowlnixos` system, and activate
+it. Changes to packages or system settings are normally made in the
+configuration files and applied with this command, rather than by installing
+them directly with `pacman`. NixOS keeps system generations, so you can select
+an earlier generation from the boot menu if a newly activated system has a
+problem.
+
+`sudo nixos-rebuild dry-build --flake /etc/nixos#wolfhowlnixos` builds without
+activating the result. `nix flake check --no-build` checks the flake without
+building its outputs. Flakes are enabled in `nix-settings.nix` because they
+are still an experimental Nix feature.
 
 ## Machine-specific setup
 
 The configuration imports `hardware-configuration.nix`, which is generated
 for the target machine and is intentionally not checked into this repository.
 Place the target machine's generated file beside `configuration.nix` in
-`/etc/nixos/`. The networking, AMD, and Samsung modules also assume the
-corresponding hardware is present; adjust those imports for a different
-machine.
+`/etc/nixos/`. `host-hardware.nix` groups the AMD CPU/GPU, motherboard and
+TP-Link TX201 networking, and Samsung NVMe modules for this machine; remove or
+adjust those imports when using different hardware. The ASUS ROG Strix B550-F
+Gaming WiFi II's Intel I225-V Ethernet uses the in-kernel `igc` driver; the
+TP-Link TX201's Realtek 2.5GbE controller uses the in-kernel `r8169` driver.
+Both are loaded by `network.nix`, without an out-of-tree `r8125` module or
+blacklisting `r8169`. The motherboard's Wi-Fi 6E and Bluetooth are handled by
+the kernel's device drivers, with redistributable firmware enabled in
+`network.nix`. `networking.nix` also sets this machine's hostname and enables
+its network services.
 
 Discord is managed by the Nixcord NixOS module with Vencord enabled. The
 upstream source is pinned to commit
-`f873f1e32925b870e68addeeb193fbc07e80a598` in `config/nixcord.nix`.
+`f873f1e32925b870e68addeeb193fbc07e80a598` in `config/flake.lock`.
 
-The gaming module installs WiVRn for streaming PC VR to a standalone headset.
-The system packages include Android platform tools (`adb` and `fastboot`) and
-`scrcpy` for Android device mirroring and control.
+The gaming module enables Steam with 32-bit graphics, Steam Input support,
+GameMode, Gamescope, and Proton-GE. It opens Steam Remote Play's firewall ports,
+including LAN peer discovery, so this PC can host Steam Link clients such as
+Steam Frame.
+
+To use Steam Frame, enable Remote Play in the Steam client's settings on this
+PC, keep Steam running, and connect the headset and PC to the same non-isolated
+LAN. For best streaming reliability, connect the PC to the router or access
+point over Ethernet and use a strong 5 GHz or 6 GHz Wi-Fi connection for the
+headset. For PC VR, install SteamVR from the Steam client and launch it through
+Steam Link. Steam Frame does not need a headset-specific NixOS driver on the
+host; SteamVR and individual games still need to support Linux. WiVRn is a
+separate streaming path for compatible Android-based VR headsets, not a
+replacement for Steam Link. The system packages include Android platform tools
+(`adb` and `fastboot`) and `scrcpy` for Android device mirroring and control.
+
+Blender is managed separately in `config/blender.nix` and built with ROCm/HIP
+support for Cycles GPU rendering. The AMD module supplies the ROCm CLR ICD
+through `hardware.graphics.extraPackages`.
+
+Flatpak remotes and applications are installed by systemd services. A failed
+install is reported by the unit and retried on a later boot; it can also be
+retried manually with `sudo systemctl start flatpak-install.service`.
+
+Kernel, NVMe, and network performance overrides that were not tied to a
+measured problem have been removed. The system uses the kernel defaults for
+interface names, PCIe power management, CPU scaling, NVMe scheduling, and TCP
+tuning.
 
 ## Validate and activate
 
@@ -27,8 +101,12 @@ After placing the files in `/etc/nixos/` and adding the generated hardware
 configuration, evaluate and build before switching:
 
 ```sh
-sudo nixos-rebuild dry-build -I nixos-config=/etc/nixos/configuration.nix
-sudo nixos-rebuild switch -I nixos-config=/etc/nixos/configuration.nix
+cd /etc/nixos
+alejandra --check flake.nix home.nix host-hardware.nix network.nix samsung.nix
+nix flake lock
+nix flake check --no-build
+sudo nixos-rebuild dry-build --flake /etc/nixos#wolfhowlnixos
+sudo nixos-rebuild switch --flake /etc/nixos#wolfhowlnixos
 ```
 
 Keep `system.stateVersion` at the value used by the existing installation.

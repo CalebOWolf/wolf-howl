@@ -12,8 +12,7 @@
       # System configuration modules
       ./networking.nix               # Network settings and connectivity
       ./kernel.nix                   # Kernel configuration
-      ./network.nix                  # Network and performance tuning
-      ./amd.nix                      # AMD-specific settings
+      ./host-hardware.nix            # AMD CPU/GPU, B550-F/TX201 networking, and Samsung NVMe
       ./nix-settings.nix             # Nix package manager settings
       
       # Desktop environment and UI
@@ -23,6 +22,7 @@
       
       # Application modules
       ./system-packages.nix          # System-wide packages
+      ./blender.nix                  # Blender with ROCm/HIP support
       ./nixcord.nix                  # Discord with Vencord
       ./extraction.nix               # Archive extraction tools
       ./flatpak.nix                  # Flatpak support
@@ -34,8 +34,6 @@
       ./steam-timeout-inhibit.nix    # Steam idle timeout prevention
       ./sunshine.nix                 # Sunshine streaming server
       
-      # Hardware-specific
-      ./samsung.nix                  # Samsung device support
     ];
 
   # ============================================================================

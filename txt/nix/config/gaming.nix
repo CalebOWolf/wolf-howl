@@ -22,6 +22,8 @@
   programs.steam = {
     enable = true;
     extest.enable = true;
+    # Steam Frame connects as a Steam Link client; this opens Remote Play ports,
+    # including the UDP peer-discovery port.
     remotePlay.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
@@ -37,7 +39,6 @@
     steamcmd
     protonplus
     protonup-qt
-    protontricks
     alcom
     wivrn
 

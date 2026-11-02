@@ -41,7 +41,6 @@
     yt-dlp
     krita
     gimp
-    blender
 
     # System utilities
     xdg-utils
