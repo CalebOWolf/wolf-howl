@@ -24,7 +24,7 @@
 
     # --- Productivity & Tools ---
     keepassxc            # Password manager
-    libreoffice-fresh    # Office suite
+    libreoffice-stable   # Office suite
     qbittorrent          # Torrent client
 
     # --- Gaming & System Performance ---

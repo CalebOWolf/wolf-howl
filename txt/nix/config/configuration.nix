@@ -83,6 +83,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     allowBroken = false;
+    problems.handlers."gtk+".broken = "warn";
   };
 
   # ============================================================================
