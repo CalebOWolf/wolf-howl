@@ -25,12 +25,19 @@ Keeping it means a rebuild uses the same pinned revisions rather than
 automatically moving to newer ones. To intentionally update those sources, run
 `nix flake update`, review the lock-file changes, and rebuild.
 
+This configuration follows the rolling `nixos-unstable` Nixpkgs branch.
+Home Manager tracks its rolling `master` branch, and its nixpkgs input follows
+the system's pinned nixpkgs. The lock file still pins exact revisions, so
+changing a branch does not update packages by itself; run `nix flake update`
+to refresh the pins, then review the lock-file changes before rebuilding.
+Unstable can include breaking changes, so test with a dry build and keep a
+working system generation available for rollback.
+
 Home Manager is included as a NixOS module in the flake. NixOS continues to
 manage the machine, while `config/home.nix` is the starting point for managing
 Caleb's user-level settings, packages, and dotfiles. Its initial configuration
 only enables Home Manager; add user-specific settings there as you choose what
-you want Nix to manage. The Home Manager release follows the NixOS release,
-and its nixpkgs input follows the system's pinned nixpkgs.
+you want Nix to manage.
 
 To apply the configuration, run
 `sudo nixos-rebuild switch --flake /etc/nixos#wolfhowlnixos`. This tells NixOS
@@ -103,7 +110,7 @@ configuration, evaluate and build before switching:
 ```sh
 cd /etc/nixos
 alejandra --check flake.nix home.nix host-hardware.nix network.nix samsung.nix
-nix flake lock
+nix flake update
 nix flake check --no-build
 sudo nixos-rebuild dry-build --flake /etc/nixos#wolfhowlnixos
 sudo nixos-rebuild switch --flake /etc/nixos#wolfhowlnixos
