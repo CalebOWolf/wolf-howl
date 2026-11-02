@@ -63,6 +63,7 @@
     telegram-desktop
     ghostty  # GPU-accelerated terminal emulator
     bazaar
+    wayvr
 
     # System information
     hyfetch
