@@ -54,8 +54,10 @@
     };
   };
 
-  # Keep URL handlers explicit so OAuth browser handoff works consistently.
+  # Keep Firefox as the default for links and browser documents.
   xdg.mime.defaultApplications = {
+    "application/xhtml+xml" = [ "firefox.desktop" ];
+    "text/html" = [ "firefox.desktop" ];
     "x-scheme-handler/http" = [ "firefox.desktop" ];
     "x-scheme-handler/https" = [ "firefox.desktop" ];
   };

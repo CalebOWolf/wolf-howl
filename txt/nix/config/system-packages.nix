@@ -62,8 +62,10 @@
     # Applications
     telegram-desktop
     ghostty  # GPU-accelerated terminal emulator
+    google-chrome
     bazaar
     wayvr
+    vrcx
 
     # System information
     hyfetch

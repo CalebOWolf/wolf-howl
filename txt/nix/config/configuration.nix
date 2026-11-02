@@ -13,6 +13,7 @@
       ./networking.nix               # Network settings and connectivity
       ./kernel.nix                   # Kernel configuration
       ./host-hardware.nix            # AMD CPU/GPU, B550-F/TX201 networking, and Samsung NVMe
+      ./input-devices.nix            # Browser access to supported USB/HID peripherals
       ./nix-settings.nix             # Nix package manager settings
       
       # Desktop environment and UI

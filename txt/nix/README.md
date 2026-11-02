@@ -67,7 +67,11 @@ Both are loaded by `network.nix`, without an out-of-tree `r8125` module or
 blacklisting `r8169`. The motherboard's Wi-Fi 6E and Bluetooth are handled by
 the kernel's device drivers, with redistributable firmware enabled in
 `network.nix`. `networking.nix` also sets this machine's hostname and enables
-its network services.
+its network services. `input-devices.nix` grants the active desktop user
+browser access to the Keychron V1 and Pulsar X2 CrazyLight USB/HID interfaces.
+Google Chrome is included for browser-based device configurators that require
+WebHID; open the configurator in Chrome and approve the device in its USB/HID
+permission prompt. Firefox remains the default browser.
 
 Discord is managed by the Nixcord NixOS module with Vencord enabled. The
 upstream source is pinned to commit
@@ -86,8 +90,10 @@ headset. For PC VR, install SteamVR from the Steam client and launch it through
 Steam Link. Steam Frame does not need a headset-specific NixOS driver on the
 host; SteamVR and individual games still need to support Linux. WiVRn is a
 separate streaming path for compatible Android-based VR headsets, not a
-replacement for Steam Link. The system packages include Android platform tools
-(`adb` and `fastboot`) and `scrcpy` for Android device mirroring and control.
+replacement for Steam Link. WayVR and VRCX are included as system packages for
+desktop/VR integration and VRChat companion features. The system packages also
+include Android platform tools (`adb` and `fastboot`) and `scrcpy` for Android
+device mirroring and control.
 
 Blender is managed separately in `config/blender.nix` and built with ROCm/HIP
 support for Cycles GPU rendering. The AMD module supplies the ROCm CLR ICD
