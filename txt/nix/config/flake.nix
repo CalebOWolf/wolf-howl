@@ -16,7 +16,10 @@
 
     nixosConfigurations.wolfhowlnixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { nixcordSource = nixcord; };
+      specialArgs = {
+        nixcordSource = nixcord;
+        nixcordPkgs = nixpkgs.legacyPackages.x86_64-linux;
+      };
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
