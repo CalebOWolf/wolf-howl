@@ -3,6 +3,7 @@
 let
   nixcordRevision = "f873f1e32925b870e68addeeb193fbc07e80a598";
   nixcord = import nixcordSource {
+    system = "x86_64-linux";
     nixpkgs = nixcordPkgs.path;
     revision = nixcordRevision;
   };
