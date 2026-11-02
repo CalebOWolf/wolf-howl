@@ -23,7 +23,8 @@ install, and the flake exposes the resulting system as `wolfhowlnixos`.
 The accompanying `flake.lock` records the exact versions of those sources.
 Keeping it means a rebuild uses the same pinned revisions rather than
 automatically moving to newer ones. To intentionally update those sources, run
-`nix flake update`, review the lock-file changes, and rebuild.
+the update/upgrade procedure below: refresh the inputs, review the lock-file
+changes, then rebuild and activate the system.
 
 This configuration follows the rolling `nixos-unstable` Nixpkgs branch.
 Home Manager tracks its rolling `master` branch, and its nixpkgs input follows
@@ -47,6 +48,26 @@ configuration files and applied with this command, rather than by installing
 them directly with `pacman`. NixOS keeps system generations, so you can select
 an earlier generation from the boot menu if a newly activated system has a
 problem.
+
+## Update or upgrade the system
+
+In this flake-based setup, **update** and **upgrade** mean the same workflow:
+refresh the pinned package and module sources, then build and activate the full
+system. `nix flake update` alone only changes the lock file; it does not change
+the running system. Run:
+
+```sh
+cd /etc/nixos
+nix flake update
+sudo nixos-rebuild dry-build --flake /etc/nixos#wolfhowlnixos
+sudo nixos-rebuild switch --flake /etc/nixos#wolfhowlnixos
+```
+
+Review the `flake.lock` changes after updating. The `dry-build` checks that the
+system can be built without activating it; `switch` then builds and activates
+the updated system. Reboot if the updated kernel or system services require it.
+Do not substitute `nixos-rebuild --upgrade`: that option updates the root
+user's `nixos` channel, not this flake's inputs.
 
 `sudo nixos-rebuild dry-build --flake /etc/nixos#wolfhowlnixos` builds without
 activating the result. `nix flake check --no-build` checks the flake without
