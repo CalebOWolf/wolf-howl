@@ -5,6 +5,27 @@ contents of `config/` into `/etc/nixos/` so the flake, entry point, and imported
 modules are together and their relative imports resolve. The checked-in
 `config/flake.lock` pins the flake inputs; keep it with the configuration.
 
+## First activation after a fresh NixOS install
+
+The fresh install does not have flakes enabled yet. Although `nix-settings.nix`
+enables them, that setting only takes effect after the first configuration
+build. After copying this configuration into `/etc/nixos/`, keep the
+`hardware-configuration.nix` generated for the machine and run the first
+activation with a temporary flakes setting:
+
+```sh
+sudo env NIX_CONFIG="experimental-features = nix-command flakes" \
+  nixos-rebuild switch --flake /etc/nixos#wolfhowlnixos
+```
+
+This enables flakes for that command and the Nix commands it invokes. The
+successful activation applies the persistent setting from `nix-settings.nix`;
+subsequent rebuilds can use:
+
+```sh
+sudo nixos-rebuild switch --flake /etc/nixos#wolfhowlnixos
+```
+
 ## What the flake does
 
 If you are used to Arch, you may be used to installing a package with `pacman`
