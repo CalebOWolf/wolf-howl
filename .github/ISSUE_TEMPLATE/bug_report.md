@@ -24,7 +24,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 ## 💻 Environment Information
-- **OS**: [e.g. Fedora 43, macOS 15, Windows 11]
+- **OS**: [e.g. NixOS, macOS 15, Windows 11]
 - **Browser**: [if applicable - Chrome, Firefox, Safari]
 - **Repository Section**: [e.g. txt/fedora/, img/, blog/]
 - **File(s) Affected**: [specific files if known]

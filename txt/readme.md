@@ -14,6 +14,9 @@ txt/
 │   ├── fedora-install-script.sh         # Automated Fedora setup script
 │   ├── notes.txt                        # Installation notes and tips
 │   └── rpm-fusion.txt                   # RPM Fusion repository setup commands
+├── ❄️ nix/                              # Current NixOS configuration and documentation
+│   ├── README.md                        # NixOS configuration guide
+│   └── config/                          # NixOS flake and system modules
 └── 🏢 Nanite Systems/                   # Project-specific documentation
     ├── caleb_mignano.md                 # Documentation file
     └── caleb_mignano.p                  # Project file
@@ -32,19 +35,23 @@ txt/
   - *Usage*: Restore Vencord plugins, themes, and custom settings
   - *Note*: Client modifications for improved Discord functionality
 
-## 🐧 Linux Resources (`fedora/`)
+## ❄️ Current Linux Configuration (`nix/`)
 
-Fedora Linux-specific setup files and documentation:
+The active system configuration is for NixOS:
 
-- **`fedora-install-script.sh`** - Automated post-installation setup
-  - Installs essential packages and configurations
-  - Streamlines new Fedora system setup process
-  
+- **`README.md`** - Setup, rebuild, and update instructions
+- **`config/`** - Flake, system modules, and package configuration
+
+See [the NixOS configuration guide](nix/README.md) before applying it.
+
+## 🐧 Legacy Linux Resources (`fedora/`)
+
+These Fedora setup files are retained for reference and are not the current
+system configuration:
+
+- **`fedora-install-script.sh`** - Fedora post-installation setup script
 - **`rpm-fusion.txt`** - RPM Fusion repository setup commands
-  - Enables additional software repositories
-  - Compatible with Fedora 43 and current releases
-  
-- **`notes.txt`** - Personal installation notes and troubleshooting tips
+- **`notes.txt`** - Fedora installation notes and troubleshooting tips
 
 ## 🏢 Project Files (`Nanite Systems/`)
 
@@ -80,7 +87,8 @@ Files in this directory are organized for:
 ## 🔗 Related Resources
 
 - **Main Repository**: See [README.md](../README.md) for full project overview
-- **Fedora Setup**: Check `fedora/` for Linux-specific resources
+- **NixOS Configuration**: Check `nix/` for the current system configuration
+- **Legacy Fedora Setup**: Check `fedora/` for historical Fedora resources
 - **Contributing**: See [CONTRIBUTING.md](../CONTRIBUTING.md) for contribution guidelines
 - **License**: Configuration files follow the [Hybrid License](../LICENSE) terms
 

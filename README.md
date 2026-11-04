@@ -15,7 +15,7 @@ Hi! I'm **Caleb Wolf** (CalebOWolf), a passionate technology enthusiast and life
 ### 🔧 What I Do
 - **Technology Enthusiast**: Always exploring new tools, frameworks, and development practices
 - **Virtual World Mentor**: Active mentor in Resonite, helping others learn and grow
-- **Linux User**: Proudly running Fedora (I use Fedora BTW! 🐧)
+- **Linux User**: Proudly running NixOS (I use NixOS BTW! 🐧)
 - **Open Source Advocate**: Contributing to and maintaining various projects
 - **Second Life Participant**: Regular in virtual worlds and communities
 - **Discord Moderator**: Long-time user (since 2016) with hands-on experience running collaborative and fair moderation teams
@@ -42,11 +42,11 @@ Joined Discord on **July 11, 2016**, and have built extensive experience in comm
 - **🛠️ Automation Tools**: Scripts for system management and workflow optimization
 - **🎨 Creative Assets**: Personal branding, artwork, and visual resources
 - **📖 Documentation**: Project guides, technical writing, and knowledge sharing
-- **🐧 Linux Resources**: Fedora-specific configurations and installation guides
+- **🐧 Linux Resources**: NixOS configuration and legacy Fedora installation guides
 
 ## 💻 Current Setup
 
-### **Main Desktop** *(Last Updated: October 2025)*
+### **Main Desktop** *(Last Updated: November 2026)*
 
 | Component      | Specification                        |
 |----------------|-------------------------------------|
@@ -59,7 +59,7 @@ Joined Discord on **July 11, 2016**, and have built extensive experience in comm
 | **Cooling**    | Corsair Nautilus 240mm AIO          |
 | **Power**      | 750W NZXT PSU                       |
 | **Case**       | Fractal Design North                |
-| **OS**         | Fedora                              |
+| **OS**         | NixOS                               |
 
 ### **Peripherals & Workspace**
 

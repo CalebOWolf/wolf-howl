@@ -79,7 +79,7 @@ blog/
 ## 🚀 Planned Content Areas
 
 ### **System Administration Series**
-- **Fedora Linux setup** and optimization guides
+- **NixOS configuration** and system management guides
 - **Configuration management** with version control
 - **Automation scripts** development and maintenance
 - **Troubleshooting common issues** and solutions
