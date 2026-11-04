@@ -65,6 +65,7 @@
     google-chrome
     bazaar
     openlinkhub
+    (callPackage ./firestorm.nix { })
     wayvr
     vrcx
 

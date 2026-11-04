@@ -106,6 +106,11 @@ Discord is managed by the Nixcord NixOS module with Vencord enabled. The
 upstream source is pinned to commit
 `f873f1e32925b870e68addeeb193fbc07e80a598` in `config/flake.lock`.
 
+Firestorm Viewer for Second Life is packaged from its official x86_64 Linux
+release in `config/firestorm.nix` and installed system-wide through
+`config/system-packages.nix`. The package pins the release archive and its
+SHA-256 hash; update both when moving to a newer Firestorm release.
+
 The gaming module enables Steam with 32-bit graphics, Steam Input support,
 GameMode, Gamescope, and Proton-GE. It opens Steam Remote Play's firewall ports,
 including LAN peer discovery, so this PC can host Steam Link clients such as
@@ -128,9 +133,12 @@ Blender is managed separately in `config/blender.nix` and built with ROCm/HIP
 support for Cycles GPU rendering. The AMD module supplies the ROCm CLR ICD
 through `hardware.graphics.extraPackages`.
 
-Flatpak remotes and applications are installed by systemd services. A failed
-install is reported by the unit and retried on a later boot; it can also be
-retried manually with `sudo systemctl start flatpak-install.service`.
+The remaining Flatpak applications are installed by systemd services. Firestorm
+is installed from the native Nix package instead; removing it from the
+auto-install list does not uninstall a copy already installed as a system
+Flatpak. A failed Flatpak install is reported by the unit and retried on a
+later boot; it can also be retried manually with
+`sudo systemctl start flatpak-install.service`.
 
 Kernel, NVMe, and network performance overrides that were not tied to a
 measured problem have been removed. The system uses the kernel defaults for
@@ -145,7 +153,7 @@ above to build and activate the system:
 
 ```sh
 cd /etc/nixos
-alejandra --check flake.nix home.nix host-hardware.nix network.nix openlinkhub.nix samsung.nix system-packages.nix
+alejandra --check flake.nix firestorm.nix flatpak.nix home.nix host-hardware.nix network.nix openlinkhub.nix samsung.nix system-packages.nix
 nix flake check --no-build
 ```
 
