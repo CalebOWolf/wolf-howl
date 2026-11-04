@@ -28,6 +28,7 @@
       ./extraction.nix               # Archive extraction tools
       ./flatpak.nix                  # Flatpak support
       ./syncthing.nix                # File synchronization
+      ./openlinkhub.nix              # OpenLinkHub hardware control service
       
       # Gaming and media
       ./gaming.nix                   # Gaming support

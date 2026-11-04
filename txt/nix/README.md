@@ -49,12 +49,13 @@ them directly with `pacman`. NixOS keeps system generations, so you can select
 an earlier generation from the boot menu if a newly activated system has a
 problem.
 
-## Update or upgrade the system
+## Update or upgrade the system (only supported method)
 
-In this flake-based setup, **update** and **upgrade** mean the same workflow:
-refresh the pinned package and module sources, then build and activate the full
-system. `nix flake update` alone only changes the lock file; it does not change
-the running system. Run:
+This system is managed as a flake, so this is the only supported way to update
+or upgrade its system packages and activate them. **Update** and **upgrade**
+mean the same workflow: refresh the pinned package and module sources, then
+build and activate the full system. `nix flake update` alone only changes the
+lock file; it does not change the running system. Run:
 
 ```sh
 cd /etc/nixos
@@ -66,8 +67,11 @@ sudo nixos-rebuild switch --flake /etc/nixos#wolfhowlnixos
 Review the `flake.lock` changes after updating. The `dry-build` checks that the
 system can be built without activating it; `switch` then builds and activates
 the updated system. Reboot if the updated kernel or system services require it.
-Do not substitute `nixos-rebuild --upgrade`: that option updates the root
-user's `nixos` channel, not this flake's inputs.
+Do not use `nixos-rebuild --upgrade` as an alternative: it updates the root
+user's `nixos` channel, which this system does not use. For configuration-only
+changes, `nixos-rebuild switch --flake /etc/nixos#wolfhowlnixos` applies the
+existing locked inputs without updating them; it is not a system update or
+upgrade.
 
 `sudo nixos-rebuild dry-build --flake /etc/nixos#wolfhowlnixos` builds without
 activating the result. `nix flake check --no-build` checks the flake without
@@ -93,6 +97,10 @@ browser access to the Keychron V1 and Pulsar X2 CrazyLight USB/HID interfaces.
 Google Chrome is included for browser-based device configurators that require
 WebHID; open the configurator in Chrome and approve the device in its USB/HID
 permission prompt. Firefox remains the default browser.
+OpenLinkHub is installed and automatically started as a system service for
+managing compatible Corsair hardware. Its settings and mutable application
+data live in `/var/lib/openlinkhub`; its web interface listens on
+`127.0.0.1:27003` by default.
 
 Discord is managed by the Nixcord NixOS module with Vencord enabled. The
 upstream source is pinned to commit
@@ -129,18 +137,16 @@ measured problem have been removed. The system uses the kernel defaults for
 interface names, PCIe power management, CPU scaling, NVMe scheduling, and TCP
 tuning.
 
-## Validate and activate
+## Validate the configuration
 
 After placing the files in `/etc/nixos/` and adding the generated hardware
-configuration, evaluate and build before switching:
+configuration, run these checks. Then use the single update/upgrade procedure
+above to build and activate the system:
 
 ```sh
 cd /etc/nixos
-alejandra --check flake.nix home.nix host-hardware.nix network.nix samsung.nix
-nix flake update
+alejandra --check flake.nix home.nix host-hardware.nix network.nix openlinkhub.nix samsung.nix system-packages.nix
 nix flake check --no-build
-sudo nixos-rebuild dry-build --flake /etc/nixos#wolfhowlnixos
-sudo nixos-rebuild switch --flake /etc/nixos#wolfhowlnixos
 ```
 
 Keep `system.stateVersion` at the value used by the existing installation.

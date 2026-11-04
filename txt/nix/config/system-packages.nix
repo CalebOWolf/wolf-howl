@@ -64,6 +64,7 @@
     ghostty  # GPU-accelerated terminal emulator
     google-chrome
     bazaar
+    openlinkhub
     wayvr
     vrcx
 
